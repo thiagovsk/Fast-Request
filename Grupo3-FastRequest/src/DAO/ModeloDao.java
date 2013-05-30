@@ -1,14 +1,16 @@
 package DAO;
 
+import java.util.ArrayList;
+
 import Model.Cliente;
 
 
 //Interface a ser seguida pelas classes 
 public interface ModeloDao {
 	
-	void cadastrar();
-	void alterar();
-	void deletar();
-	void pesquisar();
+	String alterar(Cliente cliente);
+	String deletar(Cliente cliente);
+	 ArrayList<Cliente>  pesquisar(Cliente cliente);
+	String cadastrar(Cliente cliente);
 
 }
