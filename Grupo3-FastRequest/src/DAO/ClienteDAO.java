@@ -21,22 +21,20 @@ public class ClienteDAO implements ModeloDao {
 		this.con = con;
 	}
 
-	public String cadastrar(Cliente cliente) {
+	public String cadastrar(Cliente cliente)  {
 		// esse metodo recebe um objeto cliente como parametro e faz a insercao
 		// dos dados
-		String sql = "insert into cliente(id,nome,prato,email,telefone)values(?,?,?,?,?)";
+		String sql = "insert into cliente(nome,prato,email,telefone)values(?,?,?,?)";
 
 		try {
 			PreparedStatement ps = getCon().prepareStatement(sql); // prepara o
 																	// comando
 																	// para
-																	// enviar ao
-																	// banco
-			ps.setInt(1, cliente.getId());
-			ps.setString(2, cliente.getNome());
+			// enviar ao banco
+			ps.setString(1, cliente.getNome());
 			ps.setString(2, cliente.getPratoPreferido());
-			ps.setString(2, cliente.getEmail());
-			ps.setString(2, cliente.getTelefone());
+			ps.setString(3, cliente.getEmail());
+			ps.setString(4, cliente.getTelefone());
 
 			// efetivando a inserção no banco pode usar execute (retorna
 			// boleano) ou executeUpdate(retorna um inteiro )
@@ -49,8 +47,10 @@ public class ClienteDAO implements ModeloDao {
 
 		} catch (SQLException e1) {
 			return e1.getMessage();
+		}finally{
+			ConexaoBD.release(con);
 		}
-
+		
 	}
 
 	@Override
@@ -75,7 +75,10 @@ public class ClienteDAO implements ModeloDao {
 
 		} catch (SQLException e1) {
 			return e1.getMessage();
+		}finally{
+			ConexaoBD.release(con);
 		}
+		
 
 	}
 
@@ -97,6 +100,8 @@ public class ClienteDAO implements ModeloDao {
 
 		} catch (SQLException e) {
 			return e.getMessage();
+		}finally{
+			ConexaoBD.release(con);
 		}
 
 	}
@@ -132,7 +137,10 @@ public class ClienteDAO implements ModeloDao {
 
 		} catch (SQLException e1) {
 			e1.printStackTrace();
+		}finally{
+			ConexaoBD.release(con);
 		}
+		
 		if (lista != null) {
 			return lista;
 		} else {
