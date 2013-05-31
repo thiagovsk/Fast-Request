@@ -16,24 +16,14 @@ public class ConexaoBD {
 
 		Connection con = null;
 		try {
-			con = DriverManager.getConnection(url, "thiagovsk", "rose1229");// senha
-																			// e
-																			// user
-																			// do
-																			// meu
-																			// banco
-																			// favor
-																			// alterar
-																			// ou
-																			// usar
-																			// os
-																			// mesmos
+			con = DriverManager.getConnection(url, "thiagovsk", "rose1229");
+			//senha e user do banco , favor inserir o seu aqui ou utilizar o mesmo
 
 			System.out.println("Conexao aberta");// mostra no console a conexao
 													// esta aberta
 
 		} catch (SQLException e1) {
-			e1.printStackTrace();
+			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e1);
 
 		}
 
@@ -50,12 +40,14 @@ public class ConexaoBD {
 													// conexao fechou
 
 		} catch (SQLException e1) {
-			e1.printStackTrace();
+			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e1);
 		}
 
 		return con;
 	}
 
+	//criar a release pra poder fechar as conexões no finally 
+	//criei assim pra ficar mais organizado
 	public static void release(Statement stm) {
 
 		if (stm == null)
@@ -64,7 +56,7 @@ public class ConexaoBD {
 		try {
 			stm.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e);
 		}
 
 	}
@@ -77,7 +69,8 @@ public class ConexaoBD {
 		try {
 			con.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e);
+
 		}
 
 	}
@@ -87,10 +80,6 @@ public class ConexaoBD {
 		release(con);
 		
 	}
-
-
-
-
 }
 
 // falta ainda capturar os outros catchs 

@@ -1,7 +1,6 @@
 package DAO;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +10,8 @@ import Model.Cliente;
 
 public class ClienteDAO implements ModeloDao {
 
+	
+	//puxando o get con da classe conection 
 	private Connection con;
 
 	public Connection getCon() {
@@ -27,15 +28,15 @@ public class ClienteDAO implements ModeloDao {
 		String sql = "insert into cliente(nome,prato,email,telefone)values(?,?,?,?)";
 
 		try {
-			PreparedStatement ps = getCon().prepareStatement(sql); // prepara o
-																	// comando
-																	// para
-			// enviar ao banco
-			ps.setString(1, cliente.getNome());
-			ps.setString(2, cliente.getPratoPreferido());
-			ps.setString(3, cliente.getEmail());
-			ps.setString(4, cliente.getTelefone());
-
+			PreparedStatement ps = getCon().prepareStatement(sql);
+			int index =0;
+			// prepara o comando para enviar ao banco
+			
+			ps.setString(index++, cliente.getNome());
+			ps.setString(index++, cliente.getPratoPreferido());
+			ps.setString(index++, cliente.getEmail());
+			ps.setString(index++, cliente.getTelefone());
+			ps.executeUpdate();
 			// efetivando a inserção no banco pode usar execute (retorna
 			// boleano) ou executeUpdate(retorna um inteiro )
 			// pode ainda usar o executeBatch
@@ -46,7 +47,7 @@ public class ClienteDAO implements ModeloDao {
 			}
 
 		} catch (SQLException e1) {
-			return e1.getMessage();
+		throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e1);
 		}finally{
 			ConexaoBD.release(con);
 		}
@@ -59,14 +60,14 @@ public class ClienteDAO implements ModeloDao {
 		// dos dados
 		String sql = "update cliente set nome = ?, prato = ?,email = ? ,telefone = ?";
 		sql += " where id = ?";
-
+		int index =0;
 		try {
 			PreparedStatement ps = getCon().prepareStatement(sql);
-			ps.setString(1, cliente.getNome());
-			ps.setString(1, cliente.getPratoPreferido());
-			ps.setString(1, cliente.getEmail());
-			ps.setString(1, cliente.getTelefone());
-
+			ps.setString(index++, cliente.getNome());
+			ps.setString(index++, cliente.getPratoPreferido());
+			ps.setString(index++, cliente.getEmail());
+			ps.setString(index++, cliente.getTelefone());
+			ps.executeUpdate();
 			if (ps.executeUpdate() > 0) {
 				return "Alterado com sucesso.";
 			} else {
@@ -74,7 +75,7 @@ public class ClienteDAO implements ModeloDao {
 			}
 
 		} catch (SQLException e1) {
-			return e1.getMessage();
+			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e1);
 		}finally{
 			ConexaoBD.release(con);
 		}
@@ -87,11 +88,11 @@ public class ClienteDAO implements ModeloDao {
 		// Este método receberá um objeto cliente como parâmetro e fará a
 		// exclusão dos dados na nossa tabela
 		String sql = "delete from cliente where id = ?";
-
+		int index =0;
 		try {
 			PreparedStatement ps = getCon().prepareStatement(sql);
-			ps.setLong(1, cliente.getId());
-
+			ps.setLong(index++, cliente.getId());
+			ps.executeUpdate();	
 			if (ps.executeUpdate() > 0) {
 				return "Excluído com sucesso.";
 			} else {
@@ -99,7 +100,7 @@ public class ClienteDAO implements ModeloDao {
 			}
 
 		} catch (SQLException e) {
-			return e.getMessage();
+			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e);
 		}finally{
 			ConexaoBD.release(con);
 		}
@@ -136,15 +137,11 @@ public class ClienteDAO implements ModeloDao {
 			}
 
 		} catch (SQLException e1) {
-			e1.printStackTrace();
+			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e1);
+			
 		}finally{
 			ConexaoBD.release(con);
 		}
 		
-		if (lista != null) {
-			return lista;
-		} else {
-			return null;
-		}
 	}
 }
