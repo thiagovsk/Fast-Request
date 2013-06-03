@@ -1,6 +1,8 @@
 package Controller;
 
 
+import Model.ProdutoService;
+import View.TelaProdutos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,6 +17,8 @@ import java.awt.event.ActionListener;
  */
 public class ProdutoActionListener implements ActionListener {
 
+    private TelaProdutos frame;
+    private ProdutoService service;
     @Override
     public void actionPerformed(ActionEvent ae) {
         throw new UnsupportedOperationException("Not supported yet."); 
