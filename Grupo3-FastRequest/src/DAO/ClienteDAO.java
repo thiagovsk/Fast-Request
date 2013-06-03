@@ -47,7 +47,7 @@ public class ClienteDAO implements ModeloDao {
 			}
 
 		} catch (SQLException e1) {
-		throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e1);
+		throw	new CreateDAO_Exception("nao foi possivel completar a operação inserir",e1);
 		}finally{
 			ConexaoBD.release(con);
 		}
@@ -75,7 +75,7 @@ public class ClienteDAO implements ModeloDao {
 			}
 
 		} catch (SQLException e1) {
-			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e1);
+			throw	new CreateDAO_Exception("nao foi possivel completar a alterar",e1);
 		}finally{
 			ConexaoBD.release(con);
 		}
@@ -100,7 +100,7 @@ public class ClienteDAO implements ModeloDao {
 			}
 
 		} catch (SQLException e) {
-			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e);
+			throw	new CreateDAO_Exception("nao foi possivel completar a deletar",e);
 		}finally{
 			ConexaoBD.release(con);
 		}
@@ -137,7 +137,7 @@ public class ClienteDAO implements ModeloDao {
 			}
 
 		} catch (SQLException e1) {
-			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e1);
+			throw	new CreateDAO_Exception("nao foi possivel completar a operacao pesquisar ",e1);
 			
 		}finally{
 			ConexaoBD.release(con);
