@@ -1,4 +1,4 @@
-package DAO;
+package br.com.fastrequest.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,8 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import br.com.fastrequest.model.Produto;
 
-import Model.Produto;
+
 
 public class ProdutoDAO  {
 
@@ -26,7 +27,7 @@ public class ProdutoDAO  {
 	public String cadastrar(Produto produto)  {
 		// esse metodo recebe um objeto cliente como parametro e faz a insercao
 		// dos dados
-		String sql = "insert into cliente(nome,descricao,preco)values(?,?,?)";
+		String sql = "insert into produto(nome,descricao,preco)values(?,?,?)";
 
 		try {
 			PreparedStatement ps = getCon().prepareStatement(sql);
@@ -37,7 +38,7 @@ public class ProdutoDAO  {
 			ps.setString(index++, produto.getDescricao());
 			ps.setDouble(index++, produto.getPreco());
 			ps.executeUpdate();
-			// efetivando a inserção no banco pode usar execute (retorna
+			// efetivando a inserï¿½ï¿½o no banco pode usar execute (retorna
 			// boleano) ou executeUpdate(retorna um inteiro )
 			// pode ainda usar o executeBatch
 			if (ps.executeUpdate() > 0) {
@@ -57,7 +58,7 @@ public class ProdutoDAO  {
 	public String alterar(Produto produto) {
 		// esse metodo recebe um objeto cliente como parametro e faz a alteracao
 		// dos dados
-		String sql = "update cliente set nome = ?, descricao = ?,preco = ?";
+		String sql = "update produto set nome = ?, descricao = ?,preco = ?";
 		sql += " where idProduto = ?";
 		int index =0;
 		try {
@@ -82,16 +83,16 @@ public class ProdutoDAO  {
 	}
 
 	public String deletar(Produto produto) {
-		// Este método receberá um objeto cliente como parâmetro e fará a
-		// exclusão dos dados na nossa tabela
-		String sql = "delete from cliente where idProduto = ?";
+		// Este mï¿½todo receberï¿½ um objeto cliente como parï¿½metro e farï¿½ a
+		// exclusï¿½o dos dados na nossa tabela
+		String sql = "delete from produto where idProduto = ?";
 		int index =0;
 		try {
 			PreparedStatement ps = getCon().prepareStatement(sql);
 			ps.setLong(index++, produto.getIdProduto());
 			ps.executeUpdate();	
 			if (ps.executeUpdate() > 0) {
-				return "Excluído com sucesso.";
+				return "Excluï¿½do com sucesso.";
 			} else {
 				return "Erro ao excluir";
 			}
@@ -115,7 +116,7 @@ public class ProdutoDAO  {
 												// para armazenar o resultado q
 												// vem do banco
 			// usando o executeQuery ao inves do executeupdate
-			// Um objeto ResultSet tem acesso ao método next que permite
+			// Um objeto ResultSet tem acesso ao mï¿½todo next que permite
 			// percorrer todos os dados nele contido.
 
 			int index =0;	

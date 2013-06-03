@@ -1,4 +1,4 @@
-package DAO;
+package br.com.fastrequest.dao;
 
 public class CreateDAO_Exception extends RuntimeException{
 

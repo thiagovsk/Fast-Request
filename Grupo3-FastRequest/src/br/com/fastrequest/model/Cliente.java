@@ -1,4 +1,4 @@
-package Model;
+package br.com.fastrequest.model;
 
 public class Cliente {
 	

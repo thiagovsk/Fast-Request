@@ -1,6 +1,7 @@
-package View;
+package br.com.fastrequest.view;
 
-
+import br.com.fastrequest.controller.ProdutoActionListener;
+import br.com.fastrequest.model.Produto;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -12,114 +13,145 @@ import javax.swing.JTextField;
  */
 
 /**
- *
+ * 
  * @author Thiagoo
  * 
  * 
  */
 public class TelaProdutos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ExemploFRM
-     */
-    public TelaProdutos() {
-        initComponents();
+	/**
+	 * Creates new form ExemploFRM
+	 */
+    
+    private ProdutoActionListener listener;
+    private JButton btnCancelar1;
+    
+    
+	public TelaProdutos() {
+		initComponents();
+                listener = new ProdutoActionListener(this);
+	}
+
+	public JButton getBtnAlterarProduto() {
+		return btnAlterarProduto;
+	}
+
+	public void setBtnAlterarProduto(JButton btnAlterarProduto) {
+		this.btnAlterarProduto = btnAlterarProduto;
+	}
+
+	public JButton getBtnCancelar() {
+		return btnCancelar;
+	}
+
+	public void setBtnCancelar(JButton btnCancelar) {
+		this.btnCancelar = btnCancelar;
+	}
+
+	public JButton getBtnCancelar1() {
+		return btnCancelar1;
+	}
+
+	public void setBtnCancelar1(JButton btnCancelar1) {
+		this.btnCancelar1 = btnCancelar1;
+	}
+
+	public JButton getBtnDeletarProduto() {
+		return btnDeletarProduto;
+	}
+
+	public void setBtnDeletarProduto(JButton btnDeletarProduto) {
+		this.btnDeletarProduto = btnDeletarProduto;
+	}
+
+	public JButton getBtnIncluirProduto() {
+		return btnIncluirProduto;
+	}
+
+	public void setBtnIncluirProduto(JButton btnIncluirProduto) {
+		this.btnIncluirProduto = btnIncluirProduto;
+	}
+
+	public JLabel getIdCadastrar() {
+		return idCadastrar;
+	}
+
+	public void setIdCadastrar(JLabel idCadastrar) {
+		this.idCadastrar = idCadastrar;
+	}
+
+	public JLabel getIdPesquisar() {
+		return idPesquisar;
+	}
+
+	public void setIdPesquisar(JLabel idPesquisar) {
+		this.idPesquisar = idPesquisar;
+	}
+
+	public JTable getTabelaProdutos() {
+		return tabelaProdutos;
+	}
+
+	public void setTabelaProdutos(JTable tabelaProdutos) {
+		this.tabelaProdutos = tabelaProdutos;
+	}
+
+	public JTextField getTxtDescicao() {
+		return txtDescicao;
+	}
+
+    public JTextField getTxtDescicao1() {
+        return txtDescicao1;
     }
 
-    public JButton getBtnAlterarProduto() {
-        return btnAlterarProduto;
+    public void setTxtDescicao1(JTextField txtDescicao1) {
+        this.txtDescicao1 = txtDescicao1;
     }
 
-    public void setBtnAlterarProduto(JButton btnAlterarProduto) {
-        this.btnAlterarProduto = btnAlterarProduto;
+    public JTextField getTxtNome1() {
+        return txtNome1;
     }
 
-    public JButton getBtnCancelar() {
-        return btnCancelar;
+    public void setTxtNome1(JTextField txtNome1) {
+        this.txtNome1 = txtNome1;
     }
 
-    public void setBtnCancelar(JButton btnCancelar) {
-        this.btnCancelar = btnCancelar;
+    public JTextField getTxtPreco1() {
+        return txtPreco1;
     }
 
-    public JButton getBtnCancelar1() {
-        return btnCancelar1;
+    public void setTxtPreco1(JTextField txtPreco1) {
+        this.txtPreco1 = txtPreco1;
     }
 
-    public void setBtnCancelar1(JButton btnCancelar1) {
-        this.btnCancelar1 = btnCancelar1;
-    }
+	public void setTxtDescicao(JTextField txtDescicao) {
+		this.txtDescicao = txtDescicao;
+	}
 
-    public JButton getBtnDeletarProduto() {
-        return btnDeletarProduto;
-    }
+	public JTextField getTxtNome() {
+		return txtNome;
+	}
 
-    public void setBtnDeletarProduto(JButton btnDeletarProduto) {
-        this.btnDeletarProduto = btnDeletarProduto;
-    }
+	public void setTxtNome(JTextField txtNome) {
+		this.txtNome = txtNome;
+	}
 
-    public JButton getBtnIncluirProduto() {
-        return btnIncluirProduto;
-    }
+	public JTextField getTxtPreco() {
+		return txtPreco;
+	}
 
-    public void setBtnIncluirProduto(JButton btnIncluirProduto) {
-        this.btnIncluirProduto = btnIncluirProduto;
-    }
+	public void setTxtPreco(JTextField txtPreco) {
+		this.txtPreco = txtPreco;
+	}
 
-    public JLabel getIdCadastrar() {
-        return idCadastrar;
-    }
-
-    public void setIdCadastrar(JLabel idCadastrar) {
-        this.idCadastrar = idCadastrar;
-    }
-
-    public JLabel getIdPesquisar() {
-        return idPesquisar;
-    }
-
-    public void setIdPesquisar(JLabel idPesquisar) {
-        this.idPesquisar = idPesquisar;
-    }
-
-    public JTable getTabelaProdutos() {
-        return tabelaProdutos;
-    }
-
-    public void setTabelaProdutos(JTable tabelaProdutos) {
-        this.tabelaProdutos = tabelaProdutos;
-    }
-
-    public JTextField getTxtDescicao() {
-        return txtDescicao;
-    }
-
-    public void setTxtDescicao(JTextField txtDescicao) {
-        this.txtDescicao = txtDescicao;
-    }
-
-    public JTextField getTxtNome() {
-        return txtNome;
-    }
-
-    public void setTxtNome(JTextField txtNome) {
-        this.txtNome = txtNome;
-    }
-
-    public JTextField getTxtPreco() {
-        return txtPreco;
-    }
-
-    public void setTxtPreco(JTextField txtPreco) {
-        this.txtPreco = txtPreco;
-    }
-
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
-    @SuppressWarnings("unchecked")
+	/**
+	 * This method is called from within the constructor to initialize the form.
+	 * WARNING: Do NOT modify this code. The content of this method is always
+	 * regenerated by the Form Editor.
+	 */
+	@SuppressWarnings("unchecked")
+	// <editor-fold defaultstate="collapsed"
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -139,6 +171,7 @@ public class TelaProdutos extends javax.swing.JFrame {
         btnDeletarProduto = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         idPesquisar = new javax.swing.JLabel();
+        btnCancelar2 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -146,14 +179,12 @@ public class TelaProdutos extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         btnIncluirProduto = new javax.swing.JButton();
-        btnCancelar1 = new javax.swing.JButton();
         idCadastrar = new javax.swing.JLabel();
         txtNome1 = new javax.swing.JTextField();
         txtDescicao1 = new javax.swing.JTextField();
         txtPreco1 = new javax.swing.JTextField();
+        btnCancelar3 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -213,6 +244,13 @@ public class TelaProdutos extends javax.swing.JFrame {
             }
         });
 
+        btnCancelar2.setText("Pesquisar");
+        btnCancelar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelar2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -223,18 +261,22 @@ public class TelaProdutos extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtDescicao, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(8, 8, 8)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnCancelar2)
+                                            .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,7 +308,9 @@ public class TelaProdutos extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCancelar2)
+                .addGap(8, 8, 8)
                 .addComponent(idPesquisar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -294,11 +338,9 @@ public class TelaProdutos extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jList1);
 
         btnIncluirProduto.setText("incluir");
-
-        btnCancelar1.setText("Cancelar");
-        btnCancelar1.addActionListener(new java.awt.event.ActionListener() {
+        btnIncluirProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelar1ActionPerformed(evt);
+                btnIncluirProdutoActionPerformed(evt);
             }
         });
 
@@ -308,39 +350,54 @@ public class TelaProdutos extends javax.swing.JFrame {
             }
         });
 
+        txtPreco1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPreco1ActionPerformed(evt);
+            }
+        });
+
+        btnCancelar3.setText("Cancelar");
+        btnCancelar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelar3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(273, 273, 273)
+                        .addComponent(idCadastrar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnIncluirProduto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCancelar3))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel5)))
+                .addContainerGap(106, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(273, 273, 273)
-                .addComponent(idCadastrar)
-                .addGap(18, 18, 18)
-                .addComponent(btnIncluirProduto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCancelar1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDescicao1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtNome1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPreco1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtPreco1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(txtDescicao1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,43 +416,24 @@ public class TelaProdutos extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnIncluirProduto)
-                        .addComponent(btnCancelar1))
+                        .addComponent(btnCancelar3))
                     .addComponent(idCadastrar, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Cadastrar", jPanel6);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
-                .addGap(25, 25, 25))
+            .addGap(0, 541, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(203, Short.MAX_VALUE))
+            .addGap(0, 365, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Satus dos Pedidos", jPanel7);
@@ -463,64 +501,101 @@ public class TelaProdutos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+    private void txtPreco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPreco1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelarActionPerformed
+    }//GEN-LAST:event_txtPreco1ActionPerformed
 
-    private void btnDeletarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarProdutoActionPerformed
+    private void btnIncluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirProdutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnDeletarProdutoActionPerformed
+               
+           Produto produto = new Produto();
+             produto.setNome(txtNome1.getText());
+              produto.setNome(txtDescicao1.getText());
+               produto.setNome(txtPreco1.getText());
+         
+            
+    
+    
+    }//GEN-LAST:event_btnIncluirProdutoActionPerformed
 
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+    private void btnCancelar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
+    }//GEN-LAST:event_btnCancelar2ActionPerformed
 
-    private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
+    private void btnCancelar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelar1ActionPerformed
+    }//GEN-LAST:event_btnCancelar3ActionPerformed
 
-    private void txtNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome1ActionPerformed
+	private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCancelarActionPerformed
+		// TODO add your handling code here:
+	}// GEN-LAST:event_btnCancelarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+	private void btnDeletarProdutoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDeletarProdutoActionPerformed
+		// TODO add your handling code here:
+	}// GEN-LAST:event_btnDeletarProdutoActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaProdutos().setVisible(true);
-            }
-        });
-    }
+	private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtNomeActionPerformed
+		// TODO add your handling code here:
+	}// GEN-LAST:event_txtNomeActionPerformed
+
+	private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCancelar1ActionPerformed
+		// TODO add your handling code here:
+	}// GEN-LAST:event_btnCancelar1ActionPerformed
+
+	private void txtNome1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtNome1ActionPerformed
+		// TODO add your handling code here:
+	}// GEN-LAST:event_txtNome1ActionPerformed
+
+	/**
+	 * @param args
+	 *            the command line arguments
+	 */
+	public static void main(String args[]) {
+		/* Set the Nimbus look and feel */
+		// <editor-fold defaultstate="collapsed"
+		// desc=" Look and feel setting code (optional) ">
+		/*
+		 * If Nimbus (introduced in Java SE 6) is not available, stay with the
+		 * default look and feel. For details see
+		 * http://download.oracle.com/javase
+		 * /tutorial/uiswing/lookandfeel/plaf.html
+		 */
+		try {
+			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
+					.getInstalledLookAndFeels()) {
+				if ("Nimbus".equals(info.getName())) {
+					javax.swing.UIManager.setLookAndFeel(info.getClassName());
+					break;
+				}
+			}
+		} catch (ClassNotFoundException ex) {
+			java.util.logging.Logger.getLogger(TelaProdutos.class.getName())
+					.log(java.util.logging.Level.SEVERE, null, ex);
+		} catch (InstantiationException ex) {
+			java.util.logging.Logger.getLogger(TelaProdutos.class.getName())
+					.log(java.util.logging.Level.SEVERE, null, ex);
+		} catch (IllegalAccessException ex) {
+			java.util.logging.Logger.getLogger(TelaProdutos.class.getName())
+					.log(java.util.logging.Level.SEVERE, null, ex);
+		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+			java.util.logging.Logger.getLogger(TelaProdutos.class.getName())
+					.log(java.util.logging.Level.SEVERE, null, ex);
+		}
+		// </editor-fold>
+
+		/* Create and display the form */
+		java.awt.EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new TelaProdutos().setVisible(true);
+			}
+		});
+	}
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarProduto;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnCancelar1;
+    private javax.swing.JButton btnCancelar2;
+    private javax.swing.JButton btnCancelar3;
     private javax.swing.JButton btnDeletarProduto;
     private javax.swing.JButton btnIncluirProduto;
     private javax.swing.JLabel idCadastrar;
@@ -539,11 +614,9 @@ public class TelaProdutos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable tabelaProdutos;
     private javax.swing.JTextField txtDescicao;
     private javax.swing.JTextField txtDescicao1;

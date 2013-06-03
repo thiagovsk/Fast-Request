@@ -1,4 +1,5 @@
-package DAO;
+package br.com.fastrequest.dao;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import Model.Cliente;
+import br.com.fastrequest.model.Cliente;
+
 
 public class ClienteDAO implements ModeloDao {
 
@@ -48,7 +50,9 @@ public class ClienteDAO implements ModeloDao {
 
 		} catch (SQLException e1) {
 		throw	new CreateDAO_Exception("nao foi possivel completar a operação inserir",e1);
-		}finally{
+		}
+		
+		finally{
 			ConexaoBD.release(con);
 		}
 		

@@ -1,8 +1,9 @@
-package DAO;
+package br.com.fastrequest.dao;
 
 import java.util.ArrayList;
 
-import Model.Cliente;
+import br.com.fastrequest.model.Cliente;
+
 
 
 //Interface a ser seguida pelas classes 

@@ -1,4 +1,6 @@
-package Model;
+package br.com.fastrequest.model;
+
+import javax.swing.JTextField;
 
 public class Produto {
 
@@ -56,5 +58,9 @@ public class Produto {
 		builder.append(preco);
 		return builder.toString();
 	}
+
+    public void setPreco(JTextField txtPreco) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 	
 }

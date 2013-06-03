@@ -2,15 +2,16 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package br.com.fastrequest.model;
 
 /**
  *
  * @author Thiagoo
  */
-import DAO.ProdutoDAO;
 import java.util.ArrayList;
-import Model.Produto;
+
+import br.com.fastrequest.dao.ProdutoDAO;
+import br.com.fastrequest.model.Produto;
         
         
 public class ProdutoService {

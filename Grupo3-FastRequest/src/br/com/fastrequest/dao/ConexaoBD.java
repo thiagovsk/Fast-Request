@@ -1,4 +1,4 @@
-package DAO;
+package br.com.fastrequest.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
