@@ -247,6 +247,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Alterar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarProdutoActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnDeletarProduto">
                   <Properties>
@@ -303,7 +306,7 @@
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="106" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -324,7 +327,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="txtDescicao1" min="-2" pref="458" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="28" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -400,7 +403,7 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnIncluirProduto">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="incluir"/>
+                    <Property name="text" type="java.lang.String" value="Cadastrar"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIncluirProdutoActionPerformed"/>

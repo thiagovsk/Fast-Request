@@ -14,29 +14,29 @@ public class ProdutoDAO  {
 
 	
 	//puxando o get con da classe conection 
-	private Connection con;
-
-	public Connection getCon() {
-		return con;
-	}
-
-	public void setCon(Connection con) {
-		this.con = con;
-	}
+	private Connection con=null;
+        
+         public ProdutoDAO(){
+          ConexaoBD conecta = new ConexaoBD();
+        }
+        
+	
 
 	public String cadastrar(Produto produto)  {
 		// esse metodo recebe um objeto cliente como parametro e faz a insercao
 		// dos dados
 		String sql = "insert into produto(nome,descricao,preco)values(?,?,?)";
-
+                
+                  
 		try {
-			PreparedStatement ps = getCon().prepareStatement(sql);
-			int index =0;
+                         con = ConexaoBD.abrirconexao();
+			PreparedStatement ps = con.prepareStatement(sql);
+			int index = 0;
 			// prepara o comando para enviar ao banco
 			
-			ps.setString(index++, produto.getNome());
-			ps.setString(index++, produto.getDescricao());
-			ps.setDouble(index++, produto.getPreco());
+			ps.setString(1, produto.getNome());
+			ps.setString(2, produto.getDescricao());
+			ps.setDouble(3, produto.getPreco());
 			ps.executeUpdate();
 			// efetivando a inser��o no banco pode usar execute (retorna
 			// boleano) ou executeUpdate(retorna um inteiro )
@@ -48,9 +48,9 @@ public class ProdutoDAO  {
 			}
 
 		} catch (SQLException e1) {
-		throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e1);
+		throw	new CreateDAO_Exception("nao foi possivel completar a operacao cadastrar",e1);
 		}finally{
-			ConexaoBD.release(con);
+			
 		}
 		
 	}
@@ -58,11 +58,14 @@ public class ProdutoDAO  {
 	public String alterar(Produto produto) {
 		// esse metodo recebe um objeto cliente como parametro e faz a alteracao
 		// dos dados
+            
+               
 		String sql = "update produto set nome = ?, descricao = ?,preco = ?";
 		sql += " where idProduto = ?";
 		int index =0;
 		try {
-			PreparedStatement ps = getCon().prepareStatement(sql);
+                     con = ConexaoBD.abrirconexao();
+			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(index++, produto.getNome());
 			ps.setString(index++, produto.getDescricao());
 			ps.setDouble(index++, produto.getPreco());
@@ -76,7 +79,8 @@ public class ProdutoDAO  {
 		} catch (SQLException e1) {
 			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e1);
 		}finally{
-			ConexaoBD.release(con);
+                    ConexaoBD.fecharconexao(con);
+			
 		}
 		
 
@@ -85,10 +89,11 @@ public class ProdutoDAO  {
 	public String deletar(Produto produto) {
 		// Este m�todo receber� um objeto cliente como par�metro e far� a
 		// exclus�o dos dados na nossa tabela
+                ConexaoBD.abrirconexao();
 		String sql = "delete from produto where idProduto = ?";
 		int index =0;
 		try {
-			PreparedStatement ps = getCon().prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setLong(index++, produto.getIdProduto());
 			ps.executeUpdate();	
 			if (ps.executeUpdate() > 0) {
@@ -100,18 +105,19 @@ public class ProdutoDAO  {
 		} catch (SQLException e) {
 			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e);
 		}finally{
-			ConexaoBD.release(con);
+			ConexaoBD.fecharconexao(con);
 		}
 
 	}
 
 	public ArrayList<Produto> pesquisar(Produto produto) {
 		// Metodo de pesquisa no banco de dados
+            ConexaoBD.abrirconexao();
 		ArrayList<Produto> lista = new ArrayList<Produto>();
 		String sql = "select * from produto ";
 
 		try {
-			PreparedStatement ps = getCon().prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery(); // pegando um objeto ResultSet
 												// para armazenar o resultado q
 												// vem do banco
@@ -139,7 +145,7 @@ public class ProdutoDAO  {
 			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e1);
 			
 		}finally{
-			ConexaoBD.release(con);
+			ConexaoBD.fecharconexao(con);
 		}
 		
 	}

@@ -24,13 +24,17 @@ public class ClienteDAO implements ModeloDao {
 		this.con = con;
 	}
 
+
 	public String cadastrar(Cliente cliente)  {
 		// esse metodo recebe um objeto cliente como parametro e faz a insercao
 		// dos dados
+                    
+                
 		String sql = "insert into cliente(nome,prato,email,telefone)values(?,?,?,?)";
-
+                
+                ConexaoBD.abrirconexao();
 		try {
-			PreparedStatement ps = getCon().prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 			int index =0;
 			// prepara o comando para enviar ao banco
 			
@@ -39,7 +43,7 @@ public class ClienteDAO implements ModeloDao {
 			ps.setString(index++, cliente.getEmail());
 			ps.setString(index++, cliente.getTelefone());
 			ps.executeUpdate();
-			// efetivando a inserção no banco pode usar execute (retorna
+			// efetivando a inserï¿½ï¿½o no banco pode usar execute (retorna
 			// boleano) ou executeUpdate(retorna um inteiro )
 			// pode ainda usar o executeBatch
 			if (ps.executeUpdate() > 0) {
@@ -49,11 +53,11 @@ public class ClienteDAO implements ModeloDao {
 			}
 
 		} catch (SQLException e1) {
-		throw	new CreateDAO_Exception("nao foi possivel completar a operação inserir",e1);
+		throw	new CreateDAO_Exception("nao foi possivel completar a operaï¿½ï¿½o inserir",e1);
 		}
 		
 		finally{
-			ConexaoBD.release(con);
+			ConexaoBD.fecharconexao(con);
 		}
 		
 	}
@@ -62,6 +66,8 @@ public class ClienteDAO implements ModeloDao {
 	public String alterar(Cliente cliente) {
 		// esse metodo recebe um objeto cliente como parametro e faz a alteracao
 		// dos dados
+            
+              ConexaoBD.abrirconexao();
 		String sql = "update cliente set nome = ?, prato = ?,email = ? ,telefone = ?";
 		sql += " where id = ?";
 		int index =0;
@@ -81,7 +87,7 @@ public class ClienteDAO implements ModeloDao {
 		} catch (SQLException e1) {
 			throw	new CreateDAO_Exception("nao foi possivel completar a alterar",e1);
 		}finally{
-			ConexaoBD.release(con);
+			
 		}
 		
 
@@ -89,8 +95,8 @@ public class ClienteDAO implements ModeloDao {
 
 	@Override
 	public String deletar(Cliente cliente) {
-		// Este método receberá um objeto cliente como parâmetro e fará a
-		// exclusão dos dados na nossa tabela
+		// Este mï¿½todo receberï¿½ um objeto cliente como parï¿½metro e farï¿½ a
+		// exclusï¿½o dos dados na nossa tabela
 		String sql = "delete from cliente where id = ?";
 		int index =0;
 		try {
@@ -98,7 +104,7 @@ public class ClienteDAO implements ModeloDao {
 			ps.setLong(index++, cliente.getId());
 			ps.executeUpdate();	
 			if (ps.executeUpdate() > 0) {
-				return "Excluído com sucesso.";
+				return "Excluï¿½do com sucesso.";
 			} else {
 				return "Erro ao excluir";
 			}
@@ -106,7 +112,7 @@ public class ClienteDAO implements ModeloDao {
 		} catch (SQLException e) {
 			throw	new CreateDAO_Exception("nao foi possivel completar a deletar",e);
 		}finally{
-			ConexaoBD.release(con);
+			
 		}
 
 	}
@@ -123,7 +129,7 @@ public class ClienteDAO implements ModeloDao {
 												// para armazenar o resultado q
 												// vem do banco
 			// usando o executeQuery ao inves do executeupdate
-			// Um objeto ResultSet tem acesso ao método next que permite
+			// Um objeto ResultSet tem acesso ao mï¿½todo next que permite
 			// percorrer todos os dados nele contido.
 
 			if (rs != null) {
@@ -144,7 +150,7 @@ public class ClienteDAO implements ModeloDao {
 			throw	new CreateDAO_Exception("nao foi possivel completar a operacao pesquisar ",e1);
 			
 		}finally{
-			ConexaoBD.release(con);
+			
 		}
 		
 	}

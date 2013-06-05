@@ -1,9 +1,13 @@
 package br.com.fastrequest.view;
 
-import br.com.fastrequest.controller.ProdutoActionListener;
-import br.com.fastrequest.model.Produto;
+
+import br.com.fastrequest.controller.Controller;
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -23,14 +27,13 @@ public class TelaProdutos extends javax.swing.JFrame {
 	/**
 	 * Creates new form ExemploFRM
 	 */
-    
-    private ProdutoActionListener listener;
+
     private JButton btnCancelar1;
     
     
 	public TelaProdutos() {
 		initComponents();
-                listener = new ProdutoActionListener(this);
+                
 	}
 
 	public JButton getBtnAlterarProduto() {
@@ -229,6 +232,11 @@ public class TelaProdutos extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tabelaProdutos);
 
         btnAlterarProduto.setText("Alterar");
+        btnAlterarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarProdutoActionPerformed(evt);
+            }
+        });
 
         btnDeletarProduto.setText("Deletar");
         btnDeletarProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -337,7 +345,7 @@ public class TelaProdutos extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jList1);
 
-        btnIncluirProduto.setText("incluir");
+        btnIncluirProduto.setText("Cadastrar");
         btnIncluirProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIncluirProdutoActionPerformed(evt);
@@ -379,7 +387,7 @@ public class TelaProdutos extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5)))
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
@@ -397,7 +405,7 @@ public class TelaProdutos extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(txtDescicao1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(28, Short.MAX_VALUE))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -507,12 +515,16 @@ public class TelaProdutos extends javax.swing.JFrame {
 
     private void btnIncluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirProdutoActionPerformed
         // TODO add your handling code here:
-               
-           Produto produto = new Produto();
-             produto.setNome(txtNome1.getText());
-              produto.setNome(txtDescicao1.getText());
-               produto.setNome(txtPreco1.getText());
-         
+        
+        btnIncluirProduto.addActionListener(new ActionListener() {
+
+              @Override
+              public void actionPerformed(ActionEvent ae) {
+              
+                   clicouSalvou();
+                     JOptionPane.showMessageDialog(null, "SALVO COM SUCSSO");
+              }
+          });
             
     
     
@@ -525,6 +537,10 @@ public class TelaProdutos extends javax.swing.JFrame {
     private void btnCancelar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelar3ActionPerformed
+
+    private void btnAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAlterarProdutoActionPerformed
 
 	private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCancelarActionPerformed
 		// TODO add your handling code here:
@@ -625,4 +641,18 @@ public class TelaProdutos extends javax.swing.JFrame {
     private javax.swing.JTextField txtPreco;
     private javax.swing.JTextField txtPreco1;
     // End of variables declaration//GEN-END:variables
+private  void clicouSalvou(){
+
+    try{
+    Controller control = new Controller();
+    
+    control.inserirNoBD(txtNome1.getText(), txtDescicao1.getText(), 
+            Double.parseDouble(txtPreco1.getText()));
+    JOptionPane.showMessageDialog(this, "Cadastro realizado com sucesso");
+    }catch(ParseException e1){
+         JOptionPane.showMessageDialog(this, "Falha =/  Tente novamente");
+    }
+
+
+}
 }
