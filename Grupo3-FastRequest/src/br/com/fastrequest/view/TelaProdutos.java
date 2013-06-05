@@ -214,9 +214,9 @@ public class TelaProdutos extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("descicao");
+        jLabel3.setText("descrição");
 
-        jLabel4.setText("Preco");
+        jLabel4.setText("Preço");
 
         tabelaProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -332,7 +332,7 @@ public class TelaProdutos extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Pesquisar", jPanel5);
 
-        jLabel5.setText("descicao");
+        jLabel5.setText("descrição");
 
         jLabel6.setText("Preco");
 
@@ -375,7 +375,7 @@ public class TelaProdutos extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(273, 273, 273)
@@ -387,7 +387,7 @@ public class TelaProdutos extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
