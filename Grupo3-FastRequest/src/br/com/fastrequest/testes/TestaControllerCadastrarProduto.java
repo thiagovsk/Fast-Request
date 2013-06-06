@@ -24,5 +24,6 @@ public class TestaControllerCadastrarProduto {
 		
 		assertNotNull(produto);
 		assertNotNull(dao);
+		
 	}
 }
