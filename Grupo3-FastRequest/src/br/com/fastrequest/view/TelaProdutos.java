@@ -6,6 +6,7 @@ import br.com.fastrequest.controller.Controller;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -181,7 +182,7 @@ public class TelaProdutos extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        jListCasdastrar = new javax.swing.JList();
         btnIncluirProduto = new javax.swing.JButton();
         idCadastrar = new javax.swing.JLabel();
         txtNome1 = new javax.swing.JTextField();
@@ -339,12 +340,12 @@ public class TelaProdutos extends javax.swing.JFrame {
 
         jLabel7.setText("Nome");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        jListCasdastrar.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3.setViewportView(jList1);
+        jScrollPane3.setViewportView(jListCasdastrar);
 
         btnIncluirProduto.setText("Cadastrar");
         btnIncluirProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -517,6 +518,7 @@ public class TelaProdutos extends javax.swing.JFrame {
     private void btnIncluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirProdutoActionPerformed
         // TODO add your handling code here:
         
+        
         btnIncluirProduto.addActionListener(new ActionListener() {
 
               @Override
@@ -526,13 +528,21 @@ public class TelaProdutos extends javax.swing.JFrame {
                    
               }
           });
-            
+        
+      DefaultListModel model = new DefaultListModel();
+      
+      jListCasdastrar.setModel(new DefaultListModel());
+      
+      model.clear();
+      
+      model.add(0, txtNome1.getText()+", "+ txtPreco1.getText());
     
     
     }//GEN-LAST:event_btnIncluirProdutoActionPerformed
 
     private void btnCancelar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar2ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnCancelar2ActionPerformed
 
     private void btnCancelar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar3ActionPerformed
@@ -624,7 +634,7 @@ public class TelaProdutos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JList jList1;
+    private javax.swing.JList jListCasdastrar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
