@@ -1,6 +1,7 @@
 package br.com.fastrequest.view;
 
 
+import Excecoes.PrecoNaoRecebeString;
 import br.com.fastrequest.controller.Controller;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 import java.awt.event.ActionEvent;
@@ -522,7 +523,7 @@ public class TelaProdutos extends javax.swing.JFrame {
               public void actionPerformed(ActionEvent ae) {
               
                    clicouSalvou();
-                     JOptionPane.showMessageDialog(null, "SALVO COM SUCSSO");
+                   
               }
           });
             
@@ -648,9 +649,10 @@ private  void clicouSalvou(){
     
     control.inserirNoBD(txtNome1.getText(), txtDescicao1.getText(), 
             Double.parseDouble(txtPreco1.getText()));
+    
     JOptionPane.showMessageDialog(this, "Cadastro realizado com sucesso");
-    }catch(ParseException e1){
-         JOptionPane.showMessageDialog(this, "Falha =/  Tente novamente");
+    }catch(PrecoNaoRecebeString e1){
+         JOptionPane.showMessageDialog(this, "Favor nao inserir letras no campo Preço");
     }
 
 
