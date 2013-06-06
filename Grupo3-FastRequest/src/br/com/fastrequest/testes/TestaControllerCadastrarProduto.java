@@ -21,6 +21,7 @@ public class TestaControllerCadastrarProduto {
 		
 		Produto produto = new Produto();	
 		ProdutoDAO dao = new ProdutoDAO();
+		
 		assertNotNull(produto);
 		assertNotNull(dao);
 		
