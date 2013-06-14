@@ -3,9 +3,9 @@ package br.com.fastrequest.view;
 
 import Excecoes.PrecoNaoRecebeString;
 import br.com.fastrequest.controller.Controller;
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -181,7 +181,7 @@ public class TelaProdutos extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        jListCasdastrar = new javax.swing.JList();
         btnIncluirProduto = new javax.swing.JButton();
         idCadastrar = new javax.swing.JLabel();
         txtNome1 = new javax.swing.JTextField();
@@ -271,7 +271,7 @@ public class TelaProdutos extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtDescicao, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
@@ -309,11 +309,11 @@ public class TelaProdutos extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtDescicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -339,12 +339,12 @@ public class TelaProdutos extends javax.swing.JFrame {
 
         jLabel7.setText("Nome");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        jListCasdastrar.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3.setViewportView(jList1);
+        jScrollPane3.setViewportView(jListCasdastrar);
 
         btnIncluirProduto.setText("Cadastrar");
         btnIncluirProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -459,7 +459,7 @@ public class TelaProdutos extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
@@ -504,7 +504,7 @@ public class TelaProdutos extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(341, Short.MAX_VALUE))
         );
 
         pack();
@@ -517,6 +517,7 @@ public class TelaProdutos extends javax.swing.JFrame {
     private void btnIncluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirProdutoActionPerformed
         // TODO add your handling code here:
         
+        
         btnIncluirProduto.addActionListener(new ActionListener() {
 
               @Override
@@ -526,13 +527,21 @@ public class TelaProdutos extends javax.swing.JFrame {
                    
               }
           });
-            
-    
+        
+      DefaultListModel model = new DefaultListModel();
+      
+      jListCasdastrar.setModel(new DefaultListModel());
+      
+      model.clear();
+      
+      model.addElement(txtNome1.getText());
+      model.addElement(txtDescicao1.getText());
     
     }//GEN-LAST:event_btnIncluirProdutoActionPerformed
 
     private void btnCancelar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar2ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnCancelar2ActionPerformed
 
     private void btnCancelar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar3ActionPerformed
@@ -624,7 +633,7 @@ public class TelaProdutos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JList jList1;
+    private javax.swing.JList jListCasdastrar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -652,7 +661,7 @@ private  void clicouSalvou(){
     
     JOptionPane.showMessageDialog(this, "Cadastro realizado com sucesso");
     }catch(PrecoNaoRecebeString e1){
-         JOptionPane.showMessageDialog(this, "Favor nao inserir letras no campo PreÃ§o");
+         JOptionPane.showMessageDialog(this, "Favor nao inserir letras no campo Preço");
     }
 
 

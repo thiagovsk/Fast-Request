@@ -8,6 +8,7 @@ package Excecoes;
  *
  * @author Antonio
  */
+@SuppressWarnings("serial")
 public class PrecoNaoRecebeString extends RuntimeException{
     
     public PrecoNaoRecebeString(){
