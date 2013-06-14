@@ -3,7 +3,6 @@ package br.com.fastrequest.view;
 
 import Excecoes.PrecoNaoRecebeString;
 import br.com.fastrequest.controller.Controller;
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
