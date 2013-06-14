@@ -3,6 +3,7 @@ package br.com.fastrequest.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 
 public class ConexaoBD {
@@ -13,7 +14,7 @@ public class ConexaoBD {
         //"jdbc:oracle:thin:@localhost:1521:xe";
     
 	public static Connection abrirconexao() { // metodo para abrir conexao do banco											// bd
-            Connection con;
+            Connection con=null;
 		
 		try {
 			con = DriverManager.getConnection(url, "root", "");
@@ -23,7 +24,7 @@ public class ConexaoBD {
 													// esta aberta
 
 		} catch (SQLException e1) {
-			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e1);
+                JOptionPane.showMessageDialog(null, "Conexao com o banco falhou "); 
 
 		}
 
@@ -36,14 +37,14 @@ public class ConexaoBD {
 
 		try {
 			con.close();
-			System.out.println("Conexao Fechada"); // mostra no console que a
-													// conexao fechou
+				
 
 		} catch (SQLException e1) {
-			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e1);
+                    JOptionPane.showMessageDialog(null, "Conexao com o banco falhou "); 
+		
 		}
-
-		return con;
+                return con;
+		
 	}
 
 }	

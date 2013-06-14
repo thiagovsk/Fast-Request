@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.fastrequest.model.Cliente;
+import javax.swing.JOptionPane;
 
 
 public class ClienteDAO implements ModeloDao {
@@ -53,12 +54,11 @@ public class ClienteDAO implements ModeloDao {
 			}
 
 		} catch (SQLException e1) {
-		throw	new CreateDAO_Exception("nao foi possivel completar a opera��o inserir",e1);
+		   JOptionPane.showMessageDialog(null, "Banco desconectado");
+                  throw new ConexaoFalhou_Exception("Erro ao conectar ", e1);
 		}
 		
-		finally{
-			ConexaoBD.fecharconexao(con);
-		}
+		
 		
 	}
 
@@ -85,9 +85,8 @@ public class ClienteDAO implements ModeloDao {
 			}
 
 		} catch (SQLException e1) {
-			throw	new CreateDAO_Exception("nao foi possivel completar a alterar",e1);
-		}finally{
-			
+			   JOptionPane.showMessageDialog(null, "Banco desconectado");
+                  throw new ConexaoFalhou_Exception("Erro ao conectar ", e1);
 		}
 		
 
@@ -110,9 +109,8 @@ public class ClienteDAO implements ModeloDao {
 			}
 
 		} catch (SQLException e) {
-			throw	new CreateDAO_Exception("nao foi possivel completar a deletar",e);
-		}finally{
-			
+			   JOptionPane.showMessageDialog(null, "Banco desconectado");
+                  throw new ConexaoFalhou_Exception("Erro ao conectar ", e);
 		}
 
 	}
@@ -147,7 +145,7 @@ public class ClienteDAO implements ModeloDao {
 			}
 
 		} catch (SQLException e1) {
-			throw	new CreateDAO_Exception("nao foi possivel completar a operacao pesquisar ",e1);
+			throw	new ConexaoFalhou_Exception("nao foi possivel completar a operacao pesquisar ",e1);
 			
 		}finally{
 			

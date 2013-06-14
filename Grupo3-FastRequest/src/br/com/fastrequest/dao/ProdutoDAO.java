@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.fastrequest.model.Produto;
+import javax.swing.JOptionPane;
 
 
 
@@ -47,11 +48,12 @@ public class ProdutoDAO  {
 				return "Erro ao inserir";
 			}
 
-		} catch (SQLException e1) {
-		throw	new CreateDAO_Exception("nao foi possivel completar a operacao cadastrar",e1);
-		}finally{
-			
-		}
+		} catch (SQLException e){
+                  
+                  JOptionPane.showMessageDialog(null, "Banco desconectado");
+                  throw new ConexaoFalhou_Exception("Erro ao conectar ", e);
+                }
+                
 		
 	}
 
@@ -77,10 +79,8 @@ public class ProdutoDAO  {
 			}
 
 		} catch (SQLException e1) {
-			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e1);
-		}finally{
-                    ConexaoBD.fecharconexao(con);
-			
+		   JOptionPane.showMessageDialog(null, "Banco desconectado");
+                  throw new ConexaoFalhou_Exception("Erro ao conectar ", e1);
 		}
 		
 
@@ -103,9 +103,8 @@ public class ProdutoDAO  {
 			}
 
 		} catch (SQLException e) {
-			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e);
-		}finally{
-			ConexaoBD.fecharconexao(con);
+		   JOptionPane.showMessageDialog(null, "Banco desconectado");
+                  throw new ConexaoFalhou_Exception("Erro ao conectar ", e);
 		}
 
 	}
@@ -142,10 +141,9 @@ public class ProdutoDAO  {
 			}
 
 		} catch (SQLException e1) {
-			throw	new CreateDAO_Exception("nao foi possivel completar a operacao",e1);
+                 JOptionPane.showMessageDialog(null, "Banco desconectado");
+                  throw new ConexaoFalhou_Exception("Erro ao conectar ", e1);
 			
-		}finally{
-			ConexaoBD.fecharconexao(con);
 		}
 		
 	}

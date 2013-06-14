@@ -190,7 +190,7 @@ public class TelaProdutos extends javax.swing.JFrame {
         btnCancelar3 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        imagemLogo = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -376,7 +376,7 @@ public class TelaProdutos extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(273, 273, 273)
@@ -388,7 +388,7 @@ public class TelaProdutos extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5)))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
@@ -466,8 +466,7 @@ public class TelaProdutos extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
-        jLabel1.setText("Produtos");
+        imagemLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/fastrequest/imagens/logomarca.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -475,15 +474,12 @@ public class TelaProdutos extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(imagemLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(75, Short.MAX_VALUE))
+            .addComponent(imagemLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -496,7 +492,7 @@ public class TelaProdutos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -523,7 +519,20 @@ public class TelaProdutos extends javax.swing.JFrame {
               @Override
               public void actionPerformed(ActionEvent ae) {
               
-                   clicouSalvou();
+                  
+
+    try{
+    Controller control = new Controller();
+    
+    control.inserirNoBD(txtNome1.getText(), txtDescicao1.getText(), 
+            Double.parseDouble(txtPreco1.getText()));
+    JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+    }catch(PrecoNaoRecebeString e1){
+         JOptionPane.showMessageDialog(null, "Favor nao inserir letras no campo Preco");
+    }
+
+
+
                    
               }
           });
@@ -626,7 +635,7 @@ public class TelaProdutos extends javax.swing.JFrame {
     private javax.swing.JButton btnIncluirProduto;
     private javax.swing.JLabel idCadastrar;
     private javax.swing.JLabel idPesquisar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel imagemLogo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -651,19 +660,5 @@ public class TelaProdutos extends javax.swing.JFrame {
     private javax.swing.JTextField txtPreco;
     private javax.swing.JTextField txtPreco1;
     // End of variables declaration//GEN-END:variables
-private  void clicouSalvou(){
 
-    try{
-    Controller control = new Controller();
-    
-    control.inserirNoBD(txtNome1.getText(), txtDescicao1.getText(), 
-            Double.parseDouble(txtPreco1.getText()));
-    
-    JOptionPane.showMessageDialog(this, "Cadastro realizado com sucesso");
-    }catch(PrecoNaoRecebeString e1){
-         JOptionPane.showMessageDialog(this, "Favor nao inserir letras no campo Preço");
-    }
-
-
-}
 }
