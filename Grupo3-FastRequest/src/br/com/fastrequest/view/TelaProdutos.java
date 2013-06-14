@@ -535,8 +535,8 @@ public class TelaProdutos extends javax.swing.JFrame {
       
       model.clear();
       
-      model.add(0, txtNome1.getText()+", "+ txtPreco1.getText());
-    
+      model.addElement(txtNome1.getText());
+      model.addElement(txtDescicao1.getText());
     
     }//GEN-LAST:event_btnIncluirProdutoActionPerformed
 
