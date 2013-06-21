@@ -1,150 +1,72 @@
 package br.com.fastrequest.dao;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.fastrequest.model.Produto;
 import javax.swing.JOptionPane;
 
 
 
-public class ProdutoDAO  {
-
+public class ProdutoDAO  extends DaoGenerica{
 	
-	//puxando o get con da classe conection 
-	private Connection con=null;
-        
-         public ProdutoDAO(){
-          ConexaoBD conecta = new ConexaoBD();
+	public void salvar (Produto produto) throws SQLException{
+		String insert = "insert into produto(nome,descricao,preco)values(?,?,?)";
+		inserir(insert ,produto.getNome(),produto.getDescricao(),produto.getPreco() );
+	
+	}
+	public void alterar(Produto produto) throws SQLException {
+		String update = "update produto set nome = ?, descricao = ?,preco = ?";
+		update += " where idProduto = ?";
+		atualizar(update, produto.getIdProduto(),produto.getNome(),produto.getDescricao(),produto.getPreco());
+		
+	}
+	public void excluir(String nome) throws SQLException{
+		String delete ="DELETE FROM produtos WHERE nome = ?";
+		deletar(delete,nome);
+	}
+	public List<Produto> encontrarProduto() throws SQLException{
+		List<Produto> produtos = new ArrayList<Produto>();
+		String select = "SELECT * FROM PRODUTO";
+		   PreparedStatement stmt = getConnection().prepareStatement(select);
+	        ResultSet rs = stmt.executeQuery();
+	 
+	        while (rs.next()) {
+	            Produto produto = new Produto();
+	        	produto.setIdProduto(rs.getInt("id"));
+	            produto.setNome(rs.getString("nome"));
+	            produto.setDescricao(rs.getString("descricao"));
+	            produto.setPreco(rs.getDouble("preco"));
+	            produtos.add(produto);
+	        }
+	 
+	        rs.close();
+	        stmt.close();
+	 
+	        return produtos;	
+	}
+	public Produto encontrarNome(String nome) throws SQLException {
+        String select = "SELECT * FROM PRODUTO WHERE nome = ?";
+        Produto produto = null;
+        PreparedStatement stmt = getConnection().prepareStatement(select);
+        stmt.setString(1, nome);
+        ResultSet rs = stmt.executeQuery();
+ 
+        while (rs.next()) {
+            produto = new Produto();
+            produto.setIdProduto(rs.getInt("id"));
+            produto.setNome(rs.getString("nome"));
+            produto.setDescricao(rs.getString("descricao"));
+           produto.setPreco(rs.getDouble("preco"));
         }
-        
-	
-
-	public String cadastrar(Produto produto)  {
-		// esse metodo recebe um objeto cliente como parametro e faz a insercao
-		// dos dados
-		String sql = "insert into produto(nome,descricao,preco)values(?,?,?)";
-                
-                  
-		try {
-                         con = ConexaoBD.abrirconexao();
-			PreparedStatement ps = con.prepareStatement(sql);
-			int index = 0;
-			// prepara o comando para enviar ao banco
-			
-			ps.setString(1, produto.getNome());
-			ps.setString(2, produto.getDescricao());
-			ps.setDouble(3, produto.getPreco());
-			ps.executeUpdate();
-			// efetivando a inser��o no banco pode usar execute (retorna
-			// boleano) ou executeUpdate(retorna um inteiro )
-			// pode ainda usar o executeBatch
-			if (ps.executeUpdate() > 0) {
-				return "Inserido com sucesso.";
-			} else {
-				return "Erro ao inserir";
-			}
-
-		} catch (SQLException e){
-                  
-                  JOptionPane.showMessageDialog(null, "Banco desconectado");
-                  throw new ConexaoFalhou_Exception("Erro ao conectar ", e);
-                }
-                
-		
-	}
-
-	public String alterar(Produto produto) {
-		// esse metodo recebe um objeto cliente como parametro e faz a alteracao
-		// dos dados
-            
-               
-		String sql = "update produto set nome = ?, descricao = ?,preco = ?";
-		sql += " where idProduto = ?";
-		int index =0;
-		try {
-                     con = ConexaoBD.abrirconexao();
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(index++, produto.getNome());
-			ps.setString(index++, produto.getDescricao());
-			ps.setDouble(index++, produto.getPreco());
-			ps.executeUpdate();
-			if (ps.executeUpdate() > 0) {
-				return "Alterado com sucesso.";
-			} else {
-				return "Erro ao alterar";
-			}
-
-		} catch (SQLException e1) {
-		   JOptionPane.showMessageDialog(null, "Banco desconectado");
-                  throw new ConexaoFalhou_Exception("Erro ao conectar ", e1);
-		}
-		
-
-	}
-
-	public String deletar(Produto produto) {
-		// Este m�todo receber� um objeto cliente como par�metro e far� a
-		// exclus�o dos dados na nossa tabela
-                ConexaoBD.abrirconexao();
-		String sql = "delete from produto where idProduto = ?";
-		int index =0;
-		try {
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setLong(index++, produto.getIdProduto());
-			ps.executeUpdate();	
-			if (ps.executeUpdate() > 0) {
-				return "Exclu�do com sucesso.";
-			} else {
-				return "Erro ao excluir";
-			}
-
-		} catch (SQLException e) {
-		   JOptionPane.showMessageDialog(null, "Banco desconectado");
-                  throw new ConexaoFalhou_Exception("Erro ao conectar ", e);
-		}
-
-	}
-
-	public ArrayList<Produto> pesquisar(Produto produto) {
-		// Metodo de pesquisa no banco de dados
-            ConexaoBD.abrirconexao();
-		ArrayList<Produto> lista = new ArrayList<Produto>();
-		String sql = "select * from produto ";
-
-		try {
-			PreparedStatement ps = con.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery(); // pegando um objeto ResultSet
-												// para armazenar o resultado q
-												// vem do banco
-			// usando o executeQuery ao inves do executeupdate
-			// Um objeto ResultSet tem acesso ao m�todo next que permite
-			// percorrer todos os dados nele contido.
-
-			int index =0;	
-			if (rs != null) {
-				while (rs.next()) {
-					Produto produtos = new Produto();
-					produtos.setNome(rs.getString(index++));
-					produtos.setDescricao(rs.getString(index++));
-					produtos.setPreco(rs.getDouble(index++));
-					
-					lista.add(produto);
-					
-				}
-				return lista;
-			} else {
-				return null;
-			}
-
-		} catch (SQLException e1) {
-                 JOptionPane.showMessageDialog(null, "Banco desconectado");
-                  throw new ConexaoFalhou_Exception("Erro ao conectar ", e1);
-			
-		}
-		
-	}
+ 
+        rs.close();
+        stmt.close();
+        return produto; 
+}
 }
