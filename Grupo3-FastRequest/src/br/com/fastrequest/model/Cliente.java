@@ -1,13 +1,13 @@
 package br.com.fastrequest.model;
 
-public class Cliente {
+public class Cliente extends Pessoa{
 	
 	
 	private int id;
 	private String nome;
 	private String cpf;
 	private String email;
-	private String telefone;
+	private int telefone;
 	
 	public Cliente() {
 		
@@ -18,9 +18,7 @@ public class Cliente {
 			String telefone) {
 		this.id = id;
 		this.nome = nome;
-		this.cpf = cpf;
 		this.email = email;
-		this.telefone = telefone;
 	}
 
 
@@ -49,10 +47,10 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getTelefone() {
+	public int getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(String telefone) {
+	public void setTelefone(int telefone) {
 		this.telefone = telefone;
 	}
 
