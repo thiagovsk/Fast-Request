@@ -40,7 +40,7 @@ public class ClienteController {
                 cliente.setEmail(email);
                 cliente.setTelefone(telefone);
                 
-	        new ClienteDAO()).alterar(cliente);
+	        new ClienteDAO().alterar(cliente);
 	    }
           
           
@@ -48,7 +48,7 @@ public class ClienteController {
 	        ClienteDAO clienteDao = new ClienteDAO();
 	       
                 try {
-	            return clienteDAO.encontrarCliente();
+	            return clienteDao.encontrarCliente();
 	      
                 } catch (SQLException e) {
 	            JOptionPane.showMessageDialog(null, "Problemas ao localizar contato\n" + e.getLocalizedMessage());
@@ -62,9 +62,9 @@ public class ClienteController {
           }
 	 
           
-	  public Cliente buscaContatoPorNome(String nome) throws SQLException {
+	  public Cliente buscaContatoPorNome(String cpf) throws SQLException {
 	        ClienteDAO clienteDAo = new ClienteDAO();
-	        return clienteDAo.encontrarNome(nome);
+	        return clienteDAo.encontrarCpf(cpf);
 	  }
     
 }

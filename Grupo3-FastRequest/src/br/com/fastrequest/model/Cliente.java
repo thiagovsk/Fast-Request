@@ -7,7 +7,7 @@ public class Cliente extends Pessoa{
 	private String nome;
 	private String cpf;
 	private String email;
-	private int telefone;
+	private String telefone;
 	
 	public Cliente() {
 		
@@ -19,6 +19,7 @@ public class Cliente extends Pessoa{
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
+		this.telefone=telefone;
 	}
 
 
@@ -47,10 +48,10 @@ public class Cliente extends Pessoa{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 

@@ -2,17 +2,17 @@ package br.com.fastrequest.model;
 
 public class Pessoa {
 	
-	private int telefone;
+	private String telefone;
 	private String cpf;
 	
 	public Pessoa() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 	public String getCpf() {

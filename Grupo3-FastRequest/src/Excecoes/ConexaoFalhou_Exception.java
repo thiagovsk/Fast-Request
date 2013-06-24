@@ -1,4 +1,4 @@
-package br.com.fastrequest.dao;
+package Excecoes;
 
 public class ConexaoFalhou_Exception extends RuntimeException{
 

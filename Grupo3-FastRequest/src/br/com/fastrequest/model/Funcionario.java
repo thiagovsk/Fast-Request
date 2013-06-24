@@ -4,9 +4,9 @@ public class Funcionario extends Pessoa{
 
 	
 	private int id_funcionario;
-	private int Cpf;
+	private String Cpf;
 	private String rg;
-	private int telefone;
+	private String telefone;
 	
 	public Funcionario() {
 		// TODO Auto-generated constructor stub
@@ -16,6 +16,7 @@ public class Funcionario extends Pessoa{
 			String telefone) {
 		this.id_funcionario = id_funcionario;
 		this.rg = rg;
+		this.telefone=telefone;
 	}
 
 	public int getId_funcionario() {
@@ -24,10 +25,10 @@ public class Funcionario extends Pessoa{
 	public void setId_funcionario(int id_funcionario) {
 		this.id_funcionario = id_funcionario;
 	}
-	public int getCpf() {
+	public String getCpf() {
 		return Cpf;
 	}
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		Cpf = cpf;
 	}
 	public String getRg() {
@@ -36,10 +37,10 @@ public class Funcionario extends Pessoa{
 	public void setRg(String rg) {
 		this.rg = rg;
 	}
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
