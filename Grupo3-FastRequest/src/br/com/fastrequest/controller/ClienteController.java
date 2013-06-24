@@ -32,14 +32,16 @@ public class ClienteController {
                 
 	        new ClienteDAO().salvar(cliente);
 	    }
-	  public void alterar(int  id, String nome, String descricao, double preco) throws ParseException, SQLException {
-	        Produto produto = new Produto();
-	        produto.setNome(nome);
-	        produto.setDescricao(descricao);
-	        produto.setPreco(preco);
-	        produto.setIdProduto(id);
-	 
-	        new ProdutoDAO().alterar(produto);
+	  public void alterar(int id, String nome, String pratoPreferido, String email,
+			String telefone) throws ParseException, SQLException {
+                Cliente cliente = new Cliente();
+	        cliente.setId(id);
+	        cliente.setNome(nome);
+	        cliente.setPratoPreferido(pratoPreferido);
+                cliente.setEmail(email);
+                cliente.setTelefone(telefone);
+                
+	        new ClienteDAO()).alterar(cliente);
 	    }
 	  public List<Produto> listaProdutos() {
 	        ProdutoDAO produtoDAO = new ProdutoDAO();
