@@ -5,7 +5,7 @@ public class Cliente {
 	
 	private int id;
 	private String nome;
-	private String pratoPreferido;
+	private String cpf;
 	private String email;
 	private String telefone;
 	
@@ -14,11 +14,11 @@ public class Cliente {
 	}
 	
 	
-	public Cliente(int id, String nome, String pratoPreferido, String email,
+	public Cliente(int id, String nome, String cpf, String email,
 			String telefone) {
 		this.id = id;
 		this.nome = nome;
-		this.pratoPreferido = pratoPreferido;
+		this.cpf = cpf;
 		this.email = email;
 		this.telefone = telefone;
 	}
@@ -37,11 +37,11 @@ public class Cliente {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getPratoPreferido() {
-		return pratoPreferido;
+	public String getCpf() {
+		return cpf;
 	}
-	public void setPratoPreferido(String pratoPreferido) {
-		this.pratoPreferido = pratoPreferido;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 	public String getEmail() {
 		return email;
@@ -63,8 +63,8 @@ public class Cliente {
 		System.out.println("------------------------");
 		builder.append("Nome = ");
 		builder.append(nome);
-		builder.append("Prato Preferido =");
-		builder.append(pratoPreferido);
+		builder.append("Cpf =");
+		builder.append(cpf);
 		builder.append("Email = ");
 		builder.append(email);
 		builder.append(" Telefone =");
@@ -73,10 +73,4 @@ public class Cliente {
 		return builder.toString();
 	}
 
-	
-	
-	
-	
-	
-	
 }
