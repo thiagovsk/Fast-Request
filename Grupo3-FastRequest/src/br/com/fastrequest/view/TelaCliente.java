@@ -1,6 +1,6 @@
 package br.com.fastrequest.view;
 
-import br.com.fastrequest.controller.Controller;
+import br.com.fastrequest.controller.ClienteController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
