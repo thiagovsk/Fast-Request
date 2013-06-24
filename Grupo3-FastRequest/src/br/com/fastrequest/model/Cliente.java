@@ -5,7 +5,7 @@ public class Cliente extends Pessoa{
 	
 	private int id;
 	private String nome;
-	private int cpf;
+	private String cpf;
 	private String email;
 	private int telefone;
 	
@@ -35,10 +35,10 @@ public class Cliente extends Pessoa{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	public String getEmail() {

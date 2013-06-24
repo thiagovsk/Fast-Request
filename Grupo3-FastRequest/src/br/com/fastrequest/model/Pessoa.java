@@ -3,7 +3,7 @@ package br.com.fastrequest.model;
 public class Pessoa {
 	
 	private int telefone;
-	private int cpf;
+	private String cpf;
 	
 	public Pessoa() {
 		// TODO Auto-generated constructor stub
@@ -15,10 +15,10 @@ public class Pessoa {
 	public void setTelefone(int telefone) {
 		this.telefone = telefone;
 	}
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	
