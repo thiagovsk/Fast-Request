@@ -53,7 +53,7 @@ public class ClienteController {
 	        return null;
 	    }
 	  public void excluir(String nome) throws SQLException {
-	        new ProdutoDAO().excluir(nome);
+	        new ClienteDAO().excluir(nome);
 	    }
 	 
 	    public Produto buscaContatoPorNome(String nome) throws SQLException {
