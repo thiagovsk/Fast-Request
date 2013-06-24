@@ -1,8 +1,13 @@
 package br.com.fastrequest.view;
 
+import br.com.fastrequest.model.Cliente;
 import br.com.fastrequest.controller.ClienteController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -254,7 +259,18 @@ public class TelaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_textEmailActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
+        
+        ClienteController clientecontroler = new ClienteController();
+        
+        try {
+            clientecontroler.salvar(null, null, null, null);
+        } catch (SQLException ex) {
+            JOptionPane.showInternalMessageDialog(TextCpfLogin, email);
+            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnProsseguirSemCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProsseguirSemCadastrarActionPerformed
