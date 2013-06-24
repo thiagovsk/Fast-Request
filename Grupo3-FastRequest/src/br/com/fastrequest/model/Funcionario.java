@@ -1,12 +1,12 @@
 package br.com.fastrequest.model;
 
-public class Funcionario {
+public class Funcionario extends Pessoa{
 
 	
 	private int id_funcionario;
-	private String Cpf;
+	private int Cpf;
 	private String rg;
-	private String telefone;
+	private int telefone;
 	
 	public Funcionario() {
 		// TODO Auto-generated constructor stub
@@ -15,9 +15,7 @@ public class Funcionario {
 	public Funcionario(int id_funcionario, String cpf, String rg,
 			String telefone) {
 		this.id_funcionario = id_funcionario;
-		Cpf = cpf;
 		this.rg = rg;
-		this.telefone = telefone;
 	}
 
 	public int getId_funcionario() {
@@ -26,10 +24,10 @@ public class Funcionario {
 	public void setId_funcionario(int id_funcionario) {
 		this.id_funcionario = id_funcionario;
 	}
-	public String getCpf() {
+	public int getCpf() {
 		return Cpf;
 	}
-	public void setCpf(String cpf) {
+	public void setCpf(int cpf) {
 		Cpf = cpf;
 	}
 	public String getRg() {
@@ -38,10 +36,10 @@ public class Funcionario {
 	public void setRg(String rg) {
 		this.rg = rg;
 	}
-	public String getTelefone() {
+	public int getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(String telefone) {
+	public void setTelefone(int telefone) {
 		this.telefone = telefone;
 	}
 
