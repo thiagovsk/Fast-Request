@@ -43,10 +43,10 @@ public class ClienteController {
                 
 	        new ClienteDAO()).alterar(cliente);
 	    }
-	  public List<Produto> listaProdutos() {
-	        ProdutoDAO produtoDAO = new ProdutoDAO();
+	  public List<Cliente> listaClientes() {
+	        ClienteDAO clienteDAO = new ClienteDAO();
 	        try {
-	            return produtoDAO.encontrarProduto();
+	            return clienteDAO.encontrarCliente();
 	        } catch (SQLException e) {
 	            JOptionPane.showMessageDialog(null, "Problemas ao localizar contato\n" + e.getLocalizedMessage());
 	        }
