@@ -263,9 +263,12 @@ public class TelaCliente extends javax.swing.JFrame {
         ClienteController clientecontroler = new ClienteController();
         
         try {
-            clientecontroler.salvar(null, null, null, null);
+            clientecontroler.salvar(textNome.getText(), textCpf.getText(), textEmail.getText(), textTelefone.getText());
+    
+            
         } catch (SQLException ex) {
-            JOptionPane.showInternalMessageDialog(TextCpfLogin, email);
+            JOptionPane.showInternalMessageDialog(this, "Cadastro salvo com sucesso!! \n");
+          
             Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
             Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
