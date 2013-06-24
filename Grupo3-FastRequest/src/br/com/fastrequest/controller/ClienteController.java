@@ -21,10 +21,10 @@ import br.com.fastrequest.model.Cliente;
 public class ClienteController {
     
     
-	  public void salvar( String nome, String pratoPreferido, String email, String telefone) throws SQLException, ParseException {
+	  public void salvar( String nome, String cpf, String email, String telefone) throws SQLException, ParseException {
 	        Cliente cliente = new Cliente();
 	        cliente.setNome(nome);
-	        cliente.setPratoPreferido(pratoPreferido);
+	        cliente.setCpf(cpf);
                 cliente.setEmail(email);
                 cliente.setTelefone(telefone);
                 
@@ -32,11 +32,11 @@ public class ClienteController {
 	    }
           
           
-	  public void alterar(int id, String nome, String pratoPreferido, String email, String telefone) throws ParseException, SQLException {
+	  public void alterar(int id, String nome, String cpf, String email, String telefone) throws ParseException, SQLException {
                 Cliente cliente = new Cliente();
 	        cliente.setId(id);
 	        cliente.setNome(nome);
-	        cliente.setPratoPreferido(pratoPreferido);
+	        cliente.setCpf(cpf);
                 cliente.setEmail(email);
                 cliente.setTelefone(telefone);
                 
