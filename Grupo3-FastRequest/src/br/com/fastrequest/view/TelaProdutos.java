@@ -2,9 +2,13 @@ package br.com.fastrequest.view;
 
 
 import Excecoes.PrecoNaoRecebeString;
-import br.com.fastrequest.controller.Controller;
+import br.com.fastrequest.controller.ProdutoController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -521,10 +525,15 @@ public class TelaProdutos extends javax.swing.JFrame {
                   
 
     try{
-    Controller control = new Controller();
-    
-    control.inserirNoBD(txtNome1.getText(), txtDescicao1.getText(), 
-            Double.parseDouble(txtPreco1.getText()));
+    ProdutoController control = new ProdutoController();
+                      try {
+                          control.salvar(txtNome1.getText(), txtDescicao1.getText(), 
+                                  Double.parseDouble(txtPreco1.getText()));
+                      } catch (SQLException ex) {
+                          Logger.getLogger(TelaProdutos.class.getName()).log(Level.SEVERE, null, ex);
+                      } catch (ParseException ex) {
+                          Logger.getLogger(TelaProdutos.class.getName()).log(Level.SEVERE, null, ex);
+                      }
     JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
     }catch(PrecoNaoRecebeString e1){
          JOptionPane.showMessageDialog(null, "Favor nao inserir letras no campo Preco");
