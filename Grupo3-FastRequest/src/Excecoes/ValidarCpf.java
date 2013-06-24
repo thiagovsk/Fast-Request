@@ -10,4 +10,12 @@ package Excecoes;
  */
 public class ValidarCpf {
     
+       public ValidarCpf(){
+        super();
+    }
+     
+     public ValidarCpf(String informacao){
+        super();
+    }
+     
 }

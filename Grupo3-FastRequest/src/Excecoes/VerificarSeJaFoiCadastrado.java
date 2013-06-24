@@ -9,5 +9,13 @@ package Excecoes;
  * @author Antonio
  */
 public class VerificarSeJaFoiCadastrado {
+  
+     public VerificarSeJaFoiCadastrado(){
+        super();
+    }
+     
+     public VerificarSeJaFoiCadastrado(String inf){
+        super();
+    }
     
 }
