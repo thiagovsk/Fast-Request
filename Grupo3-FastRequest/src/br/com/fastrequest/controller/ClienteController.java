@@ -44,7 +44,7 @@ public class ClienteController {
 	        new ClienteDAO()).alterar(cliente);
 	    }
 	  public List<Cliente> listaClientes() {
-	        ClienteDAO clienteDAO = new ClienteDAO();
+	        ClienteDAO clienteDao = new ClienteDAO();
 	        try {
 	            return clienteDAO.encontrarCliente();
 	        } catch (SQLException e) {
@@ -56,9 +56,9 @@ public class ClienteController {
 	        new ClienteDAO().excluir(nome);
 	    }
 	 
-	    public Produto buscaContatoPorNome(String nome) throws SQLException {
-	        ProdutoDAO produtoDAo = new ProdutoDAO();
-	        return produtoDAo.encontrarNome(nome);
+	    public Cliente buscaContatoPorNome(String nome) throws SQLException {
+	        ClienteDAO clienteDAo = new ClienteDAO();
+	        return clienteDAo.encontrarNome(nome);
 	    }
     
 }
