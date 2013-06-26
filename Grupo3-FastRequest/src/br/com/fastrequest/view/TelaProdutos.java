@@ -360,6 +360,12 @@ public class TelaProdutos extends javax.swing.JFrame {
             }
         });
 
+        txtDescicao1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDescicao1ActionPerformed(evt);
+            }
+        });
+
         txtPreco1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPreco1ActionPerformed(evt);
@@ -568,6 +574,10 @@ public class TelaProdutos extends javax.swing.JFrame {
     private void btnAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarProdutoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAlterarProdutoActionPerformed
+
+    private void txtDescicao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescicao1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDescicao1ActionPerformed
 
 	private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCancelarActionPerformed
 		// TODO add your handling code here:
