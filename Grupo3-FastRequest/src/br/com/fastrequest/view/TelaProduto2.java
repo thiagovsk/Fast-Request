@@ -46,7 +46,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
         cbSobremesaProduto = new javax.swing.JCheckBox();
         descricaoProduto = new javax.swing.JLabel();
         janelaProduto = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        txtDescricaoProduto = new javax.swing.JTextPane();
         btnCadastrarProduto = new javax.swing.JButton();
         btnLimparProduto = new javax.swing.JButton();
         btnTelaCadastrarFuncionario = new javax.swing.JButton();
@@ -165,7 +165,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
         descricaoProduto.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         descricaoProduto.setText("Descrição");
 
-        janelaProduto.setViewportView(jTextPane1);
+        janelaProduto.setViewportView(txtDescricaoProduto);
 
         btnCadastrarProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCadastrarProduto.setText("Cadastrar");
@@ -177,6 +177,11 @@ public class TelaProduto2 extends javax.swing.JFrame {
 
         btnLimparProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLimparProduto.setText("Limpar");
+        btnLimparProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparProdutoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout cadastroProdutoLayout = new javax.swing.GroupLayout(cadastroProduto);
         cadastroProduto.setLayout(cadastroProdutoLayout);
@@ -259,6 +264,11 @@ public class TelaProduto2 extends javax.swing.JFrame {
         btnTelaCadastrarFuncionario.setBounds(1128, 168, 228, 110);
 
         btnTelaCadastro.setText("CARDÁPIO");
+        btnTelaCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTelaCadastroActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnTelaCadastro);
         btnTelaCadastro.setBounds(1128, 296, 228, 110);
 
@@ -284,6 +294,20 @@ public class TelaProduto2 extends javax.swing.JFrame {
     private void btnTelaCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaCadastrarFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTelaCadastrarFuncionarioActionPerformed
+
+    private void btnLimparProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparProdutoActionPerformed
+// TODO add your handling code here:
+    txtNomeProduto.setText("");
+    txtPrecoProduto.setText("");
+    txtDescricaoProduto.setText("");
+    cbBebidaProduto.setSelected(false);
+    cbPratoProduto.setSelected(false);
+    cbSobremesaProduto.setSelected(false);
+    }//GEN-LAST:event_btnLimparProdutoActionPerformed
+
+    private void btnTelaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaCadastroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTelaCadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -332,7 +356,6 @@ public class TelaProduto2 extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbSobremesaProduto;
     private javax.swing.JLabel descricaoProduto;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JScrollPane janelaProduto;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel nomeProduto;
@@ -342,6 +365,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
     private javax.swing.JLabel precoProduto;
     private javax.swing.JScrollPane tabela;
     private javax.swing.JLabel tipoProduto;
+    private javax.swing.JTextPane txtDescricaoProduto;
     private javax.swing.JTextField txtNomeProduto;
     private javax.swing.JTextField txtNomeProdutoPesquisar;
     private javax.swing.JTextField txtPrecoProduto;

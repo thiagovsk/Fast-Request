@@ -20,9 +20,9 @@ public class ConexaoBD {
             Class.forName(DRIVER_CLASS);
             return DriverManager.getConnection(URL_MYSQL, USER, PASS);
         } catch (ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Conex�o com o banco falhou !");
+            JOptionPane.showMessageDialog(null, "Conexão com o banco falhou !");
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Conexao com o banco falhou");
+            JOptionPane.showMessageDialog(null, "Conexão com o banco falhou");
         }
         return null;
     }
