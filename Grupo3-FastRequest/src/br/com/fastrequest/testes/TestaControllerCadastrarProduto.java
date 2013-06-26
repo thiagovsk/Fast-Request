@@ -9,22 +9,4 @@ import br.com.fastrequest.dao.ProdutoDAO;
 import br.com.fastrequest.model.Produto;
 
 
-import static org.junit.Assert.*;
 
-import org.junit.Test;
-
-public class TestaControllerCadastrarProduto {
-	
-	
-	@Test
-	public void testaSeObjetosForamInstanciados() {
-		
-		Produto produto = new Produto();	
-		ProdutoDAO dao = new ProdutoDAO();
-		
-		assertNotNull(produto);
-		assertNotNull(dao);
-		
-		
-	}
-}

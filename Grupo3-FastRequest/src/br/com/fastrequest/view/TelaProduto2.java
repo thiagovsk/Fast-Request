@@ -6,6 +6,7 @@ package br.com.fastrequest.view;
 
 import Excecoes.PrecoNaoRecebeString;
 import br.com.fastrequest.controller.ProdutoController;
+import br.com.fastrequest.model.Produto;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -40,7 +41,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
         txtNomeProdutoPesquisar = new javax.swing.JTextField();
         txtProdutoPesquisar = new javax.swing.JButton();
         tabela = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTablePesquisar = new javax.swing.JTable();
         pesquisar = new javax.swing.JLabel();
         cadastroProduto = new javax.swing.JPanel();
         txtNomeProduto = new javax.swing.JTextField();
@@ -78,8 +79,13 @@ public class TelaProduto2 extends javax.swing.JFrame {
 
         txtProdutoPesquisar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtProdutoPesquisar.setText("Pesquisar");
+        txtProdutoPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProdutoPesquisarActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePesquisar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -95,7 +101,9 @@ public class TelaProduto2 extends javax.swing.JFrame {
                 "Nome", "Preço"
             }
         ));
-        tabela.setViewportView(jTable1);
+        tabela.setViewportView(jTablePesquisar);
+        jTablePesquisar.getColumnModel().getColumn(0).setHeaderValue("Nome");
+        jTablePesquisar.getColumnModel().getColumn(1).setHeaderValue("Preço");
 
         pesquisar.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         pesquisar.setText("PESQUISAR");
@@ -336,6 +344,16 @@ public class TelaProduto2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTelaCadastroActionPerformed
 
+    private void txtProdutoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoPesquisarActionPerformed
+        // TODO add your handling code here:
+        ProdutoController pc = new ProdutoController();
+        try {
+            Produto p = pc.buscaContatoPorNome(txtNomeProdutoPesquisar.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_txtProdutoPesquisarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -382,7 +400,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbPratoProduto;
     private javax.swing.JCheckBox cbSobremesaProduto;
     private javax.swing.JLabel descricaoProduto;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTablePesquisar;
     private javax.swing.JScrollPane janelaProduto;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel nomeProduto;
