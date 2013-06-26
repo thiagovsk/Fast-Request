@@ -264,14 +264,19 @@ public class TelaCliente extends javax.swing.JFrame {
         
         try {
             clientecontroler.salvar(textNome.getText(), textCpf.getText(), textEmail.getText(), textTelefone.getText());
-    
+             JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso!");
+            textNome.setText("");
+            textCpf.setText("");
+            textEmail.setText("");
+            textTelefone.setText("");
             
-        } catch (SQLException ex) {
-            JOptionPane.showInternalMessageDialog(this, "Cadastro salvo com sucesso!! \n");
-          
+            
+        } catch (SQLException ex) {          
             Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Conexão com o banco falhou!");
         } catch (ParseException ex) {
             Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Erro ao cadastrar o nome.");
         }
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
