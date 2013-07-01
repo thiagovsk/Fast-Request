@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import br.com.fastrequest.dao.ConexaoBD;
 import br.com.fastrequest.dao.ProdutoDAO;
 import br.com.fastrequest.model.Produto;
 public class ProdutoController {
@@ -22,13 +21,12 @@ public class ProdutoController {
 	 
 	        new ProdutoDAO().salvar(produto);
 	    }
-	  public void alterar(int  id, String nome, String descricao, double preco) throws ParseException, SQLException {
+	  public void alterar( int idProduto,String nome, String descricao, double preco) throws SQLException {
 	        Produto produto = new Produto();
 	        produto.setNome(nome);
 	        produto.setDescricao(descricao);
 	        produto.setPreco(preco);
-	        produto.setIdProduto(id);
-	 
+	        produto.setIdProduto(idProduto);
 	        new ProdutoDAO().alterar(produto);
 	    }
 	  public List<Produto> listaProdutos() {

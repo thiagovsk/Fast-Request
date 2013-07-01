@@ -1,6 +1,5 @@
 package br.com.fastrequest.model;
 
-import javax.swing.JTextField;
 
 public class Produto {
 

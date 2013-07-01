@@ -21,8 +21,9 @@ public class ProdutoDAO  extends DaoGenerica{
 	
 	}
 	public void alterar(Produto produto) throws SQLException {
-		String update = "update produto set nome = ?, descricao = ?,preco = ?";
-		update += " where idProduto = ?";
+		String update = "UPDATE produto " +
+                "SET nome = ?, descricao = ?, preco= ? " +
+                "WHERE idProduto = ?";
 		atualizar(update, produto.getIdProduto(),produto.getNome(),produto.getDescricao(),produto.getPreco());
 		
 	}
@@ -38,7 +39,7 @@ public class ProdutoDAO  extends DaoGenerica{
 	 
 	        while (rs.next()) {
 	            Produto produto = new Produto();
-	        	produto.setIdProduto(rs.getInt("id"));
+	        	produto.setIdProduto(rs.getInt("idProduto"));
 	            produto.setNome(rs.getString("nome"));
 	            produto.setDescricao(rs.getString("descricao"));
 	            produto.setPreco(rs.getDouble("preco"));
@@ -59,6 +60,7 @@ public class ProdutoDAO  extends DaoGenerica{
  
         while (rs.next()) {
             produto = new Produto();
+            produto.setIdProduto(rs.getInt("idProduto"));
             produto.setNome(rs.getString("nome"));
             produto.setDescricao(rs.getString("descricao"));
            produto.setPreco(rs.getDouble("preco"));

@@ -8,6 +8,7 @@ import br.com.fastrequest.controller.ProdutoController;
 import br.com.fastrequest.model.Produto;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -25,6 +26,8 @@ public class TelaProduto2 extends javax.swing.JFrame {
         initComponents();
     }
 
+    private List<Produto> produtoList = new ProdutoController().listaProdutos();
+    private int registro=0;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -362,8 +365,10 @@ public class TelaProduto2 extends javax.swing.JFrame {
             txtNomeProduto.setText(p.getNome());
             txtDescricaoProduto.setText(p.getDescricao());
             txtPrecoProduto.setText(String.valueOf(p.getPreco()));
+             JOptionPane.showMessageDialog(precoProduto, "Encontrado com Sucesso ");
+             txtNomeProdutoPesquisar.setText("");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(precoProduto, "ocorreu um erro tente novamente");
+            JOptionPane.showMessageDialog(precoProduto, "Conexao com banco falhou");
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
         }catch(NullPointerException e1){
             JOptionPane.showMessageDialog(precoProduto, "cadastro nao encontrado");
@@ -373,7 +378,21 @@ public class TelaProduto2 extends javax.swing.JFrame {
 
     private void btnAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarProdutoActionPerformed
        ProdutoController pc = new ProdutoController();
-       
+       int id = produtoList.get(registro).getIdProduto();
+       try {
+            
+            pc.alterar( id, txtNomeProduto.getText(), txtDescricaoProduto.getText(),Double.parseDouble(txtPrecoProduto.getText()));
+                     JOptionPane.showMessageDialog(precoProduto, "Cadastro Alterado com sucesso");
+    txtNomeProduto.setText("");
+    txtPrecoProduto.setText("");
+    txtDescricaoProduto.setText("");
+    cbBebidaProduto.setSelected(false);
+    cbPratoProduto.setSelected(false);
+    cbSobremesaProduto.setSelected(false);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(precoProduto, "Conexao com banco falhou");
+            
+        }
         
     }//GEN-LAST:event_btnAlterarProdutoActionPerformed
 
@@ -406,6 +425,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new TelaProduto2().setVisible(true);
             }
