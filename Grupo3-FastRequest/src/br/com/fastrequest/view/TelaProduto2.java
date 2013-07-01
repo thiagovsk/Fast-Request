@@ -4,7 +4,6 @@
  */
 package br.com.fastrequest.view;
 
-import Excecoes.PrecoNaoRecebeString;
 import br.com.fastrequest.controller.ProdutoController;
 import br.com.fastrequest.model.Produto;
 import java.sql.SQLException;
@@ -58,6 +57,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
         txtDescricaoProduto = new javax.swing.JTextPane();
         btnCadastrarProduto = new javax.swing.JButton();
         btnLimparProduto = new javax.swing.JButton();
+        btnAlterarProduto = new javax.swing.JButton();
         btnTelaCadastrarFuncionario = new javax.swing.JButton();
         btnTelaCadastro = new javax.swing.JToggleButton();
         btnTelaInicial = new javax.swing.JButton();
@@ -142,7 +142,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
         );
 
         getContentPane().add(pesquisaProduto);
-        pesquisaProduto.setBounds(21, 168, 521, 526);
+        pesquisaProduto.setBounds(21, 168, 517, 526);
 
         cadastroProduto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -199,6 +199,14 @@ public class TelaProduto2 extends javax.swing.JFrame {
             }
         });
 
+        btnAlterarProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnAlterarProduto.setText("Alterar");
+        btnAlterarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarProdutoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout cadastroProdutoLayout = new javax.swing.GroupLayout(cadastroProduto);
         cadastroProduto.setLayout(cadastroProdutoLayout);
         cadastroProdutoLayout.setHorizontalGroup(
@@ -221,19 +229,20 @@ public class TelaProduto2 extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addGroup(cadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(descricaoProduto)
-                            .addGroup(cadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(cadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(cadastroProdutoLayout.createSequentialGroup()
+                                    .addComponent(btnAlterarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(26, 26, 26)
                                     .addComponent(btnLimparProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(cadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(cadastroProdutoLayout.createSequentialGroup()
-                                        .addComponent(cbPratoProduto)
-                                        .addGap(100, 100, 100)
-                                        .addComponent(cbSobremesaProduto)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbBebidaProduto))
-                                    .addComponent(janelaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addGroup(cadastroProdutoLayout.createSequentialGroup()
+                                    .addComponent(cbPratoProduto)
+                                    .addGap(100, 100, 100)
+                                    .addComponent(cbSobremesaProduto)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbBebidaProduto))
+                                .addComponent(janelaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         cadastroProdutoLayout.setVerticalGroup(
@@ -263,12 +272,13 @@ public class TelaProduto2 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(cadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimparProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAlterarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63))
         );
 
         getContentPane().add(cadastroProduto);
-        cadastroProduto.setBounds(569, 168, 528, 529);
+        cadastroProduto.setBounds(569, 168, 528, 526);
 
         btnTelaCadastrarFuncionario.setText("CADASTRAR FUNCIONÁRIO");
         btnTelaCadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -349,10 +359,23 @@ public class TelaProduto2 extends javax.swing.JFrame {
         ProdutoController pc = new ProdutoController();
         try {
             Produto p = pc.buscaContatoPorNome(txtNomeProdutoPesquisar.getText());
+            txtNomeProduto.setText(p.getNome());
+            txtDescricaoProduto.setText(p.getDescricao());
+            txtPrecoProduto.setText(String.valueOf(p.getPreco()));
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(precoProduto, "ocorreu um erro tente novamente");
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(NullPointerException e1){
+            JOptionPane.showMessageDialog(precoProduto, "cadastro nao encontrado");
+
         }
     }//GEN-LAST:event_txtProdutoPesquisarActionPerformed
+
+    private void btnAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarProdutoActionPerformed
+       ProdutoController pc = new ProdutoController();
+       
+        
+    }//GEN-LAST:event_btnAlterarProdutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -389,6 +412,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterarProduto;
     private javax.swing.JButton btnCadastrarProduto;
     private javax.swing.JButton btnLimparProduto;
     private javax.swing.JButton btnTelaCadastrarFuncionario;

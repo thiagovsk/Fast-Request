@@ -59,7 +59,6 @@ public class ProdutoDAO  extends DaoGenerica{
  
         while (rs.next()) {
             produto = new Produto();
-            produto.setIdProduto(rs.getInt("id"));
             produto.setNome(rs.getString("nome"));
             produto.setDescricao(rs.getString("descricao"));
            produto.setPreco(rs.getDouble("preco"));
