@@ -8,13 +8,13 @@ package Excecoes;
  *
  * @author Antonio
  */
-public class ValidarCpf {
+public class ValidarCpfException extends Exception {
     
-       public ValidarCpf(){
+       public ValidarCpfException(){
         super();
     }
      
-     public ValidarCpf(String informacao){
+     public ValidarCpfException(String informacao){
         super();
     }
      
