@@ -44,6 +44,28 @@ public class Produto {
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
+	
+	public boolean validanome(String nome){
+		
+		boolean validaNome=true;
+		if(nome.length() >100){
+			validaNome=false;
+			return validaNome;
+		
+		}
+		return validaNome;
+	}
+	
+	public boolean validaDescricao(String nome){
+		
+		boolean validaDescricao=true;
+		if(nome.length() >100){
+			validaDescricao=false;
+			return validaDescricao;
+		
+		}
+		return validaDescricao;
+	}
 
 	@Override
 	public String toString() {
