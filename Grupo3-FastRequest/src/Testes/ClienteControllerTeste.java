@@ -20,18 +20,12 @@ public class ClienteControllerTeste {
 
 	@Before
 	public void setUp() throws Exception {
-	
-		
-		
 		
 	}
-
 	
 	@Test
 	public void testarInstancia(){
 		assertNotNull(controler);
 	}
-
-
 
 }

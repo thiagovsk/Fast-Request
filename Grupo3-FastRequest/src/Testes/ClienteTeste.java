@@ -46,11 +46,12 @@ public class ClienteTeste {
 			
 	}
 	@Test
-	public void validarNome(){
-		cliente.setNome("AUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIU");	
-		assertTrue(cliente.validanome(cliente.getNome()));	
+	public void testarCpf(){
+		
 	}
-	
-
+	public final void validarNome() {
+		cliente.setNome("AUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIU");
+		assertTrue(cliente.validanome(cliente.getNome()));
+	}
 	
 }
