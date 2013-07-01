@@ -1,5 +1,7 @@
 package br.com.fastrequest.model;
 
+import javax.swing.JOptionPane;
+
 public class Cliente extends Pessoa{
 	
 	
@@ -55,6 +57,16 @@ public class Cliente extends Pessoa{
 		this.telefone = telefone;
 	}
 
+	public boolean validanome(String nome){
+		
+		boolean validaNome=true;
+		if(nome.length() >100){
+			validaNome=false;
+			return validaNome;
+		
+		}
+		return validaNome;
+	}
 
 	@Override
 	public String toString() {
@@ -71,5 +83,6 @@ public class Cliente extends Pessoa{
 		builder.append("------------------------");
 		return builder.toString();
 	}
+
 
 }
