@@ -142,7 +142,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
         );
 
         getContentPane().add(pesquisaProduto);
-        pesquisaProduto.setBounds(21, 168, 517, 526);
+        pesquisaProduto.setBounds(21, 168, 521, 526);
 
         cadastroProduto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -215,8 +215,8 @@ public class TelaProduto2 extends javax.swing.JFrame {
                                 .addComponent(precoProduto)))
                         .addGap(18, 18, 18)
                         .addGroup(cadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPrecoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtPrecoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(cadastroProdutoLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addGroup(cadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,7 +268,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
         );
 
         getContentPane().add(cadastroProduto);
-        cadastroProduto.setBounds(569, 168, 528, 526);
+        cadastroProduto.setBounds(569, 168, 528, 529);
 
         btnTelaCadastrarFuncionario.setText("CADASTRAR FUNCIONÁRIO");
         btnTelaCadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
