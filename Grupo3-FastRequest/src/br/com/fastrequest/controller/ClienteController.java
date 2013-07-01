@@ -11,7 +11,6 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import br.com.fastrequest.dao.ConexaoBD;
 import br.com.fastrequest.dao.ClienteDAO;
 import br.com.fastrequest.model.Cliente;
 /**
