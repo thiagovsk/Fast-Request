@@ -41,6 +41,7 @@ public class ProdutoTeste {
 		assertNotNull(produto.getIdProduto());		
 	}
 	
+	//ALTERAR DAQUI PRA BAIXO DE ACORDO COM A MODELO
 	public final void validarNome() {
 		produto.setNome("AUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIU");
 		assertTrue(produto.validanome(produto.getNome()));

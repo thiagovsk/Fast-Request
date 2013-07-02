@@ -6,52 +6,50 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.fastrequest.model.Cliente;
+import br.com.fastrequest.model.ValidaCpf;
+import br.com.fastrequest.model.ValidaEmail;
 
 public class ClienteTeste {
+	
+	Cliente cliente, client;
+	ValidaCpf vp;
+	ValidaEmail ve;
 
-	private Cliente cliente;
 	@Before
 	public void setUp() throws Exception {
 		cliente = new Cliente();
-		cliente.setNome("teste");
-		cliente.setCpf("000");
-		cliente.setEmail("a@a");
-		cliente.setId(1);
-		cliente.setTelefone("0000");
+		cliente.setCpf("03638061132");
+		cliente.setNome("EUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIOR");
+		cliente.setEmail("_antonio_@hotmail.com");
+		
+		client = new Cliente();
+		client.setNome("EUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIORASD");
+		client.setEmail("antoniocoj");
+		
+
 	}
 	
 	@Test
-	public void testarInstancia() {
-
-		assertNotNull(cliente);
-		
-	}
-	@Test
-	public void testarTelefone(){
-		assertNotNull(cliente.getTelefone());	
-	}
-	@Test
-	public void testarNome(){
-		assertNotNull(cliente.getNome());
-			
-	}
-	@Test
-	public void testarEmail(){
-		assertNotNull(cliente.getEmail());
-			
-	}
-	@Test
-	public void testarID(){
-		assertNotNull(cliente.getId());
-			
-	}
-	@Test
-	public void testarCpf(){
-		
-	}
-	public final void validarNome() {
-		cliente.setNome("AUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIU");
+	public void testNomeCerto() {
 		assertTrue(cliente.validanome(cliente.getNome()));
 	}
 	
+	@Test
+	public void testNomeErrado() {
+		assertFalse(client.validanome(client.getNome()));
+	}
+
+	@Test
+	public void testCpf() {
+		assertTrue(vp.validarCpf(cliente.getCpf()));
+	}
+	@Test
+	public void testEmailCerto() {
+		assertTrue(ve.validaEmail(cliente.getEmail()));
+	}
+	@Test
+	public void testEmailErrado() {
+		assertFalse(ve.validaEmail(client.getEmail()));
+	}
+
 }

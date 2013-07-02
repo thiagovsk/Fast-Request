@@ -2,6 +2,8 @@ package br.com.fastrequest.model;
 
 import javax.swing.JOptionPane;
 
+
+
 public class Cliente extends Pessoa{
 	
 	
@@ -59,13 +61,10 @@ public class Cliente extends Pessoa{
 
 	public boolean validanome(String nome){
 		
-		boolean validaNome=true;
-		if(nome.length() >100){
-			validaNome=false;
-			return validaNome;
-		
+		if(nome.length() >45){
+			return false;
 		}
-		return validaNome;
+		return true;
 	}
 
 	@Override

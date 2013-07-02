@@ -45,25 +45,21 @@ public class Produto {
 	}
 	
 	public boolean validanome(String nome){
-		
-		boolean validaNome=true;
-		if(nome.length() >100){
-			validaNome=false;
-			return validaNome;
+
+		if(nome.length() >45){
+			return false;
 		
 		}
-		return validaNome;
+		return true;
 	}
 	
 	public boolean validaDescricao(String nome){
-		
-		boolean validaDescricao=true;
-		if(nome.length() >100){
-			validaDescricao=false;
-			return validaDescricao;
+
+		if(nome.length() >200){
+			return false;
 		
 		}
-		return validaDescricao;
+		return true;
 	}
 
 	@Override
