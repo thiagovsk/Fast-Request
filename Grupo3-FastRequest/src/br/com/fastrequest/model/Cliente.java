@@ -1,29 +1,27 @@
 package br.com.fastrequest.model;
 
-import javax.swing.JOptionPane;
-
-
 
 public class Cliente extends Pessoa{
 	
-	
+    
 	private int id;
 	private String nome;
-	private String cpf;
-	private String email;
-	private String telefone;
+	private String email;	
 	
 	public Cliente() {
-		
+		super();
+                
 	}
 	
 	
 	public Cliente(int id, String nome, String cpf, String email,
 			String telefone) {
+            
+            super(telefone, cpf);
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
-		this.telefone=telefone;
+                
 	}
 
 
@@ -40,24 +38,13 @@ public class Cliente extends Pessoa{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getCpf() {
-		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getTelefone() {
-		return telefone;
-	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
+	
 
 	public boolean validanome(String nome){
 		
@@ -69,18 +56,21 @@ public class Cliente extends Pessoa{
 
 	@Override
 	public String toString() {
+            
 		StringBuilder builder = new StringBuilder();
 		System.out.println("------------------------");
 		builder.append("Nome = ");
 		builder.append(nome);
 		builder.append("Cpf =");
-		builder.append(cpf);
+		builder.append(getCpf());
 		builder.append("Email = ");
 		builder.append(email);
 		builder.append(" Telefone =");
-		builder.append(telefone);
+		builder.append(getTelefone());
 		builder.append("------------------------");
 		return builder.toString();
+                
+                
 	}
 
 

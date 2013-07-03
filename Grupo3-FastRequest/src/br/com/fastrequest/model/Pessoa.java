@@ -1,13 +1,23 @@
 package br.com.fastrequest.model;
 
+
 public class Pessoa {
 	
+    
 	private String telefone;
 	private String cpf;
 	
 	public Pessoa() {
-		// TODO Auto-generated constructor stub
+		super();
+                
 	}
+        
+        public Pessoa(String telefone, String cpf){
+        
+            this.telefone = telefone;
+            this.cpf = cpf;
+        
+        }
 	
 	public String getTelefone() {
 		return telefone;
