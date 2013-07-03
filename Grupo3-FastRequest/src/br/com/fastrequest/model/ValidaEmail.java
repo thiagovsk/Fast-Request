@@ -7,9 +7,11 @@ public class ValidaEmail {
 
 	public static boolean validaEmail(String email){
 		
-		//Metodo valida�ao de email
+		
+
 		Pattern p; 
             p = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$");
+
 		Matcher m = p.matcher(email);
 		if(m.find())
 			return true;
