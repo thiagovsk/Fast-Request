@@ -134,7 +134,7 @@
           <SubComponents>
             <Component class="javax.swing.JTable" name="tabelaProdutos">
               <Properties>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="atualizarTabela();">
                   <Connection code="new ProdutoTableModel(produtoList)&#xa;    " type="code"/>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -147,7 +147,6 @@
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable()"/>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="atualizarTabela();"/>
               </AuxValues>
             </Component>
           </SubComponents>
