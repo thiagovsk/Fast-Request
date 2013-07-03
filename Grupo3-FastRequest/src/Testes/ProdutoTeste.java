@@ -24,22 +24,7 @@ public class ProdutoTeste {
 		assertNotNull(produto); // TODO
 	}
 
-	@Test
-	public final void testarNome() {
-		assertNotNull(produto.getNome()); // TODO
-	}
 
-	@Test
-	public final void testarDescricao() {
-		assertNotNull(produto.getDescricao()); // TODO
-	}
-	
-	public final void testarPreco() {
-		assertNotNull(produto.getPreco());// TODO
-	}
-	public void testarID(){
-		assertNotNull(produto.getIdProduto());		
-	}
 	
 	//ALTERAR DAQUI PRA BAIXO DE ACORDO COM A MODELO
 	public final void validarNome() {

@@ -38,8 +38,8 @@ public class ProdutoController {
 	        }
 	        return null;
 	    }
-	  public void excluir(String nome) throws SQLException {
-	        new ProdutoDAO().excluir(nome);
+	  public void excluir(int id) throws SQLException {
+	        new ProdutoDAO().excluir(id);
 	    }
 	 
 	    public Produto buscaContatoPorNome(String nome) throws SQLException {
