@@ -8,11 +8,11 @@ public class Cliente extends Pessoa{
 	private String nome;
 	private String email;	
 	
+        
 	public Cliente() {
 		super();
                 
 	}
-	
 	
 	public Cliente(int id, String nome, String cpf, String email,
 			String telefone) {
@@ -25,35 +25,56 @@ public class Cliente extends Pessoa{
 	}
 
 
-	
 	public int getId() {
 		return id;
 	}
+        
 	public void setId(int id) {
 		this.id = id;
 	}
+        
 	public String getNome() {
 		return nome;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+        
+	public void setNome(String nome) throws IllegalArgumentException {
+    
+            if (nome != null && !nome.equals("")) {
+                this.nome = nome;
+                
+            } else {
+                throw new IllegalArgumentException("Pessoa não pode ter nome vazio ou nulo.");
+                
+            }
+        
+        }
+        
 	public String getEmail() {
 		return email;
 	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+        
+	public void setEmail(String email) throws IllegalArgumentException {
+    
+            if (email != null && !email.equals("")) {
+                this.email = email;
+                
+            } else {
+                throw new IllegalArgumentException("Pessoa não pode ter email vazio ou nulo.");
+                
+            }
+        
+        }
 	
 
 	public boolean validanome(String nome){
 		
-		if(nome.length() >45){
+		if(nome.length() > 45){
 			return false;
 		}
 		return true;
 	}
 
+        
 	@Override
 	public String toString() {
             

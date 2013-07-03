@@ -23,6 +23,7 @@ public class ClienteTeste {
 		cliente.setEmail("_antonio_@hotmail.com");
 		
 		client = new Cliente();
+                client.setCpf("11122233344");
 		client.setNome("EUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIORASD");
 		client.setEmail("antoniocoj");
 		
@@ -40,8 +41,13 @@ public class ClienteTeste {
 	}
 
 	@Test
-	public void testCpf() {
+	public void testCpfCerto() {
 		assertTrue(vp.validarCpf(cliente.getCpf()));
+	}
+        
+        @Test
+	public void testCpfErrado() {
+		assertFalse(vp.validarCpf(client.getCpf()));
 	}
 	@Test
 	public void testEmailCerto() {

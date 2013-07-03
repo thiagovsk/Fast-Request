@@ -24,15 +24,26 @@ public class Funcionario extends Pessoa{
 	public int getId_funcionario() {
 		return id_funcionario;
 	}
+        
 	public void setId_funcionario(int id_funcionario) {
 		this.id_funcionario = id_funcionario;
 	}
+        
 	public String getRg() {
 		return rg;
 	}
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
+        
+	public void setRg(String rg) throws IllegalArgumentException {
+    
+            if (rg != null && !rg.equals("")) {
+                this.rg = rg;
+                
+            } else {
+                throw new IllegalArgumentException("Pessoa não pode ter rg vazio ou nulo.");
+                
+            }
+        
+        }
 	
 
 	@Override
