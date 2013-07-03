@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import tabelas.ProdutoTableModel;
 
 /**
  *
@@ -42,9 +43,10 @@ public class TelaProduto2 extends javax.swing.JFrame {
         nomeProdutoPesquisar = new javax.swing.JLabel();
         txtNomeProdutoPesquisar = new javax.swing.JTextField();
         txtProdutoPesquisar = new javax.swing.JButton();
-        tabela = new javax.swing.JScrollPane();
-        jTablePesquisar = new javax.swing.JTable();
         pesquisar = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaProdutos = new javax.swing.JTable();
+        btnExcluirProduto = new javax.swing.JButton();
         cadastroProduto = new javax.swing.JPanel();
         txtNomeProduto = new javax.swing.JTextField();
         cadastrarProduto = new javax.swing.JLabel();
@@ -88,28 +90,23 @@ public class TelaProduto2 extends javax.swing.JFrame {
             }
         });
 
-        jTablePesquisar.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Nome", "Preço"
-            }
-        ));
-        tabela.setViewportView(jTablePesquisar);
-        jTablePesquisar.getColumnModel().getColumn(0).setHeaderValue("Nome");
-        jTablePesquisar.getColumnModel().getColumn(1).setHeaderValue("Preço");
-
         pesquisar.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         pesquisar.setText("PESQUISAR");
+
+        tabelaProdutos.setModel(new ProdutoTableModel(produtoList)
+        );
+        atualizarTabela();
+        tabelaProdutos.setColumnSelectionAllowed(true);
+        jScrollPane1.setViewportView(tabelaProdutos);
+        tabelaProdutos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        btnExcluirProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnExcluirProduto.setText("Excluir");
+        btnExcluirProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirProdutoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pesquisaProdutoLayout = new javax.swing.GroupLayout(pesquisaProduto);
         pesquisaProduto.setLayout(pesquisaProdutoLayout);
@@ -117,17 +114,18 @@ public class TelaProduto2 extends javax.swing.JFrame {
             pesquisaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pesquisaProdutoLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(pesquisaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pesquisaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pesquisaProdutoLayout.createSequentialGroup()
+                .addGroup(pesquisaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pesquisaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pesquisaProdutoLayout.createSequentialGroup()
                             .addComponent(nomeProdutoPesquisar)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(txtNomeProdutoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(31, 31, 31)
-                            .addComponent(txtProdutoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(tabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                            .addComponent(txtProdutoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         pesquisaProdutoLayout.setVerticalGroup(
             pesquisaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,9 +137,11 @@ public class TelaProduto2 extends javax.swing.JFrame {
                     .addComponent(nomeProdutoPesquisar)
                     .addComponent(txtNomeProdutoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtProdutoPesquisar))
-                .addGap(38, 38, 38)
-                .addComponent(tabela, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         getContentPane().add(pesquisaProduto);
@@ -334,6 +334,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
             
         } catch (SQLException ex) {
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
+
             JOptionPane.showMessageDialog(this, "Conexão com o banco falhou!");
             
         } catch (ParseException ex) {
@@ -405,7 +406,25 @@ public class TelaProduto2 extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnAlterarProdutoActionPerformed
-
+    @SuppressWarnings("UnnecessaryReturnStatement")
+ private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+       ProdutoController pc = new ProdutoController();
+       int id = produtoList.get(tabelaProdutos.getSelectedRow()).getIdProduto();
+       
+       int confirm = JOptionPane.showConfirmDialog(this, "Confirmam exclusao ?", "Excluir Produto",JOptionPane.YES_NO_OPTION);
+       
+       if(confirm!=0){
+       return;
+       }
+        try {
+            pc.excluir(id);
+            JOptionPane.showMessageDialog(this, "Cadastro excluido com sucesso");
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(this, "problema com o banco de dados");
+            Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }        
     /**
      * @param args the command line arguments
      */
@@ -444,6 +463,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarProduto;
     private javax.swing.JButton btnCadastrarProduto;
+    private javax.swing.JButton btnExcluirProduto;
     private javax.swing.JButton btnLimparProduto;
     private javax.swing.JButton btnTelaCadastrarFuncionario;
     private javax.swing.JToggleButton btnTelaCadastro;
@@ -454,7 +474,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbPratoProduto;
     private javax.swing.JCheckBox cbSobremesaProduto;
     private javax.swing.JLabel descricaoProduto;
-    private javax.swing.JTable jTablePesquisar;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane janelaProduto;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel nomeProduto;
@@ -462,7 +482,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
     private javax.swing.JPanel pesquisaProduto;
     private javax.swing.JLabel pesquisar;
     private javax.swing.JLabel precoProduto;
-    private javax.swing.JScrollPane tabela;
+    private javax.swing.JTable tabelaProdutos;
     private javax.swing.JLabel tipoProduto;
     private javax.swing.JTextPane txtDescricaoProduto;
     private javax.swing.JTextField txtNomeProduto;
@@ -470,4 +490,10 @@ public class TelaProduto2 extends javax.swing.JFrame {
     private javax.swing.JTextField txtPrecoProduto;
     private javax.swing.JButton txtProdutoPesquisar;
     // End of variables declaration//GEN-END:variables
+    private void atualizarTabela(){
+        if(produtoList != null){
+        
+        tabelaProdutos.setModel(new ProdutoTableModel(produtoList));
+        }
+    }
 }

@@ -27,9 +27,9 @@ public class ProdutoDAO  extends DaoGenerica{
 		atualizar(update, produto.getIdProduto(),produto.getNome(),produto.getDescricao(),produto.getPreco());
 		
 	}
-	public void excluir(String nome) throws SQLException{
-		String delete ="DELETE FROM produtos WHERE nome = ?";
-		deletar(delete,nome);
+	public void excluir(int id) throws SQLException{
+		String delete ="DELETE FROM produto WHERE idProduto = ?";
+		deletar(delete,id);
 	}
 	public List<Produto> encontrarProduto() throws SQLException{
 		List<Produto> produtos = new ArrayList<Produto>();

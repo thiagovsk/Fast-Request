@@ -12,12 +12,12 @@ public class Funcionario extends Pessoa{
 	}
 	
 	public Funcionario(int id_funcionario, String cpf, String rg,
-			String telefone) throws IllegalArgumentException{
+			String telefone) {
             
             super(telefone, cpf);
             
 		this.id_funcionario = id_funcionario;
-		this.setRg (rg);
+		this.rg = rg;
 		
 	}
 
