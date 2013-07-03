@@ -15,12 +15,12 @@ public class Cliente extends Pessoa{
 	}
 	
 	public Cliente(int id, String nome, String cpf, String email,
-			String telefone) {
+			String telefone) throws IllegalArgumentException{
             
             super(telefone, cpf);
-		this.id = id;
-		this.nome = nome;
-		this.email = email;
+		this.id= id;
+		this.setNome (nome);
+		this.setEmail (email);
                 
 	}
 

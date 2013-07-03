@@ -319,24 +319,34 @@ public class TelaProduto2 extends javax.swing.JFrame {
     private void btnCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarProdutoActionPerformed
         // TODO add your handling code here:
         ProdutoController pc = new ProdutoController();
+        
         try {
+            
             pc.salvar(txtNomeProduto.getText(), txtDescricaoProduto.getText(), Double.parseDouble(txtPrecoProduto.getText()));
             JOptionPane.showMessageDialog(this, "Produto salvo com sucesso!");
+            
             txtNomeProduto.setText("");
             txtPrecoProduto.setText("");
             txtDescricaoProduto.setText("");
             cbBebidaProduto.setSelected(false);
             cbPratoProduto.setSelected(false);
             cbSobremesaProduto.setSelected(false);
+            
         } catch (SQLException ex) {
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "Conexão com o banco falhou!");
+            
         } catch (ParseException ex) {
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "Erro ao cadastrar o nome.");
-        }catch(NumberFormatException e1){
-         JOptionPane.showMessageDialog(null, "Favor nao inserir letras no campo Preco");
-    }
+            
+        } catch(NumberFormatException e1){
+            JOptionPane.showMessageDialog(null, "Favor nao inserir letras no campo Preco");
+            
+        } catch (IllegalArgumentException e2){
+            JOptionPane.showMessageDialog(this, "O seguinte erro ocorreu durante o cadastramento do cliente: " + e2.getMessage());
+        }
+        
     }//GEN-LAST:event_btnCadastrarProdutoActionPerformed
 
     private void btnTelaCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaCadastrarFuncionarioActionPerformed

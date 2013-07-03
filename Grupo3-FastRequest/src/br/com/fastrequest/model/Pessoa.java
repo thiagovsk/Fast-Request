@@ -12,10 +12,10 @@ public class Pessoa {
                 
 	}
         
-        public Pessoa(String telefone, String cpf){
+        public Pessoa(String telefone, String cpf) throws IllegalArgumentException{
         
-            this.telefone = telefone;
-            this.cpf = cpf;
+            this.setTelefone (telefone);
+            this.setCpf (cpf) ;
         
         }
 	

@@ -13,11 +13,11 @@ public class Produto {
 		
 	}
 	
-	public Produto(int idProduto, String nome, String descricao, double preco) {
+	public Produto(int idProduto, String nome, String descricao, double preco) throws IllegalArgumentException{
 		this.idProduto = idProduto;
-		this.nome = nome;
-		this.descricao = descricao;
-		this.preco = preco;
+		this.setNome (nome);
+		this.setDescricao (descricao);
+		this.setPreco (preco);
 	}
         
 	public int getIdProduto() {
