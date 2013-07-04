@@ -324,6 +324,11 @@ public class TelaCliente extends javax.swing.JFrame {
         } catch (ValidarEmailException ex) {
             JOptionPane.showMessageDialog(this, "Email Inválido.");
             
+        }catch(NullPointerException e1){
+        	JOptionPane.showMessageDialog(this, "Favor preencher todos os campos");
+        }catch(IndexOutOfBoundsException e){
+        	JOptionPane.showMessageDialog(this, "Favor preencher todos os campos");
+        	
         }
         
         
@@ -366,6 +371,7 @@ public class TelaCliente extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new TelaCliente().setVisible(true);
             }
