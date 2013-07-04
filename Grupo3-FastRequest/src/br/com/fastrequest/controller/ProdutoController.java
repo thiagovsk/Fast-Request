@@ -21,7 +21,7 @@ public class ProdutoController {
 	 
 	        new ProdutoDAO().salvar(produto);
 	    }
-	  public void alterar( int idProduto,String nome, String descricao, double preco) throws SQLException {
+	  public void alterar( int idProduto,String nome, String descricao, double preco) throws SQLException , IndexOutOfBoundsException{
 	        Produto produto = new Produto();
 	        produto.setNome(nome);
 	        produto.setDescricao(descricao);

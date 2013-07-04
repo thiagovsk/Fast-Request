@@ -393,10 +393,12 @@ public class TelaProduto2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtProdutoPesquisarActionPerformed
 
     private void btnAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarProdutoActionPerformed
-       ProdutoController pc = new ProdutoController();
-       int id = produtoList.get(registro).getIdProduto();
+     
        try {
-            
+             ProdutoController pc = new ProdutoController();
+       int id = produtoList.get(registro).getIdProduto();
+       
+           
             pc.alterar( id, txtNomeProduto.getText(), txtDescricaoProduto.getText(),Double.parseDouble(txtPrecoProduto.getText()));
                      JOptionPane.showMessageDialog(precoProduto, "Cadastro Alterado com sucesso");
     txtNomeProduto.setText("");
@@ -419,6 +421,8 @@ public class TelaProduto2 extends javax.swing.JFrame {
         }catch(NullPointerException e1){
             JOptionPane.showMessageDialog(this, "Por favor preencha todos os campos" );
 
+        }catch(IndexOutOfBoundsException e){
+        JOptionPane.showMessageDialog(this, "Nao existem cadastros para serem alterados");
         }
         
     }//GEN-LAST:event_btnAlterarProdutoActionPerformed
