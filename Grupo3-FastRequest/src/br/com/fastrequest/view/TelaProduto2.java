@@ -68,6 +68,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
         btnTelaInicial = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1366, 761));
         getContentPane().setLayout(null);
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/fastrequest/imagens/logo2.jpg")));
@@ -84,6 +85,8 @@ public class TelaProduto2 extends javax.swing.JFrame {
 
         txtProdutoPesquisar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtProdutoPesquisar.setText("Pesquisar");
+        txtProdutoPesquisar.setMaximumSize(new java.awt.Dimension(1366, 761));
+        txtProdutoPesquisar.setMinimumSize(new java.awt.Dimension(1366, 761));
         txtProdutoPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtProdutoPesquisarActionPerformed(evt);
@@ -91,7 +94,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
         });
 
         pesquisar.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-        pesquisar.setText("PESQUISAR");
+        pesquisar.setText("PESQUISAR PRODUTO");
 
         ProdutoTableModel produto = new ProdutoTableModel(produtoList);
         tabelaProdutos.setModel(produto);
@@ -118,13 +121,13 @@ public class TelaProduto2 extends javax.swing.JFrame {
                     .addComponent(btnExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pesquisaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(pesquisaProdutoLayout.createSequentialGroup()
                             .addComponent(nomeProdutoPesquisar)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(txtNomeProdutoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(31, 31, 31)
-                            .addComponent(txtProdutoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtProdutoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         pesquisaProdutoLayout.setVerticalGroup(
@@ -136,7 +139,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
                 .addGroup(pesquisaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomeProdutoPesquisar)
                     .addComponent(txtNomeProdutoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtProdutoPesquisar))
+                    .addComponent(txtProdutoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -150,7 +153,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
         cadastroProduto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         cadastrarProduto.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-        cadastrarProduto.setText("CADASTRAR");
+        cadastrarProduto.setText("CADASTRAR PRODUTO");
 
         nomeProduto.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         nomeProduto.setText("Nome");
@@ -217,7 +220,6 @@ public class TelaProduto2 extends javax.swing.JFrame {
             .addGroup(cadastroProdutoLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(cadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cadastrarProduto)
                     .addGroup(cadastroProdutoLayout.createSequentialGroup()
                         .addGroup(cadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(nomeProduto)
@@ -245,7 +247,10 @@ public class TelaProduto2 extends javax.swing.JFrame {
                                     .addComponent(cbSobremesaProduto)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cbBebidaProduto))
-                                .addComponent(janelaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(janelaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastroProdutoLayout.createSequentialGroup()
+                        .addComponent(cadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(165, 165, 165)))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         cadastroProdutoLayout.setVerticalGroup(
@@ -342,10 +347,11 @@ public class TelaProduto2 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Erro ao cadastrar o nome.");
             
         } catch(NumberFormatException e1){
-            JOptionPane.showMessageDialog(null, "Favor preencha os campos corretamente \n Nao é permitido campos em branco ou Letra no campo perço");
+            JOptionPane.showMessageDialog(null, "Favor preencha os campos corretamente \n Nao é permitido campos em branco, letras ou virgulas no campo preço");
             
         } catch (IllegalArgumentException e2){
             JOptionPane.showMessageDialog(this, "Favor preeencher todos os campos");
+       
         }catch(NullPointerException e1){
             JOptionPane.showMessageDialog(this, "Por favor preencha todos os campos" );
 

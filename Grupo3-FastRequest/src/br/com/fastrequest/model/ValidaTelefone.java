@@ -4,7 +4,7 @@ public class ValidaTelefone {
 	
 	public static boolean validaTelefone(String telefone){
 		
-		if(telefone.length() == 8 || telefone.length() == 9)
+		if( telefone.length() < 10 && telefone.length() >7)
 			return true;
 
 		

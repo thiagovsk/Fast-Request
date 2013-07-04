@@ -23,13 +23,13 @@ public class ClienteTeste {
 		cliente.setCpf("03638061132");
 		cliente.setNome("EUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIOR");
 		cliente.setEmail("_antonio_@hotmail.com");
-		cliente.setTelefone("6184574904");
+		cliente.setTelefone("84574904");
 		
 		client = new Cliente();
         client.setCpf("11122233344");
 		client.setNome("EUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIORASD");
 		client.setEmail("antoniocoj");
-		client.setTelefone("618457490404");
+		client.setTelefone("8457490404");
 		
 
 	}
