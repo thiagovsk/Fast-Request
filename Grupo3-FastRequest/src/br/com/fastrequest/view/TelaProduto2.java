@@ -331,7 +331,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
             cbBebidaProduto.setSelected(false);
             cbPratoProduto.setSelected(false);
             cbSobremesaProduto.setSelected(false);
-            
+            atualizarTabela();
         } catch (SQLException ex) {
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
 
@@ -342,10 +342,13 @@ public class TelaProduto2 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Erro ao cadastrar o nome.");
             
         } catch(NumberFormatException e1){
-            JOptionPane.showMessageDialog(null, "Favor nao inserir letras no campo Preco");
+            JOptionPane.showMessageDialog(null, "Favor preencha os campos corretamente \n Nao é permitido campos em branco ou Letra no campo perço");
             
         } catch (IllegalArgumentException e2){
-            JOptionPane.showMessageDialog(this, "O seguinte erro ocorreu durante o cadastramento do cliente: " + e2.getMessage());
+            JOptionPane.showMessageDialog(this, "Favor preeencher todos os campos");
+        }catch(NullPointerException e1){
+            JOptionPane.showMessageDialog(this, "Por favor preencha todos os campos" );
+
         }
         
     }//GEN-LAST:event_btnCadastrarProdutoActionPerformed
@@ -362,6 +365,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
     cbBebidaProduto.setSelected(false);
     cbPratoProduto.setSelected(false);
     cbSobremesaProduto.setSelected(false);
+    atualizarTabela();
     }//GEN-LAST:event_btnLimparProdutoActionPerformed
 
     private void btnTelaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaCadastroActionPerformed
@@ -378,6 +382,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
             txtPrecoProduto.setText(String.valueOf(p.getPreco()));
              JOptionPane.showMessageDialog(precoProduto, "Encontrado com Sucesso ");
              txtNomeProdutoPesquisar.setText("");
+             atualizarTabela();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(precoProduto, "Conexao com banco falhou");
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
@@ -400,9 +405,20 @@ public class TelaProduto2 extends javax.swing.JFrame {
     cbBebidaProduto.setSelected(false);
     cbPratoProduto.setSelected(false);
     cbSobremesaProduto.setSelected(false);
+    atualizarTabela();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(precoProduto, "Conexao com banco falhou");
+            Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
+
+            JOptionPane.showMessageDialog(this, "Conexão com o banco falhou!");
             
+        } catch(NumberFormatException e1){
+            JOptionPane.showMessageDialog(null, "Favor preencha os campos corretamente \n Nao é permitido campos em branco ou Letra no campo perço");
+            
+        } catch (IllegalArgumentException e2){
+            JOptionPane.showMessageDialog(this, "Favor preeencher todos os campos");
+        }catch(NullPointerException e1){
+            JOptionPane.showMessageDialog(this, "Por favor preencha todos os campos" );
+
         }
         
     }//GEN-LAST:event_btnAlterarProdutoActionPerformed
@@ -418,6 +434,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
         try {
             pc.excluir(id);
             JOptionPane.showMessageDialog(this, "Cadastro excluido com sucesso");
+            atualizarTabela();
         } catch (SQLException ex) {
              JOptionPane.showMessageDialog(this, "problema com o banco de dados");
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
@@ -490,7 +507,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
     private javax.swing.JButton txtProdutoPesquisar;
     // End of variables declaration//GEN-END:variables
     private void atualizarTabela(){
-        
+        produtoList = new ProdutoController().listaProdutos();
         ProdutoTableModel produto = new ProdutoTableModel(produtoList);
         tabelaProdutos.setModel(produto);
         produto.fireTableDataChanged();
