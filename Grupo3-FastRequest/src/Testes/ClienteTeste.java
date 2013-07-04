@@ -8,12 +8,14 @@ import org.junit.Test;
 import br.com.fastrequest.model.Cliente;
 import br.com.fastrequest.model.ValidaCpf;
 import br.com.fastrequest.model.ValidaEmail;
+import br.com.fastrequest.model.ValidaTelefone;
 
 public class ClienteTeste {
 	
 	Cliente cliente, client;
 	ValidaCpf vp;
 	ValidaEmail ve;
+	ValidaTelefone vt;
 
 	@Before
 	public void setUp() throws Exception {
@@ -21,11 +23,13 @@ public class ClienteTeste {
 		cliente.setCpf("03638061132");
 		cliente.setNome("EUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIOR");
 		cliente.setEmail("_antonio_@hotmail.com");
+		cliente.setTelefone("6184574904");
 		
 		client = new Cliente();
-                client.setCpf("11122233344");
+        client.setCpf("11122233344");
 		client.setNome("EUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIORASD");
 		client.setEmail("antoniocoj");
+		client.setTelefone("618457490404");
 		
 
 	}
@@ -57,5 +61,13 @@ public class ClienteTeste {
 	public void testEmailErrado() {
 		assertFalse(ve.validaEmail(client.getEmail()));
 	}
+    @Test
+    public void testTelefoneCerto() {
+        assertTrue(vt.validaTelefone(cliente.getTelefone()));
+    }
+    @Test
+    public void testTelefoneErrado() {
+        assertTrue(vt.validaTelefone(client.getTelefone()));
+    }
 
 }

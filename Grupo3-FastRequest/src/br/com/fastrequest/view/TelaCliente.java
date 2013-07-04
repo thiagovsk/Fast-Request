@@ -2,9 +2,12 @@ package br.com.fastrequest.view;
 
 import Excecoes.ValidarCpfException;
 import Excecoes.ValidarEmailException;
+import Excecoes.ValidarTelefoneException;
+
 import br.com.fastrequest.controller.ClienteController;
 import br.com.fastrequest.model.ValidaCpf;
 import br.com.fastrequest.model.ValidaEmail;
+import br.com.fastrequest.model.ValidaTelefone;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -58,6 +61,7 @@ public class TelaCliente extends javax.swing.JFrame {
         primeiroNome = new javax.swing.JLabel();
         btnProsseguirSemCadastrar = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         Login = new javax.swing.JPanel();
         CpfLogin = new javax.swing.JLabel();
         TextCpfLogin = new javax.swing.JTextField();
@@ -120,6 +124,8 @@ public class TelaCliente extends javax.swing.JFrame {
 
         jLabel1.setText("*Sem traços");
 
+        jLabel2.setText("*DDD e Numero");
+
         javax.swing.GroupLayout cadastrarLayout = new javax.swing.GroupLayout(cadastrar);
         cadastrar.setLayout(cadastrarLayout);
         cadastrarLayout.setHorizontalGroup(
@@ -145,7 +151,8 @@ public class TelaCliente extends javax.swing.JFrame {
                                     .addComponent(primeiroNome)
                                     .addComponent(textNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1)
-                                    .addComponent(textEmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(textEmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2))))
                         .addGap(137, 137, 137))
                     .addGroup(cadastrarLayout.createSequentialGroup()
                         .addComponent(cadastrarcliente)
@@ -181,7 +188,9 @@ public class TelaCliente extends javax.swing.JFrame {
                 .addGroup(cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(email)
                     .addComponent(textEmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(cadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(telefone)
                     .addComponent(textTelefoneCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -230,8 +239,6 @@ public class TelaCliente extends javax.swing.JFrame {
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("POMPILIO-PC\\Users\\Yeltsin\\Desktop\\promocao.jpg")); // NOI18N
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -239,7 +246,7 @@ public class TelaCliente extends javax.swing.JFrame {
             .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 1351, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -256,7 +263,7 @@ public class TelaCliente extends javax.swing.JFrame {
                         .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23)
                         .addComponent(cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
 
@@ -275,6 +282,7 @@ public class TelaCliente extends javax.swing.JFrame {
         
         ClienteController clientecontroler = new ClienteController();
         ValidaCpf cpf = new ValidaCpf();
+        ValidaTelefone telefone = new ValidaTelefone();
         ValidaEmail email = null;
         
         try {
@@ -284,6 +292,9 @@ public class TelaCliente extends javax.swing.JFrame {
             
             if (email.validaEmail(textEmailCliente.getText()) == false)
             	throw new ValidarEmailException();
+            
+            if(telefone.validaTelefone(textTelefoneCliente.getText()) == false)
+                throw new ValidarTelefoneException();
             
             clientecontroler.salvar(textNomeCliente.getText(), textCpfCliente.getText(), textEmailCliente.getText(), textTelefoneCliente.getText());
             JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso!");
@@ -296,6 +307,9 @@ public class TelaCliente extends javax.swing.JFrame {
         } catch (SQLException ex) {          
             Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "Conexão com o banco falhou!");
+        } catch (ValidarTelefoneException ex) {
+            JOptionPane.showMessageDialog(this, "Telefone Inválido, digite o DDD e o Numero (9 ou 8 digitos).");
+          
             
         } catch (ParseException ex) {
             Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -372,6 +386,7 @@ public class TelaCliente extends javax.swing.JFrame {
     private javax.swing.JLabel email;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel nome;
     private javax.swing.JLabel primeiroNome;
