@@ -25,16 +25,16 @@ public class ProdutoTeste {
 	}
 
 
-	
+	@Test
 	//ALTERAR DAQUI PRA BAIXO DE ACORDO COM A MODELO
 	public final void validarNome() {
 		produto.setNome("AUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIU");
-		assertTrue(produto.validanome(produto.getNome()));
+		assertFalse(produto.validanome(produto.getNome()));
 	}
-	
+	@Test
 	public final void validarDiscricao() {
 		produto.setDescricao("AUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIUAUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIU");
-		assertTrue(produto.validanome(produto.getDescricao()));
+		assertFalse(produto.validanome(produto.getDescricao()));
 		// TODO
 	}
 
