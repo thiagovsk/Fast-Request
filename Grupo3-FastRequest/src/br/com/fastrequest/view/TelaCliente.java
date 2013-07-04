@@ -2,7 +2,6 @@ package br.com.fastrequest.view;
 
 import Excecoes.ValidarCpfException;
 import Excecoes.ValidarEmailException;
-import br.com.fastrequest.model.Cliente;
 import br.com.fastrequest.controller.ClienteController;
 import br.com.fastrequest.model.ValidaCpf;
 import br.com.fastrequest.model.ValidaEmail;
