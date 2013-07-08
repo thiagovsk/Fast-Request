@@ -58,10 +58,10 @@ public class ProdutoTableModel extends AbstractTableModel{
                nomeColuna="Nome";
                break;
                    case COL_DESC:
-               nomeColuna="DescriÃ§Ã£o";
+               nomeColuna="Descrição";
                break;
                case COL_PRECO:
-               nomeColuna="PreÃ§o";
+               nomeColuna="Preço";
                break;
                default: throw  new IllegalArgumentException("Coluna invalida");
             

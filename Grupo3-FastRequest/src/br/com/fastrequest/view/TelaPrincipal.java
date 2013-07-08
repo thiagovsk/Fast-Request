@@ -4,6 +4,7 @@ import Excecoes.ValidarCpfException;
 import Excecoes.ValidarEmailException;
 import Excecoes.ValidarTelefoneException;
 import br.com.fastrequest.controller.ClienteController;
+import br.com.fastrequest.model.Cliente;
 import br.com.fastrequest.model.ValidaCpf;
 import br.com.fastrequest.model.ValidaEmail;
 import br.com.fastrequest.model.ValidaTelefone;
@@ -16,14 +17,14 @@ import javax.swing.JOptionPane;
  *
  * @author Antonio
  */
-public class TelaCliente extends javax.swing.JFrame {
+public class TelaPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaCliente
      */
     
     
-    public TelaCliente() {
+    public TelaPrincipal() {
         initComponents();
     }
 
@@ -208,6 +209,11 @@ public class TelaCliente extends javax.swing.JFrame {
 
         btnLogar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLogar.setText("Acessar");
+        btnLogar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout LoginLayout = new javax.swing.GroupLayout(Login);
         Login.setLayout(LoginLayout);
@@ -304,14 +310,14 @@ public class TelaCliente extends javax.swing.JFrame {
             
             
         } catch (SQLException ex) {          
-            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "Conexão com o banco falhou!");
             
         }catch (ValidarTelefoneException ex) {
             JOptionPane.showMessageDialog(this, "Telefone Inválido, digite o DDD e o Numero (9 ou 8 digitos).");
                   
         } catch (ParseException ex) {
-            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "Erro ao cadastrar o nome.");
             
         } catch (ValidarCpfException ex) {
@@ -342,6 +348,43 @@ public class TelaCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextCpfLoginActionPerformed
 
+    private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
+        
+             try {
+            	
+
+           	  if(TextCpfLogin.getText().equals("admin")){
+                		TelaProduto2 proximaTela = new TelaProduto2();
+                		proximaTela.setVisible(true);
+                		setVisible(false);	
+                	}  else{
+            	
+              	 ClienteController pc = new ClienteController();
+           	     Cliente p = pc.buscaContatoPorNome(TextCpfLogin.getText());
+           	
+               p.getNome();
+               p.getCpf();
+               p.getEmail();
+               p.getTelefone();
+               JOptionPane.showMessageDialog(null, "Encontrado com Sucesso ");
+             
+               TelaPedido proximaTela = new TelaPedido();
+               proximaTela.setVisible(true);
+               setVisible(false);
+                	}
+               
+           } catch (SQLException ex) {
+               JOptionPane.showMessageDialog(null, "Conexao com banco falhou");
+               Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
+           }catch(NullPointerException e1){
+               JOptionPane.showMessageDialog(null, "cadastro nao encontrado");
+           }
+    	  
+
+        
+        
+    }//GEN-LAST:event_btnLogarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -351,31 +394,7 @@ public class TelaCliente extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new TelaCliente().setVisible(true);
-            }
-        });
+ 
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CpfLogin;

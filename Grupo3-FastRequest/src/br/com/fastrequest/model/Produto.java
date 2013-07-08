@@ -40,7 +40,7 @@ public class Produto {
                 this.nome = nome;
                 
             } else {
-                throw new IllegalArgumentException("Produto n√£o pode ter nome vazio ou nulo.");
+                throw new IllegalArgumentException("Produto n√ao pode ter nome vazio ou nulo.");
                 
             }
         
@@ -57,7 +57,7 @@ public class Produto {
                 this.descricao = descricao;
                 
             } else {
-                throw new IllegalArgumentException("Produto n√£o pode ter descri√ß√£o vazia ou nula.");
+                throw new IllegalArgumentException("Produto nao pode ter descriÁ„o vazia ou nula.");
                 
             }
         
@@ -70,11 +70,11 @@ public class Produto {
 	public void setPreco(double preco) throws IllegalArgumentException, InputMismatchException, 
                                                   NumberFormatException {
     
-            if ((preco == 0)) {
+            if ((preco != 0)) {
                 this.preco = preco;
                 
             } else {
-                throw new IllegalArgumentException("Produto n√£o pode ter pre√ßo nulo.");
+                throw new IllegalArgumentException("Produto nao pode ter preÁo nulo.");
                 
             }
             

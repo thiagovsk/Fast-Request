@@ -65,5 +65,10 @@ public class ClienteController {
 	        ClienteDAO clienteDAo = new ClienteDAO();
 	        return clienteDAo.encontrarCpf(cpf);
 	  }
+	     
+		  public Cliente buscaContatoPorCPF(String cpf) throws SQLException {
+		        ClienteDAO clienteDAo = new ClienteDAO();
+		        return clienteDAo.encontrarCpf(cpf);
+		  }
     
 }
