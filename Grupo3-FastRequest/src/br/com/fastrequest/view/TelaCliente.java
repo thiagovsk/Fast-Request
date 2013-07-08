@@ -322,15 +322,16 @@ public class TelaCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "CPF Inválido.");
             
         } catch (IllegalArgumentException e1){
-            JOptionPane.showMessageDialog(this, "O seguinte erro ocorreu durante o cadastramento do cliente: " + e1.getMessage());
+            JOptionPane.showMessageDialog(this, e1.getMessage());
        
         } catch (ValidarEmailException ex) {
             JOptionPane.showMessageDialog(this, "Email Inválido.");
             
-        }catch(NullPointerException e1){
-        	JOptionPane.showMessageDialog(this, "Favor preencher todos os campos");
-        }catch(IndexOutOfBoundsException e){
-        	JOptionPane.showMessageDialog(this, "Favor preencher todos os campos");
+        }catch (NullPointerException e1){
+            JOptionPane.showMessageDialog(this, "Favor preencher todos os campos.");
+                
+        }catch (IndexOutOfBoundsException e){
+            JOptionPane.showMessageDialog(this, "Favor preencher todos os campos.");
         	
         }
         

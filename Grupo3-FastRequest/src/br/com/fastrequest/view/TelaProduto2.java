@@ -337,22 +337,22 @@ public class TelaProduto2 extends javax.swing.JFrame {
             cbPratoProduto.setSelected(false);
             cbSobremesaProduto.setSelected(false);
             atualizarTabela();
+            
         } catch (SQLException ex) {
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
-
             JOptionPane.showMessageDialog(this, "Conexão com o banco falhou!");
             
         } catch (ParseException ex) {
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "Erro ao cadastrar o nome.");
             
-        } catch(NumberFormatException e1){
+        } catch (NumberFormatException e1){
             JOptionPane.showMessageDialog(null, "Favor preencha os campos corretamente \n Nao é permitido campos em branco, letras ou virgulas no campo preço");
             
         } catch (IllegalArgumentException e2){
             JOptionPane.showMessageDialog(this, "Favor preeencher todos os campos");
        
-        }catch(NullPointerException e1){
+        }catch (NullPointerException e1){
             JOptionPane.showMessageDialog(this, "Por favor preencha todos os campos" );
 
         }
@@ -381,21 +381,30 @@ public class TelaProduto2 extends javax.swing.JFrame {
     private void txtProdutoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoPesquisarActionPerformed
         // TODO add your handling code here:
         ProdutoController pc = new ProdutoController();
+        
+
         try {
             Produto p = pc.buscaContatoPorNome(txtNomeProdutoPesquisar.getText());
             txtNomeProduto.setText(p.getNome());
             txtDescricaoProduto.setText(p.getDescricao());
             txtPrecoProduto.setText(String.valueOf(p.getPreco()));
-             JOptionPane.showMessageDialog(precoProduto, "Encontrado com Sucesso ");
-             txtNomeProdutoPesquisar.setText("");
-             atualizarTabela();
+            JOptionPane.showMessageDialog(precoProduto, "Encontrado com Sucesso. ");
+            txtNomeProdutoPesquisar.setText("");
+            atualizarTabela();
+             
+            double preco = Double.parseDouble("asdfg");
+             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(precoProduto, "Conexao com banco falhou");
+            JOptionPane.showMessageDialog(precoProduto, "Conexão com banco falhou.");
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
-        }catch(NullPointerException e1){
-            JOptionPane.showMessageDialog(precoProduto, "cadastro nao encontrado");
+            
+        }catch (NullPointerException e1){
+            JOptionPane.showMessageDialog(precoProduto, "Cadastro nao encontrado.");
 
-        }
+        }catch (NumberFormatException nfe) {  
+             JOptionPane.showMessageDialog(precoProduto, "Formato inválido. Digite um número.");  
+}
+        
     }//GEN-LAST:event_txtProdutoPesquisarActionPerformed
 
     private void btnAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarProdutoActionPerformed
@@ -414,21 +423,23 @@ public class TelaProduto2 extends javax.swing.JFrame {
     cbPratoProduto.setSelected(false);
     cbSobremesaProduto.setSelected(false);
     atualizarTabela();
+    
         } catch (SQLException ex) {
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
-
             JOptionPane.showMessageDialog(this, "Conexão com o banco falhou!");
             
-        } catch(NumberFormatException e1){
-            JOptionPane.showMessageDialog(null, "Favor preencha os campos corretamente \n Nao é permitido campos em branco ou Letra no campo perço");
+        } catch (NumberFormatException e1){
+            JOptionPane.showMessageDialog(null, "Favor preencha os campos corretamente. \n Nao são permitido campos em branco ou Letras no campo preço.");
             
         } catch (IllegalArgumentException e2){
-            JOptionPane.showMessageDialog(this, "Favor preeencher todos os campos");
+            JOptionPane.showMessageDialog(this, "Favor preeencher todos os campos.");
+            
         }catch(NullPointerException e1){
-            JOptionPane.showMessageDialog(this, "Por favor preencha todos os campos" );
+            JOptionPane.showMessageDialog(this, "Por favor preencha todos os campos." );
 
         }catch(IndexOutOfBoundsException e){
         JOptionPane.showMessageDialog(this, "Nao existem cadastros para serem alterados");
+        
         }
         
     }//GEN-LAST:event_btnAlterarProdutoActionPerformed
@@ -445,9 +456,11 @@ public class TelaProduto2 extends javax.swing.JFrame {
             pc.excluir(id);
             JOptionPane.showMessageDialog(this, "Cadastro excluido com sucesso");
             atualizarTabela();
+            
         } catch (SQLException ex) {
              JOptionPane.showMessageDialog(this, "problema com o banco de dados");
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
         
     }        

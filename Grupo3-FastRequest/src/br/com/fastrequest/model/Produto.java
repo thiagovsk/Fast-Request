@@ -65,13 +65,13 @@ public class Produto {
 		return preco;
 	}
         
-	public void setPreco(double preco) throws IllegalArgumentException {
+	public void setPreco(double preco) throws IllegalArgumentException, NumberFormatException {
     
-            if (preco != 0 ) {
+            if (preco >= 0) {
                 this.preco = preco;
                 
             } else {
-                throw new IllegalArgumentException("Produto não pode ter preço vazio ou nulo.");
+                throw new IllegalArgumentException("Produto não pode ter preço negativo.");
                 
             }
         
