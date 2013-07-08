@@ -24,17 +24,24 @@ public class ProdutoTeste {
 		assertNotNull(produto); // TODO
 	}
 
-
 	@Test
 	//ALTERAR DAQUI PRA BAIXO DE ACORDO COM A MODELO
 	public final void validarNome() {
 		produto.setNome("AUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIU");
 		assertFalse(produto.validanome(produto.getNome()));
 	}
+        
 	@Test
-	public final void validarDiscricao() {
+	public final void validarDescricao() {
 		produto.setDescricao("AUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIUAUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIU");
-		assertFalse(produto.validanome(produto.getDescricao()));
+		assertFalse(produto.validaDescricao(produto.getDescricao()));
+		// TODO
+	}
+        
+        @Test
+	public final void validarPreco() {
+		produto.setPreco(-45.98);
+		assertFalse(produto.validaPreco(produto.getPreco()));
 		// TODO
 	}
         

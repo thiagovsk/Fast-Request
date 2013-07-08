@@ -70,11 +70,11 @@ public class Produto {
 	public void setPreco(double preco) throws IllegalArgumentException, InputMismatchException, 
                                                   NumberFormatException {
     
-            if ((preco > 0)) {
+            if ((preco == 0)) {
                 this.preco = preco;
                 
             } else {
-                throw new IllegalArgumentException("Produto não pode ter preço negativo ou nulo.");
+                throw new IllegalArgumentException("Produto não pode ter preço nulo.");
                 
             }
             
@@ -95,7 +95,16 @@ public class Produto {
         
 	public boolean validaDescricao(String nome){
 
-		if(nome.length() >200){
+		if(descricao.length() >200){
+			return false;
+		
+		}
+		return true;
+	}
+        
+        public boolean validaPreco(Double preco){
+
+		if(preco < 0){
 			return false;
 		
 		}

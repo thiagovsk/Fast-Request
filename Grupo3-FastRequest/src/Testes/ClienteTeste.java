@@ -34,6 +34,11 @@ public class ClienteTeste {
 
 	}
 	
+        @Test
+	public final void testarInstancia() {
+		assertNotNull(cliente); // TODO
+	}
+        
 	@Test
 	public void testNomeCerto() {
 		assertTrue(cliente.validanome(cliente.getNome()));
