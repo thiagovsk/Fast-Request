@@ -1,13 +1,11 @@
 package br.com.fastrequest.controller;
 
+import br.com.fastrequest.dao.ProdutoDAO;
+import br.com.fastrequest.model.Produto;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
-
 import javax.swing.JOptionPane;
-
-import br.com.fastrequest.dao.ProdutoDAO;
-import br.com.fastrequest.model.Produto;
 public class ProdutoController {
 
     

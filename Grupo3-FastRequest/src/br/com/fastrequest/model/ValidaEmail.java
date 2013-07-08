@@ -13,10 +13,12 @@ public class ValidaEmail {
             p = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$");
 
 		Matcher m = p.matcher(email);
-		if(m.find())
-			return true;
-		else
-			return false;
+		if(m.find()) {
+                return true;
+            }
+		else {
+                return false;
+            }
 	}
 
 }

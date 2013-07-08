@@ -1,12 +1,10 @@
 package Testes;
 
-import static org.junit.Assert.*;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import br.com.fastrequest.model.Cliente;
 import br.com.fastrequest.model.ValidaCpf;
+import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
 public class ValidaCpfTeste {
 	

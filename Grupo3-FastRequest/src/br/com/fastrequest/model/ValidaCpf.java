@@ -28,10 +28,12 @@ public class ValidaCpf {
       resto = (d1 % 11);
 
       //Se o resultado for 0 ou 1 o digito Ã© 0 caso contrÃ¡rio o digito Ã© 11 menos o resultado anterior.
-      if (resto < 2)
-         digito1 = 0;
-      else
-         digito1 = 11 - resto;
+      if (resto < 2) {
+            digito1 = 0;
+        }
+      else {
+            digito1 = 11 - resto;
+        }
 
       d2 += 2 * digito1;
 
@@ -39,10 +41,12 @@ public class ValidaCpf {
       resto = (d2 % 11);
 
       //Se o resultado for 0 ou 1 o digito Ã© 0 caso contrÃ¡rio o digito Ã© 11 menos o resultado anterior.
-      if (resto < 2)
-         digito2 = 0;
-      else
-         digito2 = 11 - resto;
+      if (resto < 2) {
+            digito2 = 0;
+        }
+      else {
+            digito2 = 11 - resto;
+        }
 
       //Digito verificador do CPF que estÃ¡ sendo validado.
       String nDigVerific = cpf.substring (cpf.length()-2, cpf.length());

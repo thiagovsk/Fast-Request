@@ -66,18 +66,21 @@ public class AlterarCadastroCliente extends javax.swing.JFrame {
         emailCliente.setText("Email");
 
         textNomeCliente.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textNomeClienteActionPerformed(evt);
             }
         });
 
         textCpfCliente.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textCpfClienteActionPerformed(evt);
             }
         });
 
         textTelefoneCliente.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textTelefoneClienteActionPerformed(evt);
             }
@@ -85,6 +88,7 @@ public class AlterarCadastroCliente extends javax.swing.JFrame {
 
         txtClienteEditar.setText("Editar");
         txtClienteEditar.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtClienteEditarActionPerformed(evt);
             }
@@ -92,6 +96,7 @@ public class AlterarCadastroCliente extends javax.swing.JFrame {
 
         jButton1.setText("Alterar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
@@ -247,6 +252,7 @@ public class AlterarCadastroCliente extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new AlterarCadastroCliente().setVisible(true);
             }

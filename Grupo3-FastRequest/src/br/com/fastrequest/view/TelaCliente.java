@@ -3,22 +3,15 @@ package br.com.fastrequest.view;
 import Excecoes.ValidarCpfException;
 import Excecoes.ValidarEmailException;
 import Excecoes.ValidarTelefoneException;
-
 import br.com.fastrequest.controller.ClienteController;
 import br.com.fastrequest.model.ValidaCpf;
 import br.com.fastrequest.model.ValidaEmail;
 import br.com.fastrequest.model.ValidaTelefone;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
 /**
  *
  * @author Antonio
@@ -290,14 +283,17 @@ public class TelaCliente extends javax.swing.JFrame {
         
         try {
             
-            if (cpf.validarCpf(textCpfCliente.getText()) == false)
-            	throw new ValidarCpfException();
+            if (cpf.validarCpf(textCpfCliente.getText()) == false) {
+                throw new ValidarCpfException();
+            }
             
-            if (email.validaEmail(textEmailCliente.getText()) == false)
-            	throw new ValidarEmailException();
+            if (email.validaEmail(textEmailCliente.getText()) == false) {
+                throw new ValidarEmailException();
+            }
             
-            if(telefone.validaTelefone(textTelefoneCliente.getText()) == false)
+            if(telefone.validaTelefone(textTelefoneCliente.getText()) == false) {
                 throw new ValidarTelefoneException();
+            }
             
             clientecontroler.salvar(textNomeCliente.getText(), textCpfCliente.getText(), textEmailCliente.getText(), textTelefoneCliente.getText());
             JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso!");

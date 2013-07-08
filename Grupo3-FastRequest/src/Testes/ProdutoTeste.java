@@ -1,11 +1,9 @@
 package Testes;
 
+import br.com.fastrequest.model.Produto;
 import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
-
-import br.com.fastrequest.model.Produto;
 
 public class ProdutoTeste {
 	

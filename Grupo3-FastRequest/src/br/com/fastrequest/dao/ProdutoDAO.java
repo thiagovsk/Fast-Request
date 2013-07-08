@@ -1,13 +1,12 @@
 package br.com.fastrequest.dao;
 
 
+import br.com.fastrequest.model.Produto;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import br.com.fastrequest.model.Produto;
 
 
 
