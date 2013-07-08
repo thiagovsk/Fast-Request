@@ -52,7 +52,7 @@ public class ClienteDAO extends DaoGenerica{
 	        return clientes;	
 	}
 	public Cliente encontrarCpf(String cpf) throws SQLException {
-        String select = "SELECT * FROM CLIENTE WHERE cpf = ?";
+        String select = "SELECT * FROM cliente WHERE cpf = ?";
         Cliente cliente = null;
         PreparedStatement stmt = getConnection().prepareStatement(select);
         stmt.setString(1, cpf);

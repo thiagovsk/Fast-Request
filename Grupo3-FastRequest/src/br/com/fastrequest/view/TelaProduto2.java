@@ -395,8 +395,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(precoProduto, "Encontrado com Sucesso. ");
             txtNomeProdutoPesquisar.setText("");
             atualizarTabela();
-             
-            double preco = Double.parseDouble("asdfg");
+          
              
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(precoProduto, "Conexão com banco falhou.");

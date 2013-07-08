@@ -193,7 +193,7 @@ public class AlterarCadastroCliente extends javax.swing.JFrame {
             textEmailCliente.setText(p.getEmail());
             textTelefoneCliente.setText(p.getTelefone());
              JOptionPane.showMessageDialog(null, "Encontrado com Sucesso ");
-             textNomeCpfEditar.setText("");
+             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Conexao com banco falhou");
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);

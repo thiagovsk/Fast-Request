@@ -4,6 +4,7 @@ import Excecoes.ValidarCpfException;
 import Excecoes.ValidarEmailException;
 import Excecoes.ValidarTelefoneException;
 import br.com.fastrequest.controller.ClienteController;
+import br.com.fastrequest.model.Cliente;
 import br.com.fastrequest.model.ValidaCpf;
 import br.com.fastrequest.model.ValidaEmail;
 import br.com.fastrequest.model.ValidaTelefone;
@@ -208,6 +209,11 @@ public class TelaCliente extends javax.swing.JFrame {
 
         btnLogar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLogar.setText("Acessar");
+        btnLogar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout LoginLayout = new javax.swing.GroupLayout(Login);
         Login.setLayout(LoginLayout);
@@ -341,6 +347,43 @@ public class TelaCliente extends javax.swing.JFrame {
     private void TextCpfLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextCpfLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextCpfLoginActionPerformed
+
+    private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
+        
+             try {
+            	
+
+           	  if(TextCpfLogin.getText().equals("admin")){
+                		TelaProduto2 proximaTela = new TelaProduto2();
+                		proximaTela.setVisible(true);
+                		setVisible(false);	
+                	}  else{
+            	
+              	 ClienteController pc = new ClienteController();
+           	     Cliente p = pc.buscaContatoPorNome(TextCpfLogin.getText());
+           	
+               p.getNome();
+               p.getCpf();
+               p.getEmail();
+               p.getTelefone();
+               JOptionPane.showMessageDialog(null, "Encontrado com Sucesso ");
+             
+               TelaPedido proximaTela = new TelaPedido();
+               proximaTela.setVisible(true);
+               setVisible(false);
+                	}
+               
+           } catch (SQLException ex) {
+               JOptionPane.showMessageDialog(null, "Conexao com banco falhou");
+               Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
+           }catch(NullPointerException e1){
+               JOptionPane.showMessageDialog(null, "cadastro nao encontrado");
+           }
+    	  
+
+        
+        
+    }//GEN-LAST:event_btnLogarActionPerformed
 
     /**
      * @param args the command line arguments
