@@ -11,11 +11,12 @@ public class ProdutoController {
     
  
     
-	  public void salvar(String nome, String descricao, double preco) throws SQLException, ParseException {
+	  public void salvar(String nome, String descricao, double preco, String tipo) throws SQLException, ParseException {
 	        Produto produto = new Produto();
 	        produto.setNome(nome);
 	        produto.setDescricao(descricao);
 	        produto.setPreco(preco);
+                produto.setTipo(tipo);
 	 
 	        new ProdutoDAO().salvar(produto);
 	    }

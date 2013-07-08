@@ -9,17 +9,19 @@ public class Produto {
 	private String nome;
 	private String descricao;
 	private double preco;
+        private String tipo;
 	
 	
 	public Produto() {
 		
 	}
 	
-	public Produto(int idProduto, String nome, String descricao, double preco) throws IllegalArgumentException{
+	public Produto(int idProduto, String nome, String descricao, double preco, String tipo) throws IllegalArgumentException{
 		this.idProduto = idProduto;
 		this.setNome (nome);
 		this.setDescricao (descricao);
 		this.setPreco (preco);
+                this.setTipo(tipo);
 	}
         
 	public int getIdProduto() {
@@ -80,6 +82,19 @@ public class Produto {
             
             
         
+        }
+        public String getTipo() {
+            return tipo;
+        }
+
+        public void setTipo(String tipo) {
+           if (tipo != null && !tipo.equals("")) {
+                this.tipo = tipo;
+                
+            } else {
+                throw new IllegalArgumentException("Produto não pode ter descrição vazia ou nula.");
+                
+            }
         }
 	
         
