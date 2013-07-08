@@ -2,7 +2,7 @@ package Main;
 
 import br.com.fastrequest.view.TelaPrincipal;
 
-public class TelaMain {
+public class Main {
 
 	/**
 	 * @param args

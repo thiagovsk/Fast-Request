@@ -21,9 +21,12 @@ public class ClienteDAO extends DaoGenerica{
 	
 	}
 	public void alterar(Cliente cliente) throws SQLException {
-		String update = "update cliente set nome = ?, cpf = ?,email = ?, telefone = ?";
-		update += " where idCliente = ?";
-		atualizar(update, cliente.getNome(),cliente.getCpf(),cliente.getEmail(),cliente.getTelefone());
+		
+		
+		String update = "UPDATE cliente " +
+                "SET nome = ?,  cpf = ?, email = ? , telefone = ?" +
+                "WHERE id = ?";
+		atualizar(update, cliente.getId(),cliente.getNome(),cliente.getCpf(),cliente.getEmail(),cliente.getTelefone());
 		
 	}
 	public void excluir(String cpf) throws SQLException{
@@ -32,7 +35,7 @@ public class ClienteDAO extends DaoGenerica{
 	}
 	public ArrayList<Cliente> encontrarCliente() throws SQLException{
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-		String select = "SELECT * FROM CLIENTE";
+		String select = "SELECT * FROM cliente";
 		   PreparedStatement stmt = getConnection().prepareStatement(select);
 	        ResultSet rs = stmt.executeQuery();
 	 

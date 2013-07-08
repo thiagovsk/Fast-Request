@@ -427,6 +427,19 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnTelaInicial">
       <Properties>
+        <Property name="text" type="java.lang.String" value="CADASTROS DOS CLIENTES"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTelaInicialActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="1130" y="560" width="228" height="110"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnTelaInicial1">
+      <Properties>
         <Property name="text" type="java.lang.String" value="TELA INICIAL"/>
       </Properties>
       <Constraints>

@@ -67,6 +67,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
         btnTelaCadastrarFuncionario = new javax.swing.JButton();
         btnTelaCadastro = new javax.swing.JToggleButton();
         btnTelaInicial = new javax.swing.JButton();
+        btnTelaInicial1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1366, 761));
@@ -307,9 +308,18 @@ public class TelaProduto2 extends javax.swing.JFrame {
         getContentPane().add(btnTelaCadastro);
         btnTelaCadastro.setBounds(1128, 296, 228, 110);
 
-        btnTelaInicial.setText("TELA INICIAL");
+        btnTelaInicial.setText("CADASTROS DOS CLIENTES");
+        btnTelaInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTelaInicialActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnTelaInicial);
-        btnTelaInicial.setBounds(1128, 424, 228, 110);
+        btnTelaInicial.setBounds(1130, 560, 228, 110);
+
+        btnTelaInicial1.setText("TELA INICIAL");
+        getContentPane().add(btnTelaInicial1);
+        btnTelaInicial1.setBounds(1128, 424, 228, 110);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -446,6 +456,12 @@ public class TelaProduto2 extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnAlterarProdutoActionPerformed
+
+    private void btnTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaInicialActionPerformed
+        AlterarCadastroCliente tela = new AlterarCadastroCliente();
+        tela.setVisible(true);
+        
+    }//GEN-LAST:event_btnTelaInicialActionPerformed
     private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {                                                  
        ProdutoController pc = new ProdutoController();
        int id = produtoList.get(tabelaProdutos.getSelectedRow()).getIdProduto();
@@ -479,6 +495,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
     private javax.swing.JButton btnTelaCadastrarFuncionario;
     private javax.swing.JToggleButton btnTelaCadastro;
     private javax.swing.JButton btnTelaInicial;
+    private javax.swing.JButton btnTelaInicial1;
     private javax.swing.JLabel cadastrarProduto;
     private javax.swing.JPanel cadastroProduto;
     private javax.swing.JCheckBox cbBebidaProduto;
