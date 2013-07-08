@@ -8,17 +8,17 @@ package Excecoes;
  *
  * @author Priscilla
  */
-public class AtributoNaoPodeSerNulo extends Exception{
+public class ElementoForaDosLimites extends Exception{
     
     
-    public AtributoNaoPodeSerNulo(){
+    public ElementoForaDosLimites(){
         super();
         
     }
      
-     public AtributoNaoPodeSerNulo(String info){
+     public ElementoForaDosLimites(String info){
         super(info);
         
     }
-    
+     
 }

@@ -10,12 +10,15 @@ package Excecoes;
  */
 public class ValidarEmailException  extends Exception {
     
-       public ValidarEmailException(){
+    
+     public ValidarEmailException(){
         super();
+           
     }
      
      public ValidarEmailException(String informacao){
         super();
+        
     }
     
 }

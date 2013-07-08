@@ -10,12 +10,15 @@ package Excecoes;
  */
 public class ValidarCpfException extends Exception {
     
-       public ValidarCpfException(){
+    
+     public ValidarCpfException(){
         super();
+        
     }
      
      public ValidarCpfException(String informacao){
         super();
+        
     }
      
 }

@@ -10,12 +10,15 @@ package Excecoes;
  */
 public class NaoDividirPorZero {
     
+    
       public NaoDividirPorZero(){
         super();
+        
     }
      
      public NaoDividirPorZero(String info){
         super();
+        
     }
     
 }

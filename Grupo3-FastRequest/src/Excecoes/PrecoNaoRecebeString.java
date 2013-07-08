@@ -11,20 +11,25 @@ package Excecoes;
 @SuppressWarnings("serial")
 public class PrecoNaoRecebeString extends RuntimeException{
     
+    
     public PrecoNaoRecebeString(){
-    super();
+     super();
+    
     }
 
     public PrecoNaoRecebeString(Throwable cause) {
         super(cause);
+        
     }
 
     public PrecoNaoRecebeString(String message) {
         super(message);
+        
     }
 
     public PrecoNaoRecebeString(String message, Throwable cause) {
         super(message, cause);
+        
     }
    
     

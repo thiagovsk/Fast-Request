@@ -8,6 +8,7 @@ import br.com.fastrequest.controller.ProdutoController;
 import br.com.fastrequest.model.Produto;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -347,14 +348,17 @@ public class TelaProduto2 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Erro ao cadastrar o nome.");
             
         } catch (NumberFormatException e1){
-            JOptionPane.showMessageDialog(null, "Favor preencha os campos corretamente \n Nao é permitido campos em branco, letras ou virgulas no campo preço");
+            JOptionPane.showMessageDialog(null, "Favor preencha os campos corretamente. \n Nao é permitido campos em branco, letras ou virgulas no campo 'preço'.");
             
         } catch (IllegalArgumentException e2){
-            JOptionPane.showMessageDialog(this, "Favor preeencher todos os campos");
+            JOptionPane.showMessageDialog(this, "Favor preeencher todos os campos" + e2.getMessage());
        
-        }catch (NullPointerException e1){
-            JOptionPane.showMessageDialog(this, "Por favor preencha todos os campos" );
+        } catch (NullPointerException e1){
+            JOptionPane.showMessageDialog(this, "Por favor preencha todos os campos." );
 
+        } catch (InputMismatchException e){
+            JOptionPane.showMessageDialog(this, "Por favor, preencha apenas com números.");
+        
         }
         
     }//GEN-LAST:event_btnCadastrarProdutoActionPerformed

@@ -10,8 +10,10 @@ package Excecoes;
  */
 public class ValidarTelefoneException extends Exception {
     
-        public ValidarTelefoneException(){
+    
+     public ValidarTelefoneException(){
         super();
+        
     }
      
      public ValidarTelefoneException(String informe){

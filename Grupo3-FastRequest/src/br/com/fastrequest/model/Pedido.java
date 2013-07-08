@@ -1,5 +1,7 @@
 package br.com.fastrequest.model;
 
+import java.util.InputMismatchException;
+
 public class Pedido {
 	
 	private int numeroClientes;
@@ -21,7 +23,7 @@ public class Pedido {
         
 	public void setNumeroClientes(int numeroClientes) throws IllegalArgumentException, NumberFormatException {
     
-            if (numeroClientes >= 0) {
+            if (numeroClientes > 0) {
                 this.numeroClientes = numeroClientes;
                 
             } else {
@@ -36,9 +38,9 @@ public class Pedido {
 		return valorTotal;
 	}
         
-	public void setValorTotal(double valorTotal) throws IllegalArgumentException, NumberFormatException {
+	public void setValorTotal(double valorTotal) throws IllegalArgumentException, NumberFormatException, InputMismatchException {
     
-            if (valorTotal >= 0) {
+            if (valorTotal > 0) {
                 this.valorTotal = valorTotal;
                 
             } else {
