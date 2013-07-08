@@ -25,7 +25,7 @@ public class Pedido {
                 this.numeroClientes = numeroClientes;
                 
             } else {
-                throw new IllegalArgumentException("Pedido não pode ter número de pedidos negativo.");
+                throw new IllegalArgumentException("Pedido não pode ter número de pedidos negativo ou nulos.");
                 
             }
         
@@ -42,7 +42,7 @@ public class Pedido {
                 this.valorTotal = valorTotal;
                 
             } else {
-                throw new IllegalArgumentException("Pedido não pode ter valor total vazio ou nulo.");
+                throw new IllegalArgumentException("Pedido não pode ter valor total vazio, nulo ou negativo.");
                 
             }
         

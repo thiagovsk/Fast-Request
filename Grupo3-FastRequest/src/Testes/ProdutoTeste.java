@@ -37,6 +37,21 @@ public class ProdutoTeste {
 		assertFalse(produto.validanome(produto.getDescricao()));
 		// TODO
 	}
+        
+        @Test(expected=IllegalArgumentException.class)
+        public void testSetNome(){
+                produto.setNome(null);
+        }
+        
+        @Test(expected=IllegalArgumentException.class)
+        public void testSetDescricao(){
+                produto.setDescricao(null);
+        }
+        
+        @Test(expected=IllegalArgumentException.class)
+        public void testSetPreco(){
+                produto.setPreco(0);
+        }
 
 
 }
