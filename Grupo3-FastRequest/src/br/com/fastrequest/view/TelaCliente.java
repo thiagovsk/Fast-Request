@@ -207,7 +207,7 @@ public class TelaCliente extends javax.swing.JFrame {
         });
 
         btnLogar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnLogar.setText("Logar");
+        btnLogar.setText("Acessar");
 
         javax.swing.GroupLayout LoginLayout = new javax.swing.GroupLayout(Login);
         Login.setLayout(LoginLayout);
