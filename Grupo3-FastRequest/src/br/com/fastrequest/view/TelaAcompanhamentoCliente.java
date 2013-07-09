@@ -96,7 +96,7 @@ public class TelaAcompanhamentoCliente extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        FinalizacaoPagamento.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "FINALIZAÇÃO/PAGAMENTO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+        FinalizacaoPagamento.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "FINALIZACAO/PAGAMENTO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
         Pagamento.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "PAGAMENTO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
@@ -179,7 +179,7 @@ public class TelaAcompanhamentoCliente extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        InformacoesAdicionais.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "INFORMAÇOES ADICIONAIS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+        InformacoesAdicionais.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "INFORMACOES ADICIONAIS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
         CpfNaNota.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CpfNaNota.setText("CPF na Nota Fiscal");
@@ -245,6 +245,8 @@ public class TelaAcompanhamentoCliente extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        InformacoesAdicionais.getAccessibleContext().setAccessibleName("INFORMACOES ADICIONAIS");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -270,6 +272,8 @@ public class TelaAcompanhamentoCliente extends javax.swing.JFrame {
                     .addComponent(FinalizacaoPagamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
+
+        FinalizacaoPagamento.getAccessibleContext().setAccessibleName("FINALIZACAO/PAGAMENTO");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
