@@ -46,9 +46,10 @@ public class TelaPedido extends javax.swing.JFrame {
         Bebida = new javax.swing.JPanel();
         tableBebida = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
-        btnIncluirBebida = new javax.swing.JButton();
-        txtObesevacaoBebida = new javax.swing.JTextField();
-        ObesevacaoBebida = new javax.swing.JLabel();
+        btnConcluido1 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        btnVoltar = new javax.swing.JButton();
 
         PedidosAndamento3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "PEDIDOS EM ANDAMENTO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
@@ -240,10 +241,10 @@ public class TelaPedido extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ObservaçãoBebida)
                 .addGap(2, 2, 2)
-                .addComponent(txtObservacaoBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtObservacaoBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnIncluirSobremesa, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7))
+                .addContainerGap())
         );
 
         Bebida.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "BEBIDA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
@@ -267,16 +268,16 @@ public class TelaPedido extends javax.swing.JFrame {
         ));
         tableBebida.setViewportView(jTable4);
 
-        btnIncluirBebida.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnIncluirBebida.setText("INCLUIR BEBIDA");
-        btnIncluirBebida.setPreferredSize(new java.awt.Dimension(50, 25));
-        btnIncluirBebida.addActionListener(new java.awt.event.ActionListener() {
+        btnConcluido1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnConcluido1.setText("INCLUIR BEBIDA");
+        btnConcluido1.setPreferredSize(new java.awt.Dimension(50, 25));
+        btnConcluido1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIncluirBebidaActionPerformed(evt);
+                btnConcluido1ActionPerformed(evt);
             }
         });
 
-        ObesevacaoBebida.setText("Observacoes");
+        jLabel2.setText("Observacoes");
 
         javax.swing.GroupLayout BebidaLayout = new javax.swing.GroupLayout(Bebida);
         Bebida.setLayout(BebidaLayout);
@@ -286,11 +287,11 @@ public class TelaPedido extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(BebidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tableBebida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
-                    .addComponent(txtObesevacaoBebida)
+                    .addComponent(jTextField2)
                     .addGroup(BebidaLayout.createSequentialGroup()
-                        .addComponent(ObesevacaoBebida)
+                        .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnIncluirBebida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnConcluido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         BebidaLayout.setVerticalGroup(
@@ -298,44 +299,59 @@ public class TelaPedido extends javax.swing.JFrame {
             .addGroup(BebidaLayout.createSequentialGroup()
                 .addComponent(tableBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ObesevacaoBebida)
+                .addComponent(jLabel2)
                 .addGap(3, 3, 3)
-                .addComponent(txtObesevacaoBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnIncluirBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnConcluido1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        btnVoltar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Prato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Bebida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PedidosAndamento2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(ResumoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Prato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Bebida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PedidosAndamento2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(ResumoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Logo)
-                .addGap(18, 18, 18)
+                .addGap(1, 1, 1)
+                .addComponent(btnVoltar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Bebida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(PedidosAndamento2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Prato, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(Prato, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
-                        .addComponent(ResumoPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                        .addComponent(ResumoPedido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(Bebida, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(PedidosAndamento2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         pack();
@@ -345,9 +361,9 @@ public class TelaPedido extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEnviarPedidoActionPerformed
 
-    private void btnIncluirBebidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirBebidaActionPerformed
+    private void btnConcluido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConcluido1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnIncluirBebidaActionPerformed
+    }//GEN-LAST:event_btnConcluido1ActionPerformed
 
     private void btnExcluirItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirItemActionPerformed
         // TODO add your handling code here:
@@ -360,6 +376,13 @@ public class TelaPedido extends javax.swing.JFrame {
     private void btnIncluirSobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirSobremesaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIncluirSobremesaActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+    
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -398,25 +421,26 @@ public class TelaPedido extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Bebida;
     private javax.swing.JLabel Logo;
-    private javax.swing.JLabel ObesevacaoBebida;
     private javax.swing.JLabel ObservaçãoBebida;
     private javax.swing.JPanel PedidosAndamento2;
     private javax.swing.JPanel PedidosAndamento3;
     private javax.swing.JPanel Prato;
     private javax.swing.JPanel ResumoPedido;
+    private javax.swing.JButton btnConcluido1;
     private javax.swing.JButton btnEnviarPedido;
     private javax.swing.JButton btnExcluirItem;
-    private javax.swing.JButton btnIncluirBebida;
     private javax.swing.JButton btnIncluirPrato;
     private javax.swing.JButton btnIncluirSobremesa;
+    private javax.swing.JButton btnVoltar;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable4;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel observacaoPrato;
     private javax.swing.JScrollPane tableBebida;
     private javax.swing.JScrollPane tablePrato;
     private javax.swing.JScrollPane tableSobremesa;
-    private javax.swing.JTextField txtObesevacaoBebida;
     private javax.swing.JTextField txtObservacaoBebida;
     private javax.swing.JTextField txtObservacaoPrato;
     // End of variables declaration//GEN-END:variables

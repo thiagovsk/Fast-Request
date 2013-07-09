@@ -65,9 +65,10 @@ public class TelaProduto2 extends javax.swing.JFrame {
         btnLimparProduto = new javax.swing.JButton();
         btnAlterarProduto = new javax.swing.JButton();
         btnTelaCadastrarFuncionario = new javax.swing.JButton();
-        btnTelaCadastro = new javax.swing.JToggleButton();
+        btnTelaCardapio = new javax.swing.JToggleButton();
+        btnTelaAcompanhamento = new javax.swing.JButton();
         btnTelaInicial = new javax.swing.JButton();
-        btnTelaInicial1 = new javax.swing.JButton();
+        btnCadastroClientes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1366, 761));
@@ -297,29 +298,43 @@ public class TelaProduto2 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnTelaCadastrarFuncionario);
-        btnTelaCadastrarFuncionario.setBounds(1128, 168, 228, 110);
+        btnTelaCadastrarFuncionario.setBounds(1120, 170, 228, 90);
 
-        btnTelaCadastro.setText("CARDÁPIO");
-        btnTelaCadastro.addActionListener(new java.awt.event.ActionListener() {
+        btnTelaCardapio.setText("CARDÁPIO");
+        btnTelaCardapio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTelaCadastroActionPerformed(evt);
+                btnTelaCardapioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTelaCadastro);
-        btnTelaCadastro.setBounds(1128, 296, 228, 110);
+        getContentPane().add(btnTelaCardapio);
+        btnTelaCardapio.setBounds(1120, 280, 228, 80);
 
-        btnTelaInicial.setText("CADASTROS DOS CLIENTES");
+        btnTelaAcompanhamento.setText("TELA DE ACOMPANHAMENTO");
+        btnTelaAcompanhamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTelaAcompanhamentoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnTelaAcompanhamento);
+        btnTelaAcompanhamento.setBounds(1120, 600, 228, 90);
+
+        btnTelaInicial.setText("TELA INICIAL");
         btnTelaInicial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTelaInicialActionPerformed(evt);
             }
         });
         getContentPane().add(btnTelaInicial);
-        btnTelaInicial.setBounds(1130, 560, 228, 110);
+        btnTelaInicial.setBounds(1120, 380, 228, 90);
 
-        btnTelaInicial1.setText("TELA INICIAL");
-        getContentPane().add(btnTelaInicial1);
-        btnTelaInicial1.setBounds(1128, 424, 228, 110);
+        btnCadastroClientes.setText("CADASTROS DOS CLIENTES");
+        btnCadastroClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroClientesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCadastroClientes);
+        btnCadastroClientes.setBounds(1120, 490, 228, 90);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -388,9 +403,9 @@ public class TelaProduto2 extends javax.swing.JFrame {
     atualizarTabela();
     }//GEN-LAST:event_btnLimparProdutoActionPerformed
 
-    private void btnTelaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaCadastroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTelaCadastroActionPerformed
+    private void btnTelaCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaCardapioActionPerformed
+             // TODO add your handling code here:
+    }//GEN-LAST:event_btnTelaCardapioActionPerformed
 
     private void txtProdutoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoPesquisarActionPerformed
         // TODO add your handling code here:
@@ -457,11 +472,22 @@ public class TelaProduto2 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnAlterarProdutoActionPerformed
 
-    private void btnTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaInicialActionPerformed
-        AlterarCadastroCliente tela = new AlterarCadastroCliente();
+    private void btnTelaAcompanhamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaAcompanhamentoActionPerformed
+        TelaAcompanhamentoFuncionario tela = new TelaAcompanhamentoFuncionario();
         tela.setVisible(true);
+        setVisible(false);        
         
+    }//GEN-LAST:event_btnTelaAcompanhamentoActionPerformed
+
+    private void btnTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaInicialActionPerformed
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_btnTelaInicialActionPerformed
+
+    private void btnCadastroClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastroClientesActionPerformed
     private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {                                                  
        ProdutoController pc = new ProdutoController();
        int id = produtoList.get(tabelaProdutos.getSelectedRow()).getIdProduto();
@@ -490,12 +516,13 @@ public class TelaProduto2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarProduto;
     private javax.swing.JButton btnCadastrarProduto;
+    private javax.swing.JButton btnCadastroClientes;
     private javax.swing.JButton btnExcluirProduto;
     private javax.swing.JButton btnLimparProduto;
+    private javax.swing.JButton btnTelaAcompanhamento;
     private javax.swing.JButton btnTelaCadastrarFuncionario;
-    private javax.swing.JToggleButton btnTelaCadastro;
+    private javax.swing.JToggleButton btnTelaCardapio;
     private javax.swing.JButton btnTelaInicial;
-    private javax.swing.JButton btnTelaInicial1;
     private javax.swing.JLabel cadastrarProduto;
     private javax.swing.JPanel cadastroProduto;
     private javax.swing.JCheckBox cbBebidaProduto;
