@@ -42,7 +42,7 @@ public class TelaAcompanhamentoCliente extends javax.swing.JFrame {
         btnCalcular = new javax.swing.JButton();
         cbDividirConta = new javax.swing.JComboBox();
         DividirConta = new javax.swing.JLabel();
-        InformaçoesAdicionais = new javax.swing.JPanel();
+        InformacoesAdicionais = new javax.swing.JPanel();
         CpfNaNota = new javax.swing.JLabel();
         cbFormaPagamento = new javax.swing.JComboBox();
         FormaPagamento = new javax.swing.JLabel();
@@ -179,7 +179,7 @@ public class TelaAcompanhamentoCliente extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        InformaçoesAdicionais.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "INFORMAÇOES ADICIONAIS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+        InformacoesAdicionais.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "INFORMAÇOES ADICIONAIS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
         CpfNaNota.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CpfNaNota.setText("CPF na Nota Fiscal");
@@ -192,33 +192,33 @@ public class TelaAcompanhamentoCliente extends javax.swing.JFrame {
 
         txtCpfNota.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        javax.swing.GroupLayout InformaçoesAdicionaisLayout = new javax.swing.GroupLayout(InformaçoesAdicionais);
-        InformaçoesAdicionais.setLayout(InformaçoesAdicionaisLayout);
-        InformaçoesAdicionaisLayout.setHorizontalGroup(
-            InformaçoesAdicionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InformaçoesAdicionaisLayout.createSequentialGroup()
-                .addGroup(InformaçoesAdicionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InformaçoesAdicionaisLayout.createSequentialGroup()
+        javax.swing.GroupLayout InformacoesAdicionaisLayout = new javax.swing.GroupLayout(InformacoesAdicionais);
+        InformacoesAdicionais.setLayout(InformacoesAdicionaisLayout);
+        InformacoesAdicionaisLayout.setHorizontalGroup(
+            InformacoesAdicionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InformacoesAdicionaisLayout.createSequentialGroup()
+                .addGroup(InformacoesAdicionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InformacoesAdicionaisLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(FormaPagamento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbFormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(InformaçoesAdicionaisLayout.createSequentialGroup()
+                    .addGroup(InformacoesAdicionaisLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(CpfNaNota)
                         .addGap(18, 18, 18)
                         .addComponent(txtCpfNota, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)))
                 .addGap(20, 20, 20))
         );
-        InformaçoesAdicionaisLayout.setVerticalGroup(
-            InformaçoesAdicionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InformaçoesAdicionaisLayout.createSequentialGroup()
+        InformacoesAdicionaisLayout.setVerticalGroup(
+            InformacoesAdicionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InformacoesAdicionaisLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addGroup(InformaçoesAdicionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(InformacoesAdicionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbFormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(FormaPagamento))
                 .addGap(44, 44, 44)
-                .addGroup(InformaçoesAdicionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(InformacoesAdicionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CpfNaNota)
                     .addComponent(txtCpfNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(59, Short.MAX_VALUE))
@@ -231,7 +231,7 @@ public class TelaAcompanhamentoCliente extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FinalizacaoPagamentoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(FinalizacaoPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(InformaçoesAdicionais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(InformacoesAdicionais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Pagamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -239,7 +239,7 @@ public class TelaAcompanhamentoCliente extends javax.swing.JFrame {
             FinalizacaoPagamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FinalizacaoPagamentoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(InformaçoesAdicionais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(InformacoesAdicionais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Pagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -321,7 +321,7 @@ public class TelaAcompanhamentoCliente extends javax.swing.JFrame {
     private javax.swing.JLabel DividirConta;
     private javax.swing.JPanel FinalizacaoPagamento;
     private javax.swing.JLabel FormaPagamento;
-    private javax.swing.JPanel InformaçoesAdicionais;
+    private javax.swing.JPanel InformacoesAdicionais;
     private javax.swing.JLabel Logo;
     private javax.swing.JPanel Pagamento;
     private javax.swing.JPanel PedidoDoCliente;
