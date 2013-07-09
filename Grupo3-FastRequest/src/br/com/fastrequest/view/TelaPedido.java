@@ -42,7 +42,7 @@ public class TelaPedido extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         btnIncluirSobremesa = new javax.swing.JButton();
         txtObservacaoBebida = new javax.swing.JTextField();
-        ObservaçãoBebida = new javax.swing.JLabel();
+        ObservacaoBebida = new javax.swing.JLabel();
         Bebida = new javax.swing.JPanel();
         tableBebida = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
@@ -217,7 +217,7 @@ public class TelaPedido extends javax.swing.JFrame {
             }
         });
 
-        ObservaçãoBebida.setText("Observacoes");
+        ObservacaoBebida.setText("Observacoes");
 
         javax.swing.GroupLayout PedidosAndamento2Layout = new javax.swing.GroupLayout(PedidosAndamento2);
         PedidosAndamento2.setLayout(PedidosAndamento2Layout);
@@ -229,7 +229,7 @@ public class TelaPedido extends javax.swing.JFrame {
                     .addComponent(tableSobremesa, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(txtObservacaoBebida)
                     .addGroup(PedidosAndamento2Layout.createSequentialGroup()
-                        .addComponent(ObservaçãoBebida)
+                        .addComponent(ObservacaoBebida)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(btnIncluirSobremesa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE))
                 .addContainerGap())
@@ -239,7 +239,7 @@ public class TelaPedido extends javax.swing.JFrame {
             .addGroup(PedidosAndamento2Layout.createSequentialGroup()
                 .addComponent(tableSobremesa, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ObservaçãoBebida)
+                .addComponent(ObservacaoBebida)
                 .addGap(2, 2, 2)
                 .addComponent(txtObservacaoBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -421,7 +421,7 @@ public class TelaPedido extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Bebida;
     private javax.swing.JLabel Logo;
-    private javax.swing.JLabel ObservaçãoBebida;
+    private javax.swing.JLabel ObservacaoBebida;
     private javax.swing.JPanel PedidosAndamento2;
     private javax.swing.JPanel PedidosAndamento3;
     private javax.swing.JPanel Prato;
