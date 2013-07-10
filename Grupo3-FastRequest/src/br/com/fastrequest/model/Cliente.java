@@ -64,15 +64,6 @@ public class Cliente extends Pessoa{
             }
         
         }
-	
-
-	public boolean validanome(String nome){
-		
-		if(nome.length() > 45){
-			return false;
-		}
-		return true;
-	}
 
         
 	@Override

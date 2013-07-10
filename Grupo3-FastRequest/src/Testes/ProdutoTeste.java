@@ -1,6 +1,9 @@
 package Testes;
 
 import br.com.fastrequest.model.Produto;
+import br.com.fastrequest.model.ValidaDescricao;
+import br.com.fastrequest.model.ValidaNome;
+import br.com.fastrequest.model.ValidaPreco;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,10 +11,13 @@ import org.junit.Test;
 public class ProdutoTeste {
 	
 	private Produto produto;
+	ValidaNome vn;
+	ValidaDescricao vd;
+	ValidaPreco vp;
+	
 	@Before
 	public void setUp() throws Exception {
 		produto = new Produto();
-		produto.setIdProduto(1);
 		produto.setNome("testeproduto");
 		produto.setDescricao("descricaoproduto");
 		produto.setPreco(12.00);
@@ -19,27 +25,26 @@ public class ProdutoTeste {
 
 	@Test
 	public final void testarInstancia() {
-		assertNotNull(produto); // TODO
+		assertNotNull(produto); 
 	}
 
 	@Test
 	//ALTERAR DAQUI PRA BAIXO DE ACORDO COM A MODELO
 	public final void validarNome() {
 		produto.setNome("AUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIU");
-		assertFalse(produto.validanome(produto.getNome()));
+		assertFalse(vn.validaNome(produto.getNome()));
 	}
         
 	@Test
 	public final void validarDescricao() {
 		produto.setDescricao("AUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIUAUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIU");
-		assertFalse(produto.validaDescricao(produto.getDescricao()));
-		// TODO
+		assertTrue(vd.validaDescricao(produto.getDescricao()));
 	}
         
         @Test
 	public final void validarPreco() {
 		produto.setPreco(-45.98);
-		assertFalse(produto.validaPreco(produto.getPreco()));
+		assertFalse(vp.validaPreco(produto.getPreco()));
 		// TODO
 	}
         
