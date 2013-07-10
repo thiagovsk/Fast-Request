@@ -36,227 +36,155 @@ public class AlterarCadastroCliente extends javax.swing.JFrame {
 	 */
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed"
-	// desc="Generated Code">//GEN-BEGIN:initComponents
-	private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-		nomeCliente = new javax.swing.JLabel();
-		cpfCliente = new javax.swing.JLabel();
-		telefoneCliente = new javax.swing.JLabel();
-		emailCliente = new javax.swing.JLabel();
-		textNomeCliente = new javax.swing.JTextField();
-		textCpfCliente = new javax.swing.JTextField();
-		textTelefoneCliente = new javax.swing.JTextField();
-		textEmailCliente = new javax.swing.JTextField();
-		textNomeCpfEditar = new javax.swing.JTextField();
-		txtClienteEditar = new javax.swing.JButton();
-		jButton1 = new javax.swing.JButton();
-		jLabel1 = new javax.swing.JLabel();
+        nomeCliente = new javax.swing.JLabel();
+        cpfCliente = new javax.swing.JLabel();
+        telefoneCliente = new javax.swing.JLabel();
+        emailCliente = new javax.swing.JLabel();
+        textNomeCliente = new javax.swing.JTextField();
+        textCpfCliente = new javax.swing.JTextField();
+        textTelefoneCliente = new javax.swing.JTextField();
+        textEmailCliente = new javax.swing.JTextField();
+        textNomeCpfEditar = new javax.swing.JTextField();
+        txtClienteEditar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-		nomeCliente.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-		nomeCliente.setText("Nome");
+        nomeCliente.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        nomeCliente.setText("Nome");
 
-		cpfCliente.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-		cpfCliente.setText("CPF");
+        cpfCliente.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        cpfCliente.setText("CPF");
 
-		telefoneCliente.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-		telefoneCliente.setText("Telefone");
+        telefoneCliente.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        telefoneCliente.setText("Telefone");
 
-		emailCliente.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-		emailCliente.setText("Email");
+        emailCliente.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        emailCliente.setText("Email");
 
-		textNomeCliente.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				textNomeClienteActionPerformed(evt);
-			}
-		});
+        textNomeCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNomeClienteActionPerformed(evt);
+            }
+        });
 
-		textCpfCliente.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				textCpfClienteActionPerformed(evt);
-			}
-		});
+        textCpfCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textCpfClienteActionPerformed(evt);
+            }
+        });
 
-		textTelefoneCliente
-				.addActionListener(new java.awt.event.ActionListener() {
-					@Override
-					public void actionPerformed(java.awt.event.ActionEvent evt) {
-						textTelefoneClienteActionPerformed(evt);
-					}
-				});
+        textTelefoneCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textTelefoneClienteActionPerformed(evt);
+            }
+        });
 
-		txtClienteEditar.setText("Editar");
-		txtClienteEditar.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				txtClienteEditarActionPerformed(evt);
-			}
-		});
+        txtClienteEditar.setText("Editar");
+        txtClienteEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtClienteEditarActionPerformed(evt);
+            }
+        });
 
-		jButton1.setText("Alterar");
-		jButton1.addActionListener(new java.awt.event.ActionListener() {
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButton1ActionPerformed(evt);
-			}
-		});
+        jButton1.setText("Alterar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-		jLabel1.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-		jLabel1.setText("Digite seu CPF");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        jLabel1.setText("Digite seu CPF");
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
-				getContentPane());
-		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addContainerGap()
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-												.addGroup(
-														layout.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.TRAILING,
-																false)
-																.addGroup(
-																		javax.swing.GroupLayout.Alignment.LEADING,
-																		layout.createSequentialGroup()
-																				.addComponent(
-																						nomeCliente)
-																				.addPreferredGap(
-																						javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						Short.MAX_VALUE)
-																				.addComponent(
-																						textNomeCliente,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						129,
-																						javax.swing.GroupLayout.PREFERRED_SIZE))
-																.addGroup(
-																		javax.swing.GroupLayout.Alignment.LEADING,
-																		layout.createSequentialGroup()
-																				.addComponent(
-																						cpfCliente)
-																				.addPreferredGap(
-																						javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						Short.MAX_VALUE)
-																				.addComponent(
-																						textCpfCliente,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						129,
-																						javax.swing.GroupLayout.PREFERRED_SIZE))
-																.addGroup(
-																		javax.swing.GroupLayout.Alignment.LEADING,
-																		layout.createSequentialGroup()
-																				.addComponent(
-																						telefoneCliente)
-																				.addGap(18,
-																						18,
-																						18)
-																				.addComponent(
-																						textTelefoneCliente,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						128,
-																						javax.swing.GroupLayout.PREFERRED_SIZE)))
-												.addGroup(
-														layout.createSequentialGroup()
-																.addComponent(
-																		textNomeCpfEditar,
-																		javax.swing.GroupLayout.PREFERRED_SIZE,
-																		140,
-																		javax.swing.GroupLayout.PREFERRED_SIZE)
-																.addPreferredGap(
-																		javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																.addComponent(
-																		txtClienteEditar))
-												.addComponent(jLabel1)
-												.addGroup(
-														layout.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.TRAILING)
-																.addComponent(
-																		jButton1)
-																.addGroup(
-																		layout.createSequentialGroup()
-																				.addComponent(
-																						emailCliente)
-																				.addGap(41,
-																						41,
-																						41)
-																				.addComponent(
-																						textEmailCliente,
-																						javax.swing.GroupLayout.PREFERRED_SIZE,
-																						128,
-																						javax.swing.GroupLayout.PREFERRED_SIZE))))
-								.addContainerGap(44, Short.MAX_VALUE)));
-		layout.setVerticalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addGap(23, 23, 23)
-								.addComponent(jLabel1)
-								.addGap(20, 20, 20)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(
-														textNomeCpfEditar,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(txtClienteEditar))
-								.addGap(18, 18, 18)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(nomeCliente)
-												.addComponent(
-														textNomeCliente,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(cpfCliente)
-												.addComponent(
-														textCpfCliente,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(telefoneCliente)
-												.addComponent(
-														textTelefoneCliente,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(emailCliente)
-												.addComponent(
-														textEmailCliente,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addGap(11, 11, 11).addComponent(jButton1)
-								.addContainerGap(28, Short.MAX_VALUE)));
+        jToggleButton1.setText("Sair");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
-		pack();
-	}// </editor-fold>//GEN-END:initComponents
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(nomeCliente)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(textNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(cpfCliente)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(textCpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(telefoneCliente)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(textTelefoneCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(textNomeCpfEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtClienteEditar))
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(emailCliente)
+                                .addGap(41, 41, 41)
+                                .addComponent(textEmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(44, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jToggleButton1)
+                        .addGap(20, 20, 20))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textNomeCpfEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtClienteEditar))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomeCliente)
+                    .addComponent(textNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cpfCliente)
+                    .addComponent(textCpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(telefoneCliente)
+                    .addComponent(textTelefoneCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emailCliente)
+                    .addComponent(textEmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jToggleButton1))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
 	private void textNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_textNomeClienteActionPerformed
 		// TODO add your handling code here:
@@ -311,23 +239,30 @@ public class AlterarCadastroCliente extends javax.swing.JFrame {
 					"Conexao com banco falhou");
 
 		} catch (ParseException ex) {
-			Logger.getLogger(AlterarCadastroCliente.class.getName()).log(
-					Level.SEVERE, null, ex);
+			JOptionPane.showMessageDialog(this,
+					"teste");
 		}
+		catch (IndexOutOfBoundsException ex) {
+			JOptionPane.showMessageDialog(this,
+					"cliente nao encontrado");
+		}
+	
+		
 	}// GEN-LAST:event_jButton1ActionPerformed
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JLabel cpfCliente;
-	private javax.swing.JLabel emailCliente;
-	private javax.swing.JButton jButton1;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel nomeCliente;
-	private javax.swing.JLabel telefoneCliente;
-	private javax.swing.JTextField textCpfCliente;
-	private javax.swing.JTextField textEmailCliente;
-	private javax.swing.JTextField textNomeCliente;
-	private javax.swing.JTextField textNomeCpfEditar;
-	private javax.swing.JTextField textTelefoneCliente;
-	private javax.swing.JButton txtClienteEditar;
-	// End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cpfCliente;
+    private javax.swing.JLabel emailCliente;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel nomeCliente;
+    private javax.swing.JLabel telefoneCliente;
+    private javax.swing.JTextField textCpfCliente;
+    private javax.swing.JTextField textEmailCliente;
+    private javax.swing.JTextField textNomeCliente;
+    private javax.swing.JTextField textNomeCpfEditar;
+    private javax.swing.JTextField textTelefoneCliente;
+    private javax.swing.JButton txtClienteEditar;
+    // End of variables declaration//GEN-END:variables
 }

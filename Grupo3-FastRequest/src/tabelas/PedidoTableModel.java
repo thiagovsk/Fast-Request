@@ -58,10 +58,10 @@ public class PedidoTableModel extends AbstractTableModel{
                nomeColuna="Nome";
                break;
                    case COL_DESC:
-               nomeColuna="Descrição";
+               nomeColuna="Descricao";
                break;
                case COL_PRECO:
-               nomeColuna="Preço";
+               nomeColuna="Preco";
                break;
                default: throw  new IllegalArgumentException("Coluna invalida");
             

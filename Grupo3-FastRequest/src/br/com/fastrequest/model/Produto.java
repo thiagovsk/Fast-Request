@@ -50,7 +50,7 @@ public class Produto {
                 this.nome = nome;
                 
             } else {
-                throw new IllegalArgumentException("Produto nÃao pode ter nome vazio ou nulo.");
+                throw new IllegalArgumentException("Produto nao pode ter nome vazio ou nulo.");
                 
             }
         
@@ -67,7 +67,7 @@ public class Produto {
                 this.descricao = descricao;
                 
             } else {
-                throw new IllegalArgumentException("Produto nao pode ter descrição vazia ou nula.");
+                throw new IllegalArgumentException("Produto nao pode ter descricao vazia ou nula.");
                 
             }
         
@@ -84,7 +84,7 @@ public class Produto {
                 this.preco = preco;
                 
             } else {
-                throw new IllegalArgumentException("Produto nao pode ter preço nulo.");
+                throw new IllegalArgumentException("Produto nao pode ter preco nulo.");
                 
             }
             

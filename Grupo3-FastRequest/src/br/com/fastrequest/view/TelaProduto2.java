@@ -501,7 +501,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
     private void btnAlterarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarClienteActionPerformed
         AlterarCadastroCliente tela = new AlterarCadastroCliente();
         tela.setVisible(true);
-        setVisible(false);
+        
     }//GEN-LAST:event_btnAlterarClienteActionPerformed
 
     private void btnCadastroClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroClientesActionPerformed
