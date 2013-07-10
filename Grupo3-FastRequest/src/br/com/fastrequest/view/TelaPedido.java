@@ -349,6 +349,7 @@ public class TelaPedido extends javax.swing.JFrame {
     private void btnConcluido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConcluido1ActionPerformed
       
       Produto produto = new Produto();
+    try{
       String nome = pedidoListBebida.get(tabelaBebida.getSelectedRow()).getNome();
       double preco = pedidoListBebida.get(tabelaBebida.getSelectedRow()).getPreco();
       
@@ -360,12 +361,19 @@ public class TelaPedido extends javax.swing.JFrame {
       System.out.println(produto.toString());
      
       modelo.addElement(produto.toString());
+    } catch (ArrayIndexOutOfBoundsException ex) {
+        JOptionPane.showMessageDialog(this, "Selecione o produto a ser inserido");
+        
+  
+    }      
+    
 	
     }//GEN-LAST:event_btnConcluido1ActionPerformed
 
     private void btnIncluirPratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPratoActionPerformed
     
       Produto produto = new Produto();
+    try{
       String nome = pedidoListPrato.get(tabelaPedido.getSelectedRow()).getNome();
       double preco = pedidoListPrato.get(tabelaPedido.getSelectedRow()).getPreco();
       
@@ -377,8 +385,12 @@ public class TelaPedido extends javax.swing.JFrame {
       System.out.println(produto.toString());
      
       modelo.addElement(produto.toString());
-	
-      
+    }
+    catch (ArrayIndexOutOfBoundsException ex) {
+        JOptionPane.showMessageDialog(this, "Selecione o produto a ser excluido");
+        
+  
+    }      
       
       
            
@@ -388,7 +400,7 @@ public class TelaPedido extends javax.swing.JFrame {
     private void btnIncluirSobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirSobremesaActionPerformed
        
       Produto produto = new Produto();
-      String nome = pedidoListSobremesa.get(tabelaSObremesa.getSelectedRow()).getNome();
+     try{ String nome = pedidoListSobremesa.get(tabelaSObremesa.getSelectedRow()).getNome();
       double preco = pedidoListSobremesa.get(tabelaSObremesa.getSelectedRow()).getPreco();
       
       
@@ -399,6 +411,11 @@ public class TelaPedido extends javax.swing.JFrame {
       System.out.println(produto.toString());
      
       modelo.addElement(produto.toString());
+     } catch (ArrayIndexOutOfBoundsException ex) {
+         JOptionPane.showMessageDialog(this, "Selecione o produto a ser incluido");
+         
+         
+     }      
 	
     }//GEN-LAST:event_btnIncluirSobremesaActionPerformed
 
