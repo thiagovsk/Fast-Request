@@ -4,11 +4,11 @@ public class ValidaNome {
 	
 	public boolean validaNome(String nome){
 
-		if(nome.length() >45){
-			return false;
+		if(nome.length() < 46){
+			return true;
 		
-		}
-		return true;
+		}else
+		return false;
 	}
 
 }

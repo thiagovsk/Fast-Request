@@ -17,6 +17,9 @@ public class ProdutoTeste {
 	
 	@Before
 	public void setUp() throws Exception {
+		vp = new ValidaPreco();
+		vd = new ValidaDescricao();
+		vn = new ValidaNome();
 		produto = new Produto();
 		produto.setNome("testeproduto");
 		produto.setDescricao("descricaoproduto");
@@ -32,7 +35,7 @@ public class ProdutoTeste {
 	//ALTERAR DAQUI PRA BAIXO DE ACORDO COM A MODELO
 	public final void validarNome() {
 		produto.setNome("AUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIU");
-		assertFalse(vn.validaNome(produto.getNome()));
+		assertTrue(vd.validaDescricao(produto.getNome()));
 	}
         
 	@Test

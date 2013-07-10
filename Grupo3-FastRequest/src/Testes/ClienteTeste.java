@@ -12,26 +12,27 @@ import org.junit.Test;
 
 public class ClienteTeste {
 	
+	
 	Cliente cliente, client;
 	ValidaCpf vp;
 	ValidaEmail ve;
 	ValidaTelefone vt;
 	ValidaNome vn;
-
 	@Before
 	public void setUp() throws Exception {
-            
+		vp = new ValidaCpf();
+		ve = new ValidaEmail();
+		vt = new ValidaTelefone();
+		vn = new ValidaNome();
+		
 		cliente = new Cliente();
 		cliente.setCpf("03638061132");
 		cliente.setNome("OREUIOREUIOREUIOR");
 		cliente.setEmail("_antonio_@hotmail.com");
 		cliente.setTelefone("84574904");
 		
-		client = new Cliente();
-        client.setCpf("11122233344");
-		client.setNome("EHUHUHUHUHUHUHUHUHUHUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIOREUIORASD");
-		client.setEmail("antoniocoj");
-		client.setTelefone("8457490404");
+		client = new Cliente(100,"nome","111","auheau","91892819");
+
 		
 
 	}
@@ -40,15 +41,19 @@ public class ClienteTeste {
 	public final void testarInstancia() {
 		assertNotNull(cliente); // TODO
 	}
-       
+        @Test
+    	public final void testarInstancia2() {
+    		assertNotNull(client); // TODO
+    	}   
 	@Test
 	public void testNomeCerto() {
-		assertTrue(vn.validaNome(cliente.getNome()));
+		assertTrue(vn.validaNome(client.getNome()));
 	}
 	
 	@Test
 	public void testNomeErrado() {
-		assertFalse(vn.validaNome(client.getNome()));
+		cliente.setNome("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+		assertTrue(vn.validaNome(client.getNome()));
 	}
 	
 	@Test
