@@ -71,6 +71,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
         btnTelaCadastrarFuncionario1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Fast Request");
         setMinimumSize(new java.awt.Dimension(1366, 768));
         setPreferredSize(new java.awt.Dimension(1366, 768));
         getContentPane().setLayout(null);

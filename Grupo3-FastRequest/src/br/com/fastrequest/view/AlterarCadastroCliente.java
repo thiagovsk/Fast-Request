@@ -4,8 +4,14 @@
  */
 package br.com.fastrequest.view;
 
+import Excecoes.ValidarCpfException;
+import Excecoes.ValidarEmailException;
+import Excecoes.ValidarTelefoneException;
 import br.com.fastrequest.controller.ClienteController;
 import br.com.fastrequest.model.Cliente;
+import br.com.fastrequest.model.ValidaCpf;
+import br.com.fastrequest.model.ValidaEmail;
+import br.com.fastrequest.model.ValidaTelefone;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
@@ -54,6 +60,7 @@ public class AlterarCadastroCliente extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Fast Request");
 
         nomeCliente.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         nomeCliente.setText("Nome");
@@ -100,7 +107,7 @@ public class AlterarCadastroCliente extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-        jLabel1.setText("Digite seu CPF");
+        jLabel1.setText("Digite o CPF do cliente");
 
         jToggleButton1.setText("Sair");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +147,7 @@ public class AlterarCadastroCliente extends javax.swing.JFrame {
                                 .addComponent(emailCliente)
                                 .addGap(41, 41, 41)
                                 .addComponent(textEmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(44, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -224,10 +231,27 @@ dispose();        // TODO add your handling code here:
 		
 		try {
 			ClienteController pc = new ClienteController();
+                        ValidaCpf cpf = new ValidaCpf();
+                        ValidaTelefone telefone = new ValidaTelefone();
+                        ValidaEmail email = null;
+                        
+                        if (cpf.validarCpf(textCpfCliente.getText()) == false) {
+                            throw new ValidarCpfException();
+                        }
+            
+                        if (email.validaEmail(textEmailCliente.getText()) == false) {
+                            throw new ValidarEmailException();
+                        }
+            
+                        if(telefone.validaTelefone(textTelefoneCliente.getText()) == false) {
+                            throw new ValidarTelefoneException();
+                        }
+                        
 			int id = clienteList.get(registro).getId();
 			pc.alterar(id, textNomeCliente.getText(), textCpfCliente.getText(),
 			textTelefoneCliente.getText(), textEmailCliente.getText());
-			JOptionPane.showMessageDialog(this, "Cadastro Alterado com sucesso");
+			
+                        JOptionPane.showMessageDialog(this, "Cadastro Alterado com sucesso");
 			textNomeCliente.setText("");
 			textCpfCliente.setText("");
 			textTelefoneCliente.setText("");
@@ -245,7 +269,22 @@ dispose();        // TODO add your handling code here:
 		catch (IndexOutOfBoundsException ex) {
 			JOptionPane.showMessageDialog(this,
 					"cliente nao encontrado");
-		}
+           
+                }catch (ValidarTelefoneException ex) {
+                        JOptionPane.showMessageDialog(this, "Telefone Inválido, digite o DDD e o Numero (9 ou 8 digitos).");
+                  
+                } catch (ValidarCpfException ex) {
+                        JOptionPane.showMessageDialog(this, "CPF Inválido.");
+            
+                } catch (IllegalArgumentException e1){
+                        JOptionPane.showMessageDialog(this, e1.getMessage());
+       
+                } catch (ValidarEmailException ex) {
+                        JOptionPane.showMessageDialog(this, "Email Inválido.");
+            
+                }catch (NullPointerException e1){
+                        JOptionPane.showMessageDialog(this, "Favor preencher todos os campos.");
+                }
 	
 		
 	}// GEN-LAST:event_jButton1ActionPerformed
