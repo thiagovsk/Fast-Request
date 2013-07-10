@@ -521,25 +521,31 @@ public class TelaProduto2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTelaInicial1ActionPerformed
     private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {                                                  
        ProdutoController pc = new ProdutoController();
-       int id = produtoList.get(tabelaProdutos.getSelectedRow()).getIdProduto();
        
-       int confirm = JOptionPane.showConfirmDialog(this, "Confirmam exclusao ?", "Excluir Produto",JOptionPane.YES_NO_OPTION);
-       
-       if(confirm!=0){
-       return;
-       }
         try {
+        	int id = produtoList.get(tabelaProdutos.getSelectedRow()).getIdProduto();
+            
+            int confirm = JOptionPane.showConfirmDialog(this, "Confirmam exclusao ?", "Excluir Produto",JOptionPane.YES_NO_OPTION);
+            
+            if(confirm!=0){
+            return;
+            }
             pc.excluir(id);
             JOptionPane.showMessageDialog(this, "Cadastro excluido com sucesso");
             atualizarTabela();
             
         } catch (SQLException ex) {
              JOptionPane.showMessageDialog(this, "problema com o banco de dados");
-            Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
+      
             
         }
         
+          catch (ArrayIndexOutOfBoundsException ex) {
+        JOptionPane.showMessageDialog(this, "Selecione o produto a ser excluido");
+        
+  
     }        
+    }
     /**
      * @param args the command line arguments
      */
