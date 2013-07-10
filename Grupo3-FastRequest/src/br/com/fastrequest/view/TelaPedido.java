@@ -347,7 +347,20 @@ public class TelaPedido extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConcluido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConcluido1ActionPerformed
-        // TODO add your handling code here:
+      
+      Produto produto = new Produto();
+      String nome = pedidoListBebida.get(tabelaBebida.getSelectedRow()).getNome();
+      double preco = pedidoListBebida.get(tabelaBebida.getSelectedRow()).getPreco();
+      
+      
+      produto.setNome(nome);
+      produto.setPreco(preco);
+      produtos.add(produto);
+      produtos.toArray(p);
+      System.out.println(produto.toString());
+     
+      modelo.addElement(produto.toString());
+	
     }//GEN-LAST:event_btnConcluido1ActionPerformed
 
     private void btnIncluirPratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPratoActionPerformed
@@ -373,7 +386,20 @@ public class TelaPedido extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIncluirPratoActionPerformed
 
     private void btnIncluirSobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirSobremesaActionPerformed
-        // TODO add your handling code here:
+       
+      Produto produto = new Produto();
+      String nome = pedidoListSobremesa.get(tabelaSObremesa.getSelectedRow()).getNome();
+      double preco = pedidoListSobremesa.get(tabelaSObremesa.getSelectedRow()).getPreco();
+      
+      
+      produto.setNome(nome);
+      produto.setPreco(preco);
+      produtos.add(produto);
+      produtos.toArray(p);
+      System.out.println(produto.toString());
+     
+      modelo.addElement(produto.toString());
+	
     }//GEN-LAST:event_btnIncluirSobremesaActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
