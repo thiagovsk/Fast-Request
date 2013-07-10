@@ -30,7 +30,8 @@ public class TabelasAutomatizadas {
 				+ "`telefone` varchar(50) DEFAULT NULL,PRIMARY KEY (`id`)) ENGINE=InnoDB  DEFAULT CHARSET=latin1  ";
 
 		String sqlCriarTabelaProduto = " CREATE TABLE IF NOT EXISTS `produto` (`idProduto` int(5) NOT NULL AUTO_INCREMENT,"
-				+ " `nome` varchar(45) DEFAULT NULL, `descricao` varchar(200) DEFAULT NULL, `preco` double DEFAULT NULL,"
+				+ " `nome` varchar(45) DEFAULT NULL, `descricao` varchar(200) DEFAULT NULL, `preco` double DEFAULT NULL," +
+				" `tipo` varchar(45) DEFAULT NULL,"
 				+ " PRIMARY KEY (`idProduto`)) ENGINE=InnoDB  DEFAULT CHARSET=latin1  ";
 
 		PreparedStatement stm1 = getConnection().prepareStatement(sqlCriaBanco);

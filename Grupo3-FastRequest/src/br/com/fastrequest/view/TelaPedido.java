@@ -4,6 +4,12 @@
  */
 package br.com.fastrequest.view;
 
+import java.util.List;
+
+import br.com.fastrequest.controller.ProdutoController;
+import br.com.fastrequest.model.Produto;
+import tabelas.PedidoTableModel;
+
 /**
  *
  * @author Antonio
@@ -16,7 +22,11 @@ public class TelaPedido extends javax.swing.JFrame {
     public TelaPedido() {
         initComponents();
     }
-
+    private List<Produto> pedidoListBebida = new ProdutoController().listaProdutosBebida();
+    private List<Produto> pedidoListPrato = new ProdutoController().listaProdutosPrato();
+    private List<Produto> pedidoListSobremesa = new ProdutoController().listaProdutosSobremesa();
+    private int registro=0;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,28 +38,31 @@ public class TelaPedido extends javax.swing.JFrame {
 
         PedidosAndamento3 = new javax.swing.JPanel();
         Logo = new javax.swing.JLabel();
+        ResumoPedido = new javax.swing.JPanel();
+        btnExcluirItem1 = new javax.swing.JButton();
+        btnEnviarPedido = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        Bebida = new javax.swing.JPanel();
+        panelBebida = new javax.swing.JScrollPane();
+        tabelaBebida = new javax.swing.JTable();
+        btnConcluido1 = new javax.swing.JButton();
+        observacaoBedida = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        PedidosAndamento2 = new javax.swing.JPanel();
+        tableSobremesa = new javax.swing.JScrollPane();
+        tabelaSObremesa = new javax.swing.JTable();
+        btnIncluirSobremesa = new javax.swing.JButton();
+        txtObservacaoSobremesa = new javax.swing.JTextField();
+        ObservacaoBebida = new javax.swing.JLabel();
         Prato = new javax.swing.JPanel();
-        tablePrato = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        painelPrato = new javax.swing.JScrollPane();
+        tabelaPedido = new javax.swing.JTable();
         txtObservacaoPrato = new javax.swing.JTextField();
         observacaoPrato = new javax.swing.JLabel();
         btnIncluirPrato = new javax.swing.JButton();
-        ResumoPedido = new javax.swing.JPanel();
-        btnEnviarPedido = new javax.swing.JButton();
-        btnExcluirItem = new javax.swing.JButton();
-        PedidosAndamento2 = new javax.swing.JPanel();
-        tableSobremesa = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        btnIncluirSobremesa = new javax.swing.JButton();
-        txtObservacaoBebida = new javax.swing.JTextField();
-        ObservacaoBebida = new javax.swing.JLabel();
-        Bebida = new javax.swing.JPanel();
-        tableBebida = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        btnConcluido1 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        btnVoltar = new javax.swing.JButton();
+        btnExcluirItem2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         PedidosAndamento3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "PEDIDOS EM ANDAMENTO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
@@ -68,41 +81,168 @@ public class TelaPedido extends javax.swing.JFrame {
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/fastrequest/imagens/logo2.jpg"))); // NOI18N
 
+        ResumoPedido.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "RESUMO DO PEDIDO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+
+        btnExcluirItem1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnExcluirItem1.setText("EXCLUIR ITEM");
+        btnExcluirItem1.setPreferredSize(new java.awt.Dimension(50, 25));
+        btnExcluirItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirItem1ActionPerformed(evt);
+            }
+        });
+
+        btnEnviarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEnviarPedido.setText("ENVIAR PEDIDO");
+        btnEnviarPedido.setPreferredSize(new java.awt.Dimension(50, 25));
+        btnEnviarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarPedidoActionPerformed(evt);
+            }
+        });
+
+        btnVoltar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ResumoPedidoLayout = new javax.swing.GroupLayout(ResumoPedido);
+        ResumoPedido.setLayout(ResumoPedidoLayout);
+        ResumoPedidoLayout.setHorizontalGroup(
+            ResumoPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ResumoPedidoLayout.createSequentialGroup()
+                .addGap(0, 59, Short.MAX_VALUE)
+                .addGroup(ResumoPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ResumoPedidoLayout.createSequentialGroup()
+                        .addComponent(btnExcluirItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnEnviarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
+        );
+        ResumoPedidoLayout.setVerticalGroup(
+            ResumoPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ResumoPedidoLayout.createSequentialGroup()
+                .addContainerGap(410, Short.MAX_VALUE)
+                .addGroup(ResumoPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEnviarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExcluirItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnVoltar)
+                .addGap(10, 10, 10))
+        );
+
+        Bebida.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "BEBIDA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+
+        PedidoTableModel pedido = new PedidoTableModel(pedidoListBebida);
+        tabelaBebida.setModel(pedido);
+        pedido.fireTableDataChanged();
+        tabelaBebida.setColumnSelectionAllowed(true);
+        tabelaBebida.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        panelBebida.setViewportView(tabelaBebida);
+
+        btnConcluido1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnConcluido1.setText("INCLUIR BEBIDA");
+        btnConcluido1.setPreferredSize(new java.awt.Dimension(50, 25));
+        btnConcluido1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConcluido1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Observacoes");
+
+        javax.swing.GroupLayout BebidaLayout = new javax.swing.GroupLayout(Bebida);
+        Bebida.setLayout(BebidaLayout);
+        BebidaLayout.setHorizontalGroup(
+            BebidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BebidaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(BebidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelBebida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 870, Short.MAX_VALUE)
+                    .addComponent(observacaoBedida)
+                    .addGroup(BebidaLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addComponent(btnConcluido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        BebidaLayout.setVerticalGroup(
+            BebidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BebidaLayout.createSequentialGroup()
+                .addComponent(panelBebida, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(observacaoBedida, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnConcluido1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Bebidas", Bebida);
+
+        PedidosAndamento2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "SOBREMESA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+
+        PedidoTableModel pedidoS = new PedidoTableModel(pedidoListSobremesa);
+        tabelaSObremesa.setModel(pedidoS);
+        pedido.fireTableDataChanged();
+        tabelaSObremesa.setColumnSelectionAllowed(true);
+        tabelaSObremesa.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tableSobremesa.setViewportView(tabelaSObremesa);
+
+        btnIncluirSobremesa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnIncluirSobremesa.setText("INCLUIR SOBREMESA");
+        btnIncluirSobremesa.setPreferredSize(new java.awt.Dimension(300, 25));
+        btnIncluirSobremesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIncluirSobremesaActionPerformed(evt);
+            }
+        });
+
+        ObservacaoBebida.setText("Observacoes");
+
+        javax.swing.GroupLayout PedidosAndamento2Layout = new javax.swing.GroupLayout(PedidosAndamento2);
+        PedidosAndamento2.setLayout(PedidosAndamento2Layout);
+        PedidosAndamento2Layout.setHorizontalGroup(
+            PedidosAndamento2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PedidosAndamento2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PedidosAndamento2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tableSobremesa, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtObservacaoSobremesa)
+                    .addGroup(PedidosAndamento2Layout.createSequentialGroup()
+                        .addComponent(ObservacaoBebida)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnIncluirSobremesa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 870, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        PedidosAndamento2Layout.setVerticalGroup(
+            PedidosAndamento2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PedidosAndamento2Layout.createSequentialGroup()
+                .addComponent(tableSobremesa, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(ObservacaoBebida)
+                .addGap(18, 18, 18)
+                .addComponent(txtObservacaoSobremesa, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnIncluirSobremesa, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Sobremesas", PedidosAndamento2);
+
         Prato.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "PRATO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3"
-            }
-        ));
-        tablePrato.setViewportView(jTable1);
+        PedidoTableModel pedidoP = new PedidoTableModel(pedidoListPrato);
+        tabelaPedido.setModel(pedidoP);
+        pedido.fireTableDataChanged();
+        tabelaPedido.setColumnSelectionAllowed(true);
+        tabelaPedido.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        painelPrato.setViewportView(tabelaPedido);
 
         txtObservacaoPrato.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -126,7 +266,7 @@ public class TelaPedido extends javax.swing.JFrame {
                 .addGroup(PratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtObservacaoPrato, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnIncluirPrato, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tablePrato, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+                    .addComponent(painelPrato, javax.swing.GroupLayout.DEFAULT_SIZE, 870, Short.MAX_VALUE)
                     .addGroup(PratoLayout.createSequentialGroup()
                         .addComponent(observacaoPrato)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -136,184 +276,29 @@ public class TelaPedido extends javax.swing.JFrame {
             PratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PratoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tablePrato, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(painelPrato, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(observacaoPrato)
-                .addGap(4, 4, 4)
-                .addComponent(txtObservacaoPrato, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtObservacaoPrato, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(btnIncluirPrato, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65))
         );
 
-        ResumoPedido.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "RESUMO DO PEDIDO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+        jTabbedPane1.addTab("Comidas ", Prato);
 
-        btnEnviarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnEnviarPedido.setText("ENVIAR PEDIDO");
-        btnEnviarPedido.setPreferredSize(new java.awt.Dimension(50, 25));
-        btnEnviarPedido.addActionListener(new java.awt.event.ActionListener() {
+        btnExcluirItem2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnExcluirItem2.setText("EXCLUIR ITEM");
+        btnExcluirItem2.setPreferredSize(new java.awt.Dimension(50, 25));
+        btnExcluirItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnviarPedidoActionPerformed(evt);
+                btnExcluirItem2ActionPerformed(evt);
             }
         });
 
-        btnExcluirItem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnExcluirItem.setText("EXCLUIR ITEM");
-        btnExcluirItem.setPreferredSize(new java.awt.Dimension(50, 25));
-        btnExcluirItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirItemActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout ResumoPedidoLayout = new javax.swing.GroupLayout(ResumoPedido);
-        ResumoPedido.setLayout(ResumoPedidoLayout);
-        ResumoPedidoLayout.setHorizontalGroup(
-            ResumoPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ResumoPedidoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnExcluirItem, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(btnEnviarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        ResumoPedidoLayout.setVerticalGroup(
-            ResumoPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ResumoPedidoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(ResumoPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEnviarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExcluirItem, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-
-        PedidosAndamento2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "SOBREMESA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3"
-            }
-        ));
-        tableSobremesa.setViewportView(jTable2);
-
-        btnIncluirSobremesa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnIncluirSobremesa.setText("INCLUIR SOBREMESA");
-        btnIncluirSobremesa.setPreferredSize(new java.awt.Dimension(300, 25));
-        btnIncluirSobremesa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIncluirSobremesaActionPerformed(evt);
-            }
-        });
-
-        ObservacaoBebida.setText("Observacoes");
-
-        javax.swing.GroupLayout PedidosAndamento2Layout = new javax.swing.GroupLayout(PedidosAndamento2);
-        PedidosAndamento2.setLayout(PedidosAndamento2Layout);
-        PedidosAndamento2Layout.setHorizontalGroup(
-            PedidosAndamento2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PedidosAndamento2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PedidosAndamento2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tableSobremesa, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(txtObservacaoBebida)
-                    .addGroup(PedidosAndamento2Layout.createSequentialGroup()
-                        .addComponent(ObservacaoBebida)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnIncluirSobremesa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        PedidosAndamento2Layout.setVerticalGroup(
-            PedidosAndamento2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PedidosAndamento2Layout.createSequentialGroup()
-                .addComponent(tableSobremesa, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ObservacaoBebida)
-                .addGap(2, 2, 2)
-                .addComponent(txtObservacaoBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnIncluirSobremesa, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        Bebida.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "BEBIDA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
-
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3"
-            }
-        ));
-        tableBebida.setViewportView(jTable4);
-
-        btnConcluido1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnConcluido1.setText("INCLUIR BEBIDA");
-        btnConcluido1.setPreferredSize(new java.awt.Dimension(50, 25));
-        btnConcluido1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConcluido1ActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("Observacoes");
-
-        javax.swing.GroupLayout BebidaLayout = new javax.swing.GroupLayout(Bebida);
-        Bebida.setLayout(BebidaLayout);
-        BebidaLayout.setHorizontalGroup(
-            BebidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BebidaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(BebidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tableBebida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
-                    .addComponent(jTextField2)
-                    .addGroup(BebidaLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnConcluido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        BebidaLayout.setVerticalGroup(
-            BebidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BebidaLayout.createSequentialGroup()
-                .addComponent(tableBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(3, 3, 3)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnConcluido1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        btnVoltar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnVoltar.setText("Voltar");
-        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarActionPerformed(evt);
-            }
-        });
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("FAZER AQUI O SEU PEDIDO!");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -322,52 +307,43 @@ public class TelaPedido extends javax.swing.JFrame {
             .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Prato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Bebida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PedidosAndamento2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(ResumoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ResumoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(606, 606, 606)
+                    .addComponent(btnExcluirItem2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(613, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Logo)
-                .addGap(1, 1, 1)
-                .addComponent(btnVoltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Prato, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(ResumoPedido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(Bebida, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(PedidosAndamento2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ResumoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(347, 347, 347)
+                    .addComponent(btnExcluirItem2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(361, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEnviarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarPedidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEnviarPedidoActionPerformed
-
     private void btnConcluido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConcluido1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConcluido1ActionPerformed
-
-    private void btnExcluirItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluirItemActionPerformed
 
     private void btnIncluirPratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPratoActionPerformed
         // TODO add your handling code here:
@@ -377,12 +353,24 @@ public class TelaPedido extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIncluirSobremesaActionPerformed
 
+    private void btnExcluirItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluirItem2ActionPerformed
+
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-    
+
         TelaPrincipal tela = new TelaPrincipal();
         tela.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnEnviarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEnviarPedidoActionPerformed
+
+    private void btnExcluirItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluirItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -428,20 +416,23 @@ public class TelaPedido extends javax.swing.JFrame {
     private javax.swing.JPanel ResumoPedido;
     private javax.swing.JButton btnConcluido1;
     private javax.swing.JButton btnEnviarPedido;
-    private javax.swing.JButton btnExcluirItem;
+    private javax.swing.JButton btnExcluirItem1;
+    private javax.swing.JButton btnExcluirItem2;
     private javax.swing.JButton btnIncluirPrato;
     private javax.swing.JButton btnIncluirSobremesa;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField observacaoBedida;
     private javax.swing.JLabel observacaoPrato;
-    private javax.swing.JScrollPane tableBebida;
-    private javax.swing.JScrollPane tablePrato;
+    private javax.swing.JScrollPane painelPrato;
+    private javax.swing.JScrollPane panelBebida;
+    private javax.swing.JTable tabelaBebida;
+    private javax.swing.JTable tabelaPedido;
+    private javax.swing.JTable tabelaSObremesa;
     private javax.swing.JScrollPane tableSobremesa;
-    private javax.swing.JTextField txtObservacaoBebida;
     private javax.swing.JTextField txtObservacaoPrato;
+    private javax.swing.JTextField txtObservacaoSobremesa;
     // End of variables declaration//GEN-END:variables
 }

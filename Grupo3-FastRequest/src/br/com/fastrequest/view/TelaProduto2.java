@@ -39,6 +39,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         logo = new javax.swing.JLabel();
         pesquisaProduto = new javax.swing.JPanel();
         nomeProdutoPesquisar = new javax.swing.JLabel();
@@ -64,14 +65,12 @@ public class TelaProduto2 extends javax.swing.JFrame {
         btnCadastrarProduto = new javax.swing.JButton();
         btnLimparProduto = new javax.swing.JButton();
         btnAlterarProduto = new javax.swing.JButton();
-        btnTelaCadastrarFuncionario = new javax.swing.JButton();
-        btnTelaCardapio = new javax.swing.JToggleButton();
-        btnTelaAcompanhamento = new javax.swing.JButton();
-        btnTelaInicial = new javax.swing.JButton();
-        btnCadastroClientes = new javax.swing.JButton();
+        btnIrparaCardapio = new javax.swing.JButton();
+        btnAlterarCliente = new javax.swing.JButton();
+        btnTelaInicial1 = new javax.swing.JButton();
+        btnTelaCadastrarFuncionario1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1366, 761));
         getContentPane().setLayout(null);
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/fastrequest/imagens/logo2.jpg")));
@@ -291,50 +290,41 @@ public class TelaProduto2 extends javax.swing.JFrame {
         getContentPane().add(cadastroProduto);
         cadastroProduto.setBounds(569, 168, 528, 526);
 
-        btnTelaCadastrarFuncionario.setText("CADASTRAR FUNCIONÁRIO");
-        btnTelaCadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        btnIrparaCardapio.setText("CARDAPIO");
+        btnIrparaCardapio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTelaCadastrarFuncionarioActionPerformed(evt);
+                btnIrparaCardapioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTelaCadastrarFuncionario);
-        btnTelaCadastrarFuncionario.setBounds(1120, 170, 228, 90);
+        getContentPane().add(btnIrparaCardapio);
+        btnIrparaCardapio.setBounds(1130, 300, 228, 110);
 
-        btnTelaCardapio.setText("CARDÁPIO");
-        btnTelaCardapio.addActionListener(new java.awt.event.ActionListener() {
+        btnAlterarCliente.setText("ALTERAR CADASTROS DOS CLIENTES");
+        btnAlterarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTelaCardapioActionPerformed(evt);
+                btnAlterarClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTelaCardapio);
-        btnTelaCardapio.setBounds(1120, 280, 228, 80);
+        getContentPane().add(btnAlterarCliente);
+        btnAlterarCliente.setBounds(1130, 560, 228, 110);
 
-        btnTelaAcompanhamento.setText("TELA DE ACOMPANHAMENTO");
-        btnTelaAcompanhamento.addActionListener(new java.awt.event.ActionListener() {
+        btnTelaInicial1.setText("TELA INICIAL");
+        btnTelaInicial1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTelaAcompanhamentoActionPerformed(evt);
+                btnTelaInicial1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTelaAcompanhamento);
-        btnTelaAcompanhamento.setBounds(1120, 600, 228, 90);
+        getContentPane().add(btnTelaInicial1);
+        btnTelaInicial1.setBounds(1128, 424, 228, 110);
 
-        btnTelaInicial.setText("TELA INICIAL");
-        btnTelaInicial.addActionListener(new java.awt.event.ActionListener() {
+        btnTelaCadastrarFuncionario1.setText("CADASTRAR FUNCIONÁRIO");
+        btnTelaCadastrarFuncionario1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTelaInicialActionPerformed(evt);
+                btnTelaCadastrarFuncionario1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTelaInicial);
-        btnTelaInicial.setBounds(1120, 380, 228, 90);
-
-        btnCadastroClientes.setText("CADASTROS DOS CLIENTES");
-        btnCadastroClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastroClientesActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnCadastroClientes);
-        btnCadastroClientes.setBounds(1120, 490, 228, 90);
+        getContentPane().add(btnTelaCadastrarFuncionario1);
+        btnTelaCadastrarFuncionario1.setBounds(1128, 168, 228, 110);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -352,8 +342,21 @@ public class TelaProduto2 extends javax.swing.JFrame {
         ProdutoController pc = new ProdutoController();
         
         try {
-            
-            pc.salvar(txtNomeProduto.getText(), txtDescricaoProduto.getText(), Double.parseDouble(txtPrecoProduto.getText()));
+            if(cbPratoProduto.isSelected()==true){
+            pc.salvar(txtNomeProduto.getText(), txtDescricaoProduto.getText(), 
+                    Double.parseDouble(txtPrecoProduto.getText()),cbPratoProduto.getText());
+                    
+            }
+              if(cbBebidaProduto.isSelected()==true){
+            pc.salvar(txtNomeProduto.getText(), txtDescricaoProduto.getText(), 
+                    Double.parseDouble(txtPrecoProduto.getText()),cbBebidaProduto.getText());
+                    
+            }
+                if(cbSobremesaProduto.isSelected()==true){
+            pc.salvar(txtNomeProduto.getText(), txtDescricaoProduto.getText(), 
+                    Double.parseDouble(txtPrecoProduto.getText()),cbSobremesaProduto.getText());
+                    
+            }
             JOptionPane.showMessageDialog(this, "Produto salvo com sucesso!");
             
             txtNomeProduto.setText("");
@@ -388,9 +391,12 @@ public class TelaProduto2 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCadastrarProdutoActionPerformed
 
-    private void btnTelaCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaCadastrarFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTelaCadastrarFuncionarioActionPerformed
+    private void btnIrparaCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIrparaCardapioActionPerformed
+       TelaPedido tela = new TelaPedido();
+       tela.setVisible(true);
+       setVisible(false);
+       //
+    }//GEN-LAST:event_btnIrparaCardapioActionPerformed
 
     private void btnLimparProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparProdutoActionPerformed
 // TODO add your handling code here:
@@ -440,9 +446,21 @@ public class TelaProduto2 extends javax.swing.JFrame {
        try {
              ProdutoController pc = new ProdutoController();
        int id = produtoList.get(registro).getIdProduto();
-       
+          if(cbPratoProduto.isSelected()==true){
+              pc.alterar( id, txtNomeProduto.getText(), txtDescricaoProduto.getText(),
+              Double.parseDouble(txtPrecoProduto.getText()),cbPratoProduto.getText());
+         
+            }
+              if(cbBebidaProduto.isSelected()==true){
+           pc.alterar( id, txtNomeProduto.getText(), txtDescricaoProduto.getText(),
+              Double.parseDouble(txtPrecoProduto.getText()),cbBebidaProduto.getText());         
+            }
+                if(cbSobremesaProduto.isSelected()==true){
+           pc.alterar( id, txtNomeProduto.getText(), txtDescricaoProduto.getText(),
+              Double.parseDouble(txtPrecoProduto.getText()),cbSobremesaProduto.getText());
+                    
+            }
            
-            pc.alterar( id, txtNomeProduto.getText(), txtDescricaoProduto.getText(),Double.parseDouble(txtPrecoProduto.getText()));
                      JOptionPane.showMessageDialog(precoProduto, "Cadastro Alterado com sucesso");
     txtNomeProduto.setText("");
     txtPrecoProduto.setText("");
@@ -479,15 +497,25 @@ public class TelaProduto2 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnTelaAcompanhamentoActionPerformed
 
-    private void btnTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaInicialActionPerformed
-        TelaPrincipal tela = new TelaPrincipal();
+    private void btnAlterarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarClienteActionPerformed
+        AlterarCadastroCliente tela = new AlterarCadastroCliente();
         tela.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_btnTelaInicialActionPerformed
+    }//GEN-LAST:event_btnAlterarClienteActionPerformed
 
     private void btnCadastroClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroClientesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCadastroClientesActionPerformed
+
+    private void btnTelaCadastrarFuncionario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaCadastrarFuncionario1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTelaCadastrarFuncionario1ActionPerformed
+
+    private void btnTelaInicial1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaInicial1ActionPerformed
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnTelaInicial1ActionPerformed
     private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {                                                  
        ProdutoController pc = new ProdutoController();
        int id = produtoList.get(tabelaProdutos.getSelectedRow()).getIdProduto();
@@ -514,15 +542,15 @@ public class TelaProduto2 extends javax.swing.JFrame {
      */
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterarCliente;
     private javax.swing.JButton btnAlterarProduto;
     private javax.swing.JButton btnCadastrarProduto;
-    private javax.swing.JButton btnCadastroClientes;
     private javax.swing.JButton btnExcluirProduto;
+    private javax.swing.JButton btnIrparaCardapio;
     private javax.swing.JButton btnLimparProduto;
-    private javax.swing.JButton btnTelaAcompanhamento;
-    private javax.swing.JButton btnTelaCadastrarFuncionario;
-    private javax.swing.JToggleButton btnTelaCardapio;
-    private javax.swing.JButton btnTelaInicial;
+    private javax.swing.JButton btnTelaCadastrarFuncionario1;
+    private javax.swing.JButton btnTelaInicial1;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel cadastrarProduto;
     private javax.swing.JPanel cadastroProduto;
     private javax.swing.JCheckBox cbBebidaProduto;

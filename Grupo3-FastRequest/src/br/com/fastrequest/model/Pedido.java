@@ -2,18 +2,22 @@ package br.com.fastrequest.model;
 
 import java.util.InputMismatchException;
 
-public class Pedido {
+public class Pedido extends Produto{
 	
 	private int numeroClientes;
 	private double valorTotal;
-	
-	public Pedido(int numeroClientes, double valorTotal ) {
+
+	public Pedido(int numeroClientes, double valorTotal , String descricao, int idProduto, String nome , double preco) {
 		this.numeroClientes=numeroClientes;
                 this.valorTotal=valorTotal;
-                
+               setDescricao(descricao);
+               setIdProduto(idProduto);
+               setNome(nome);
+               setPreco(preco);
 	}
         
         public Pedido() {
+        	super();
 		// TODO Auto-generated constructor stub
 	}
         
@@ -44,7 +48,7 @@ public class Pedido {
                 this.valorTotal = valorTotal;
                 
             } else {
-                throw new IllegalArgumentException("Pedido não pode ter valor total vazio, nulo ou negativo.");
+                throw new IllegalArgumentException("Pedido naoo pode ter valor total vazio, nulo ou negativo.");
                 
             }
         

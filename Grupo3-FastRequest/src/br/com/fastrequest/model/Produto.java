@@ -5,21 +5,31 @@ import java.util.InputMismatchException;
 
 public class Produto {
 
-	private int idProduto;
-	private String nome;
-	private String descricao;
-	private double preco;
+	protected int idProduto;
+	protected String nome;
+	protected String descricao;
+	protected double preco;
+	protected String tipo;
 	
 	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 	public Produto() {
 		
 	}
 	
-	public Produto(int idProduto, String nome, String descricao, double preco) throws IllegalArgumentException{
+	public Produto(int idProduto, String nome, String descricao, double preco,String tipo) throws IllegalArgumentException{
 		this.idProduto = idProduto;
 		this.setNome (nome);
 		this.setDescricao (descricao);
 		this.setPreco (preco);
+		this.setTipo(tipo);
 	}
         
 	public int getIdProduto() {
