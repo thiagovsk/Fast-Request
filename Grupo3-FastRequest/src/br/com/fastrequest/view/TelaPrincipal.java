@@ -341,7 +341,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnProsseguirSemCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProsseguirSemCadastrarActionPerformed
-        // TODO add your handling code here:
+TelaPedido proximaTela = new TelaPedido();
+               proximaTela.setVisible(true);
+               setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_btnProsseguirSemCadastrarActionPerformed
 
     private void TextCpfLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextCpfLoginActionPerformed
