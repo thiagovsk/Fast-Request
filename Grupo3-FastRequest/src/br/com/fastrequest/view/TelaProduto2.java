@@ -348,7 +348,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
             if(cbPratoProduto.isSelected()==true){
             pc.salvar(txtNomeProduto.getText(), txtDescricaoProduto.getText(), 
                     Double.parseDouble(txtPrecoProduto.getText()),cbPratoProduto.getText());
-                    
+                    cbPratoProduto.setSelected(false);
                     
             }
               if(cbBebidaProduto.isSelected()==true){

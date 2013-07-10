@@ -362,7 +362,7 @@ public class TelaPedido extends javax.swing.JFrame {
      
       modelo.addElement(produto.toString());
     } catch (ArrayIndexOutOfBoundsException ex) {
-        JOptionPane.showMessageDialog(this, "Selecione o produto a ser inserido");
+        JOptionPane.showMessageDialog(this, "Selecione o produto a inserir.");
         
   
     }      
@@ -387,7 +387,7 @@ public class TelaPedido extends javax.swing.JFrame {
       modelo.addElement(produto.toString());
     }
     catch (ArrayIndexOutOfBoundsException ex) {
-        JOptionPane.showMessageDialog(this, "Selecione o produto a ser excluido");
+        JOptionPane.showMessageDialog(this, "Selecione o produto a excluir.");
         
   
     }      
@@ -412,7 +412,7 @@ public class TelaPedido extends javax.swing.JFrame {
      
       modelo.addElement(produto.toString());
      } catch (ArrayIndexOutOfBoundsException ex) {
-         JOptionPane.showMessageDialog(this, "Selecione o produto a ser incluido");
+         JOptionPane.showMessageDialog(this, "Selecione o produto a incluir.");
          
          
      }      
