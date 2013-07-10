@@ -55,9 +55,9 @@ public class AlterarCadastroCliente extends javax.swing.JFrame {
         textEmailCliente = new javax.swing.JTextField();
         textNomeCpfEditar = new javax.swing.JTextField();
         txtClienteEditar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnAlterarCliente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        btnTo = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fast Request");
@@ -99,20 +99,20 @@ public class AlterarCadastroCliente extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Alterar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAlterarCliente.setText("Alterar");
+        btnAlterarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAlterarClienteActionPerformed(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         jLabel1.setText("Digite o CPF do cliente");
 
-        jToggleButton1.setText("Sair");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnTo.setText("Sair");
+        btnTo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                btnToActionPerformed(evt);
             }
         });
 
@@ -149,9 +149,9 @@ public class AlterarCadastroCliente extends javax.swing.JFrame {
                                 .addComponent(textEmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnAlterarCliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jToggleButton1)
+                        .addComponent(btnTo)
                         .addGap(20, 20, 20))))
         );
         layout.setVerticalGroup(
@@ -181,17 +181,17 @@ public class AlterarCadastroCliente extends javax.swing.JFrame {
                     .addComponent(textEmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jToggleButton1))
+                    .addComponent(btnAlterarCliente)
+                    .addComponent(btnTo))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void btnToActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToActionPerformed
 dispose();        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_btnToActionPerformed
 
 	private void textNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_textNomeClienteActionPerformed
 		// TODO add your handling code here:
@@ -215,19 +215,19 @@ dispose();        // TODO add your handling code here:
 			textCpfCliente.setText(p.getCpf());
 			textEmailCliente.setText(p.getEmail());
 			textTelefoneCliente.setText(p.getTelefone());
-			JOptionPane.showMessageDialog(null, "Encontrado com Sucesso ");
+			JOptionPane.showMessageDialog(null, "Cadastro encontrado com sucesso! ");
 
 		} catch (SQLException ex) {
-			JOptionPane.showMessageDialog(null, "Conexao com banco falhou");
+			JOptionPane.showMessageDialog(null, "Conexão com banco falhou.");
 			Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE,
 					null, ex);
 		} catch (NullPointerException e1) {
-			JOptionPane.showMessageDialog(null, "cadastro nao encontrado");
+			JOptionPane.showMessageDialog(null, "Cadastro não encontrado.");
 
 		}// TODO add your handling code here:
 	}// GEN-LAST:event_txtClienteEditarActionPerformed
 
-	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
+	private void btnAlterarClienteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
 		
 		try {
 			ClienteController pc = new ClienteController();
@@ -251,7 +251,7 @@ dispose();        // TODO add your handling code here:
 			pc.alterar(id, textNomeCliente.getText(), textCpfCliente.getText(),
 			textTelefoneCliente.getText(), textEmailCliente.getText());
 			
-                        JOptionPane.showMessageDialog(this, "Cadastro Alterado com sucesso");
+                        JOptionPane.showMessageDialog(this, "Cadastro alterado com sucesso!");
 			textNomeCliente.setText("");
 			textCpfCliente.setText("");
 			textTelefoneCliente.setText("");
@@ -260,27 +260,27 @@ dispose();        // TODO add your handling code here:
 
 		} catch (SQLException ex) {
 			JOptionPane.showMessageDialog(nomeCliente,
-					"Conexao com banco falhou");
+					"Conexão com banco falhou.");
 
 		} catch (ParseException ex) {
 			JOptionPane.showMessageDialog(this,
-					"teste");
+					"Teste.");
 		}
 		catch (IndexOutOfBoundsException ex) {
 			JOptionPane.showMessageDialog(this,
-					"cliente nao encontrado");
+					"Cliente não encontrado.");
            
                 }catch (ValidarTelefoneException ex) {
-                        JOptionPane.showMessageDialog(this, "Telefone Inválido, digite o DDD e o Numero (9 ou 8 digitos).");
+                        JOptionPane.showMessageDialog(this, "Telefone inválido. \n Digite o DDD e o Numero (9 ou 8 digitos).");
                   
                 } catch (ValidarCpfException ex) {
-                        JOptionPane.showMessageDialog(this, "CPF Inválido.");
+                        JOptionPane.showMessageDialog(this, "CPF inválido.");
             
                 } catch (IllegalArgumentException e1){
                         JOptionPane.showMessageDialog(this, e1.getMessage());
        
                 } catch (ValidarEmailException ex) {
-                        JOptionPane.showMessageDialog(this, "Email Inválido.");
+                        JOptionPane.showMessageDialog(this, "Email inválido.");
             
                 }catch (NullPointerException e1){
                         JOptionPane.showMessageDialog(this, "Favor preencher todos os campos.");
@@ -290,11 +290,11 @@ dispose();        // TODO add your handling code here:
 	}// GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterarCliente;
+    private javax.swing.JToggleButton btnTo;
     private javax.swing.JLabel cpfCliente;
     private javax.swing.JLabel emailCliente;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel nomeCliente;
     private javax.swing.JLabel telefoneCliente;
     private javax.swing.JTextField textCpfCliente;

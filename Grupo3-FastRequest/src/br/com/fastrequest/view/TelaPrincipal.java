@@ -315,20 +315,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Conexão com o banco falhou!");
             
         }catch (ValidarTelefoneException ex) {
-            JOptionPane.showMessageDialog(this, "Telefone Inválido, digite o DDD e o Numero (9 ou 8 digitos).");
+            JOptionPane.showMessageDialog(this, "Telefone inválido, digite o DDD e o Numero (9 ou 8 digitos).");
                   
         } catch (ParseException ex) {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "Erro ao cadastrar o nome.");
             
         } catch (ValidarCpfException ex) {
-            JOptionPane.showMessageDialog(this, "CPF Inválido.");
+            JOptionPane.showMessageDialog(this, "CPF inválido.");
             
         } catch (IllegalArgumentException e1){
             JOptionPane.showMessageDialog(this, e1.getMessage());
        
         } catch (ValidarEmailException ex) {
-            JOptionPane.showMessageDialog(this, "Email Inválido.");
+            JOptionPane.showMessageDialog(this, "Email inválido.");
             
         }catch (NullPointerException e1){
             JOptionPane.showMessageDialog(this, "Favor preencher todos os campos.");
@@ -369,7 +369,7 @@ TelaPedido proximaTela = new TelaPedido();
                p.getCpf();
                p.getEmail();
                p.getTelefone();
-               JOptionPane.showMessageDialog(null, "Encontrado com Sucesso ");
+               JOptionPane.showMessageDialog(null, "Encontrado com Sucesso! ");
              
                TelaPedido proximaTela = new TelaPedido();
                proximaTela.setVisible(true);
@@ -377,10 +377,10 @@ TelaPedido proximaTela = new TelaPedido();
                 	}
                
            } catch (SQLException ex) {
-               JOptionPane.showMessageDialog(null, "Conexao com banco falhou");
+               JOptionPane.showMessageDialog(null, "Conexão com banco falhou.");
                Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
            }catch(NullPointerException e1){
-               JOptionPane.showMessageDialog(null, "cadastro nao encontrado");
+               JOptionPane.showMessageDialog(null, "Cadastro não encontrado.");
            }
     	  
 
