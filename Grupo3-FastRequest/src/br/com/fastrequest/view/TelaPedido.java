@@ -8,7 +8,15 @@ import java.util.List;
 
 import br.com.fastrequest.controller.ProdutoController;
 import br.com.fastrequest.model.Produto;
+import java.util.ArrayList;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.ListModel;
+
 import tabelas.PedidoTableModel;
+import tabelas.TabelaJaEscolhida;
 
 /**
  *
@@ -25,8 +33,11 @@ public class TelaPedido extends javax.swing.JFrame {
     private List<Produto> pedidoListBebida = new ProdutoController().listaProdutosBebida();
     private List<Produto> pedidoListPrato = new ProdutoController().listaProdutosPrato();
     private List<Produto> pedidoListSobremesa = new ProdutoController().listaProdutosSobremesa();
+    private List<Produto>lista = new ProdutoController().listaProdutos();
     private int registro=0;
-    
+    private ArrayList<Produto> produtos = new ArrayList<Produto>();
+    Produto[] p = new Produto[produtos.size()];
+    DefaultListModel modelo = new DefaultListModel();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,6 +53,8 @@ public class TelaPedido extends javax.swing.JFrame {
         btnExcluirItem1 = new javax.swing.JButton();
         btnEnviarPedido = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         Bebida = new javax.swing.JPanel();
         panelBebida = new javax.swing.JScrollPane();
@@ -61,7 +74,6 @@ public class TelaPedido extends javax.swing.JFrame {
         txtObservacaoPrato = new javax.swing.JTextField();
         observacaoPrato = new javax.swing.JLabel();
         btnIncluirPrato = new javax.swing.JButton();
-        btnExcluirItem2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         PedidosAndamento3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "PEDIDOS EM ANDAMENTO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
@@ -109,30 +121,41 @@ public class TelaPedido extends javax.swing.JFrame {
             }
         });
 
+        
+      
+       
+        jList1.setModel(modelo);
+        
+        jScrollPane2.setViewportView(jList1);
+
         javax.swing.GroupLayout ResumoPedidoLayout = new javax.swing.GroupLayout(ResumoPedido);
         ResumoPedido.setLayout(ResumoPedidoLayout);
         ResumoPedidoLayout.setHorizontalGroup(
             ResumoPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ResumoPedidoLayout.createSequentialGroup()
-                .addGap(0, 59, Short.MAX_VALUE)
-                .addGroup(ResumoPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(ResumoPedidoLayout.createSequentialGroup()
-                        .addComponent(btnExcluirItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnEnviarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18))
+            .addGroup(ResumoPedidoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ResumoPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ResumoPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ResumoPedidoLayout.createSequentialGroup()
+                            .addComponent(btnExcluirItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(56, 56, 56)
+                            .addComponent(btnEnviarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ResumoPedidoLayout.setVerticalGroup(
             ResumoPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ResumoPedidoLayout.createSequentialGroup()
-                .addContainerGap(410, Short.MAX_VALUE)
-                .addGroup(ResumoPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEnviarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExcluirItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(22, 22, 22)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(ResumoPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnExcluirItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEnviarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVoltar)
-                .addGap(10, 10, 10))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Bebida.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "BEBIDA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
@@ -288,15 +311,6 @@ public class TelaPedido extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Comidas ", Prato);
 
-        btnExcluirItem2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnExcluirItem2.setText("EXCLUIR ITEM");
-        btnExcluirItem2.setPreferredSize(new java.awt.Dimension(50, 25));
-        btnExcluirItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirItem2ActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("FAZER AQUI O SEU PEDIDO!");
 
@@ -304,21 +318,18 @@ public class TelaPedido extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 1375, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(ResumoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(606, 606, 606)
-                    .addComponent(btnExcluirItem2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(613, Short.MAX_VALUE)))
+                        .addComponent(ResumoPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,15 +338,9 @@ public class TelaPedido extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ResumoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(347, 347, 347)
-                    .addComponent(btnExcluirItem2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(361, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ResumoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -346,16 +351,30 @@ public class TelaPedido extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConcluido1ActionPerformed
 
     private void btnIncluirPratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirPratoActionPerformed
-        // TODO add your handling code here:
+    
+      Produto produto = new Produto();
+      String nome = pedidoListPrato.get(tabelaPedido.getSelectedRow()).getNome();
+      double preco = pedidoListPrato.get(tabelaPedido.getSelectedRow()).getPreco();
+      
+      
+      produto.setNome(nome);
+      produto.setPreco(preco);
+      produtos.add(produto);
+      produtos.toArray(p);
+      System.out.println(produto.toString());
+     
+      modelo.addElement(produto.toString());
+	
+      
+      
+      
+           
+        
     }//GEN-LAST:event_btnIncluirPratoActionPerformed
 
     private void btnIncluirSobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirSobremesaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIncluirSobremesaActionPerformed
-
-    private void btnExcluirItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluirItem2ActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
 
@@ -417,12 +436,13 @@ public class TelaPedido extends javax.swing.JFrame {
     private javax.swing.JButton btnConcluido1;
     private javax.swing.JButton btnEnviarPedido;
     private javax.swing.JButton btnExcluirItem1;
-    private javax.swing.JButton btnExcluirItem2;
     private javax.swing.JButton btnIncluirPrato;
     private javax.swing.JButton btnIncluirSobremesa;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JList jList1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField observacaoBedida;
     private javax.swing.JLabel observacaoPrato;

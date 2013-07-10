@@ -121,21 +121,12 @@ public class Produto {
 		return true;
 	}
 
+		@Override
+		public String toString() {
+			return "" + nome + " R$ " + preco + "\n";
+		}
+
         
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Id=");
-		builder.append(idProduto);
-		builder.append("Nome=");
-		builder.append(nome);
-		builder.append("Descricao=");
-		builder.append(descricao);
-		builder.append("Preco=");
-		builder.append(preco);
-		return builder.toString();
-	}
-
-
+        
 	
 }
