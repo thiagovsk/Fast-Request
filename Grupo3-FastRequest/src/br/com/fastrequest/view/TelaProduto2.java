@@ -40,6 +40,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         logo = new javax.swing.JLabel();
         pesquisaProduto = new javax.swing.JPanel();
         nomeProdutoPesquisar = new javax.swing.JLabel();
@@ -73,7 +74,6 @@ public class TelaProduto2 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fast Request");
         setMinimumSize(new java.awt.Dimension(1366, 768));
-        setPreferredSize(new java.awt.Dimension(1366, 768));
         getContentPane().setLayout(null);
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/fastrequest/imagens/logo2.jpg")));
@@ -175,6 +175,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
         tipoProduto.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         tipoProduto.setText("Tipo");
 
+        buttonGroup1.add(cbPratoProduto);
         cbPratoProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbPratoProduto.setText("Prato");
         cbPratoProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -183,9 +184,11 @@ public class TelaProduto2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(cbBebidaProduto);
         cbBebidaProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbBebidaProduto.setText("Bebida");
 
+        buttonGroup1.add(cbSobremesaProduto);
         cbSobremesaProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbSobremesaProduto.setText("Sobremesa");
 
@@ -561,6 +564,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
     private javax.swing.JButton btnTelaCadastrarFuncionario1;
     private javax.swing.JButton btnTelaInicial1;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel cadastrarProduto;
     private javax.swing.JPanel cadastroProduto;
     private javax.swing.JCheckBox cbBebidaProduto;
