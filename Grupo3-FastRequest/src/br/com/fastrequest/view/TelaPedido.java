@@ -427,9 +427,15 @@ public class TelaPedido extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnEnviarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarPedidoActionPerformed
-        // TODO add your handling code here:
+      EnviarPedidos();
+      JOptionPane.showMessageDialog(this, "Pedido enviado com Sucesso");
+        
     }//GEN-LAST:event_btnEnviarPedidoActionPerformed
 
+    public String EnviarPedidos(){
+        return produtos.toString();
+    }
+    
     private void btnExcluirItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirItem1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExcluirItem1ActionPerformed
