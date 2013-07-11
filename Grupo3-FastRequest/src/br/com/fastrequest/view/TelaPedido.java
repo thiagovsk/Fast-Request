@@ -427,7 +427,9 @@ public class TelaPedido extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnEnviarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarPedidoActionPerformed
-      EnviarPedidos();
+      
+    	EnviarPedidos();
+    
       JOptionPane.showMessageDialog(this, "Pedido enviado com Sucesso");
         
     }//GEN-LAST:event_btnEnviarPedidoActionPerformed
