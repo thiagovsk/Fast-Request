@@ -39,12 +39,12 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="Logo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="PedidoDoCliente" max="32767" attributes="0"/>
                   <Component id="StatusDoPedido" alignment="0" max="32767" attributes="0"/>
-                  <Component id="PedidoDoCliente" alignment="0" max="32767" attributes="0"/>
-                  <Component id="FinalizacaoPagamento" max="32767" attributes="0"/>
+                  <Component id="FinalizacaoPagamento" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="63" max="32767" attributes="0"/>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -156,9 +156,6 @@
           </Border>
         </Property>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="FINALIZACAO/PAGAMENTO"/>
-      </AccessibilityProperties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -348,9 +345,6 @@
               </Border>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="INFORMACOES ADICIONAIS"/>
-          </AccessibilityProperties>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -387,7 +381,7 @@
                           <Component id="CpfNaNota" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtCpfNota" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="59" max="32767" attributes="0"/>
+                      <EmptySpace pref="79" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
