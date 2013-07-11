@@ -387,7 +387,7 @@ public class TelaPedido extends javax.swing.JFrame {
       modelo.addElement(produto.toString());
     }
     catch (ArrayIndexOutOfBoundsException ex) {
-        JOptionPane.showMessageDialog(this, "Selecione o produto a excluir.");
+        JOptionPane.showMessageDialog(this, "Selecione o produto a incluir.");
         
   
     }      
