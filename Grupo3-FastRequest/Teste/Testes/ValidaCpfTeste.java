@@ -18,17 +18,26 @@ public class ValidaCpfTeste {
 	c.setCpf("03713770131");
 	
 	d = new Cliente();
-	d.setCpf("12345678901");
+	d.setCpf("00000000000");
+	a = new ValidaCpf();
 	}
-
+	@Test
+	public void testInstancia(){
+		assertNotNull(c);
+		assertNotNull(d);
+	}
 	@Test
 	public void testValidarCpf() {
 		assertTrue(a.validarCpf(c.getCpf()));
 	}
 	
 	@Test
-	public void testValidarCpfFalse() {
-		assertFalse(a.validarCpf(d.getCpf()));
+	public void testValidarCpf2() {
+		assertTrue(a.validarCpf(d.getCpf()));
 	}
-
+	@Test
+	public void testarErrado(){
+		assertFalse(a.validarCpf("123456789"));
+	}
+	
 }

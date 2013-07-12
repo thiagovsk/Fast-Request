@@ -49,10 +49,7 @@ public class Produto {
             if (nome != null && !nome.equals("")) {
                 this.nome = nome;
                 
-            } else {
-                throw new IllegalArgumentException("Produto nao pode ter nome vazio ou nulo.");
-                
-            }
+            } 
         
         }
         
@@ -66,16 +63,14 @@ public class Produto {
             if (descricao != null && !descricao.equals("")) {
                 this.descricao = descricao;
                 
-            } else {
-                throw new IllegalArgumentException("Produto nao pode ter descricao vazia ou nula.");
-                
-            }
+            } 
         
         }
         
 	public double getPreco() {
 		return preco;
 	}
+	
         
 	public void setPreco(double preco) throws IllegalArgumentException, InputMismatchException, 
                                                   NumberFormatException {
@@ -83,10 +78,7 @@ public class Produto {
             if ((preco != 0)) {
                 this.preco = preco;
                 
-            } else {
-                throw new IllegalArgumentException("Produto nao pode ter preco nulo.");
-                
-            }
+            } 
             
             
         

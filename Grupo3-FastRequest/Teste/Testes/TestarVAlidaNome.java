@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import br.com.fastrequest.model.ValidaNome;
 
-public class testarVAlidaNome {
+public class TestarVAlidaNome {
 
 	ValidaNome nome ;
 	@Before

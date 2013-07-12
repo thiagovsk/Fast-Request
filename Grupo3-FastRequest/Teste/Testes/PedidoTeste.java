@@ -18,6 +18,7 @@ public class PedidoTeste {
 		pedido.setNumeroClientes(1);
 		pedido.setValorTotal(10);
 		pedido2 = new Pedido("aeja",10,"auhe",1029);
+		
 	}
 
 	@Test
@@ -52,4 +53,9 @@ public class PedidoTeste {
 		assertEquals("Retorno nao esperado para o valor total do pedido", 10, pedido.getValorTotal(), 0.0001);
 	}
 
+		@Test
+		public void testDescricao(){
+			assertNotNull(pedido2);
+			assertTrue(pedido2.getDescricao().equals("aeja"));
+		}
 }
