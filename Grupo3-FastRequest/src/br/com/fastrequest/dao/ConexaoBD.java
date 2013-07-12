@@ -11,9 +11,9 @@ public class ConexaoBD {
  
     private static final String URL_MYSQL = "jdbc:mysql://localhost/fast";
     private static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
-    private static String USER = "root";
+    private static final String USER = "root";
     private static final String PASS = "";
-    private static String URL1   = "jdbc:mysql://localhost";
+    private static final String URL1   = "jdbc:mysql://localhost";
  
     public static Connection getConnection() {
         System.out.println("Conectando ao Banco de Dados");
@@ -41,9 +41,7 @@ public class ConexaoBD {
     
         return USER;
     }
-    public static void setUSER(String USER) {
-        ConexaoBD.USER = USER;
-    }
+    
 
     public static Connection getConectarCasoEspecial()
     {
