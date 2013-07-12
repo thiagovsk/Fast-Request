@@ -56,10 +56,7 @@ public class ClienteController {
 	  }
           
           
-	  public void excluir(int id) throws SQLException {
-	        new ClienteDAO().excluir(id);
-          }
-	 
+
           
 	  public Cliente buscaContatoPorNome(String cpf) throws SQLException {
 	        ClienteDAO clienteDAo = new ClienteDAO();

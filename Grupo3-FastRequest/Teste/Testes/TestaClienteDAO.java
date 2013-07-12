@@ -55,17 +55,7 @@ public class TestaClienteDAO {
 
 	}
 
-	@Test()
-	public  void testExcluir() {
 
-		try {
-			clienteDAO.excluir(1);
-			assertNotNull(cliente);
-		} catch (SQLException e) {
-
-		}
-
-	}
 
 	@Test()
 	public void testENcontrarCliente() {
