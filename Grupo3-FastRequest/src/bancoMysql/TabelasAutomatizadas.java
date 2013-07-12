@@ -18,7 +18,7 @@ public class TabelasAutomatizadas {
 
 	 
 
-	public void criarBd() throws SQLException {
+	public void criarBd() throws SQLException, NullPointerException {
 		
 
 		String sqlCriaBanco = "CREATE DATABASE IF NOT EXISTS fast;";

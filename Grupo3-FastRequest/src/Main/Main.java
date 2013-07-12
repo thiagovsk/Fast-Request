@@ -3,6 +3,8 @@ package Main;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import bancoMysql.TabelasAutomatizadas;
 import br.com.fastrequest.dao.ConexaoBD;
 import br.com.fastrequest.view.TelaPrincipal;
@@ -15,7 +17,7 @@ public class Main {
 	 */
 	
 	
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws SQLException, NullPointerException {
 		
 			Connection con;
 			TabelasAutomatizadas banco;
@@ -40,6 +42,8 @@ public class Main {
 	            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 	        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
 	            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	        }catch(NullPointerException e1){
+	        	JOptionPane.showMessageDialog(null, "Conexao Falhou , favor conectar o banco de dados");
 	        }
 	        //</editor-fold>
 
