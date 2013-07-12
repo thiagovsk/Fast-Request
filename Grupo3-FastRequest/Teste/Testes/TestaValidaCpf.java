@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ValidaCpfTeste {
+public class TestaValidaCpf {
 	
 	Cliente c, d;
 	ValidaCpf a;
