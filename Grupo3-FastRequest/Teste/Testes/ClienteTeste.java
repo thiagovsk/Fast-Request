@@ -6,6 +6,7 @@ import br.com.fastrequest.model.ValidaEmail;
 import br.com.fastrequest.model.ValidaNome;
 import br.com.fastrequest.model.ValidaTelefone;
 import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,6 +31,7 @@ public class ClienteTeste {
 		cliente.setNome("OREUIOREUIOREUIOR");
 		cliente.setEmail("_antonio_@hotmail.com");
 		cliente.setTelefone("84574904");
+		cliente.setId(1);
 		
 		client = new Cliente(100,"nome","111","auheau","91892819");
 
@@ -107,6 +109,35 @@ public class ClienteTeste {
     		assertEquals("O metodo nao esta retornando corretamente", "84574904", cliente.getTelefone());
     	}
         
+        @Test
+    	public void testSetTelefone() {
+        	cliente.setTelefone("35561768");
+    		assertEquals("O metodo nao esta retornando corretamente", "35561768", cliente.getTelefone());
+    	}
+        
+        @Test
+    	public void testSetNome() {
+        	cliente.setNome("Ana");
+    		assertEquals("O metodo nao esta retornando corretamente", "Ana", cliente.getNome());
+    	}
+        @Test
+    	public void testSetCpf() {
+        	cliente.setCpf("00103465111");
+    		assertEquals("O metodo nao esta retornando corretamente", "00103465111", cliente.getCpf());
+    	}
+        @Test
+    	public void testSetEmail() {
+        	cliente.setEmail("_antonio_@hotmail.com");
+    		assertEquals("O metodo nao esta retornando corretamente", "_antonio_@hotmail.com", cliente.getEmail());
+    	}
+        @Test
+        public void testGetId(){
+    		assertNotNull(cliente.getId());
+    	}
+    	@Test
+    	public void testToString() {
+    		assertNotNull("O metodo esta retornando null", cliente.toString());
+    	}
        
 
 }

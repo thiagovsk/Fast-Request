@@ -42,9 +42,6 @@ public class Cliente extends Pessoa{
             if (nome != null && !nome.equals("")) {
                 this.nome = nome;
                 
-            } else {
-                throw new IllegalArgumentException("Pessoa não pode ter nome vazio ou nulo.");
-                
             }
         
         }
@@ -57,10 +54,6 @@ public class Cliente extends Pessoa{
     
             if (email != null && !email.equals("")) {
                 this.email = email;
-                
-            } else {
-                throw new IllegalArgumentException("Pessoa não pode ter email vazio ou nulo.");
-                
             }
         
         }
