@@ -50,7 +50,7 @@ public class ClienteController {
 	            return clienteDao.encontrarCliente();
 	      
                 } catch (SQLException e) {
-	            JOptionPane.showMessageDialog(null, "Problemas ao localizar contato\n" + e.getLocalizedMessage());
+	            JOptionPane.showMessageDialog(null, "Problemas ao localizar contato\n" );
 	        }
 	        return null;
 	  }

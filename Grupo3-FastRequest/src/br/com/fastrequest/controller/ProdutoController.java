@@ -33,7 +33,7 @@ public class ProdutoController {
 	        try {
 	            return produtoDAO.encontrarProduto();
 	        } catch (SQLException e) {
-	            JOptionPane.showMessageDialog(null, "Problemas ao localizar contato\n" + e.getLocalizedMessage());
+	            JOptionPane.showMessageDialog(null, "Problemas ao localizar contato\n" );
 	        }
 	        return null;
 	    }
@@ -42,7 +42,7 @@ public class ProdutoController {
 	        try {
 	            return produtoDAO.encontrarProdutoPrato();
 	        } catch (SQLException e) {
-	            JOptionPane.showMessageDialog(null, "Problemas ao localizar contato\n" + e.getLocalizedMessage());
+	            JOptionPane.showMessageDialog(null, "Problemas ao localizar contato\n" );
 	        }
 	        return null;
 	    }
@@ -51,7 +51,7 @@ public class ProdutoController {
 	        try {
 	            return produtoDAO.encontrarProdutoSobremesa();
 	        } catch (SQLException e) {
-	            JOptionPane.showMessageDialog(null, "Problemas ao localizar contato\n" + e.getLocalizedMessage());
+	            JOptionPane.showMessageDialog(null, "Problemas ao localizar contato\n");
 	        }
 	        return null;
 	    }
@@ -60,7 +60,7 @@ public class ProdutoController {
 	        try {
 	            return produtoDAO.encontrarProdutoBebida();
 	        } catch (SQLException e) {
-	            JOptionPane.showMessageDialog(null, "Problemas ao localizar contato\n" + e.getLocalizedMessage());
+	            JOptionPane.showMessageDialog(null, "Problemas ao localizar contato\n");
 	        }
 	        return null;
 	    }
