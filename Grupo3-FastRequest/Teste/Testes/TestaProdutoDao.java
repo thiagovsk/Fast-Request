@@ -96,7 +96,7 @@ public class TestaProdutoDao {
 					public void testENcontrarProdutoComida()  {
 						
 						 try {
-							produtoDAO.encontrarProdutoBebida();
+							produtoDAO.encontrarProdutoPrato();
 							assertNotNull(produto);
 							
 						} catch (SQLException e) {
@@ -116,5 +116,16 @@ public class TestaProdutoDao {
 		}
 
 	}
+	@Test()
+	public void testENcontrarNome()  {
+		
+		 try {
+			produtoDAO.encontrarNome("nome");
+			assertNotNull(produto);
+			
+		} catch (SQLException e) {
+			
+		}
+}
 
 }

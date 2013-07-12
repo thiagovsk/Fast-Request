@@ -29,9 +29,9 @@ public class ClienteDAO extends DaoGenerica{
 		atualizar(update, cliente.getId(),cliente.getNome(),cliente.getCpf(),cliente.getEmail(),cliente.getTelefone());
 		
 	}
-	public void excluir(String cpf) throws SQLException{
-		String delete ="DELETE FROM clientes WHERE cpf = ?";
-		deletar(delete,cpf);
+	public void excluir(int id) throws SQLException{
+		String delete ="DELETE FROM clientes WHERE id = ?";
+		deletar(delete,id);
 	}
 	public ArrayList<Cliente> encontrarCliente() throws SQLException{
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();

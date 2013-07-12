@@ -56,8 +56,8 @@ public class ClienteController {
 	  }
           
           
-	  public void excluir(String nome) throws SQLException {
-	        new ClienteDAO().excluir(nome);
+	  public void excluir(int id) throws SQLException {
+	        new ClienteDAO().excluir(id);
           }
 	 
           

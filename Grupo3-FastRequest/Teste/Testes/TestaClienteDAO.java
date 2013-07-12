@@ -17,7 +17,8 @@ public class TestaClienteDAO {
 
 	@Before
 	public void setUp() throws Exception {
-		cliente = new Cliente(1,"nome","cpf","email","10");
+		cliente = new Cliente(1,"nome","03713770131","email","10");
+		
 		clienteDAO = new ClienteDAO();
 	}
 
@@ -55,12 +56,11 @@ public class TestaClienteDAO {
 	}
 
 	@Test()
-	public void testExcluir() {
+	public  void testExcluir() {
 
 		try {
-			clienteDAO.excluir("nome");
+			clienteDAO.excluir(1);
 			assertNotNull(cliente);
-
 		} catch (SQLException e) {
 
 		}
@@ -84,7 +84,7 @@ public class TestaClienteDAO {
 			public void testENcontrar()  {
 				
 				 try {
-					clienteDAO.encontrarCpf("121");
+					clienteDAO.encontrarCpf("03713770131");
 					assertNotNull(cliente);
 					
 				} catch (SQLException e) {
