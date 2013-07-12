@@ -7,25 +7,25 @@ import java.sql.SQLException;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.fastrequest.dao.ClienteDAO;
-import br.com.fastrequest.model.Cliente;
+import br.com.fastrequest.dao.PedidoDAO;
+import br.com.fastrequest.model.Pedido;
 
-public class TestaClienteDAO {
 
-	Cliente cliente;
-	ClienteDAO clienteDAO;
+public class TestaPedidoDao {
 
+	Pedido pedido;
+	PedidoDAO pedidoDao;
 	@Before
 	public void setUp() throws Exception {
-		cliente = new Cliente(1,"nome","cpf","email","10");
-		clienteDAO = new ClienteDAO();
+		pedido = new Pedido("desc",10,"nome",10);
+		pedidoDao = new PedidoDAO();
 	}
 
 	@Test()
 	public void testNull() {
 
-		assertNotNull(cliente);
-		assertNotNull(clienteDAO);
+		assertNotNull(pedido);
+		assertNotNull(pedidoDao);
 
 	}
 
@@ -33,11 +33,12 @@ public class TestaClienteDAO {
 	public void testSalvar() {
 
 		try {
-			clienteDAO.salvar(cliente);
-			assertNotNull(cliente);
+			pedidoDao.salvar(pedido);
+			assertNotNull(pedido);
+			
 
 		} catch (SQLException e) {
-			
+			e.getMessage();
 		}
 	}
 
@@ -45,8 +46,8 @@ public class TestaClienteDAO {
 	public void testAlterar() {
 
 		try {
-			clienteDAO.alterar(cliente);
-			assertNotNull(cliente);
+			pedidoDao.alterar(pedido);
+			assertNotNull(pedido);
 
 		} catch (SQLException e) {
 
@@ -58,8 +59,8 @@ public class TestaClienteDAO {
 	public void testExcluir() {
 
 		try {
-			clienteDAO.excluir("nome");
-			assertNotNull(cliente);
+			pedidoDao.excluir(1);
+			assertNotNull(pedido);
 
 		} catch (SQLException e) {
 
@@ -68,11 +69,11 @@ public class TestaClienteDAO {
 	}
 
 	@Test()
-	public void testENcontrarCliente() {
+	public void testENcontrarPedidoNome() {
 
 		try {
-			clienteDAO.encontrarCliente();
-			assertNotNull(cliente);
+			pedidoDao.encontrarNome("nome");
+			assertNotNull(pedido);
 
 		} catch (SQLException e) {
 
@@ -81,19 +82,16 @@ public class TestaClienteDAO {
 	}
 
 	@Test()
-			public void testENcontrar()  {
+			public void testENcontrarPedido()  {
 				
 				 try {
-					clienteDAO.encontrarCpf("121");
-					assertNotNull(cliente);
+					pedidoDao.encontrarProduto();
+					assertNotNull(pedido);
 					
 				} catch (SQLException e) {
 					
 				}
 	}
 
-
 	
-
-
 }

@@ -1,6 +1,8 @@
 package Testes;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -19,9 +21,9 @@ public class TestarValidaTelefone {
 	@Test
 	public void test() {
 		assertNotNull(obj);
-		assertFalse(obj.validaTelefone("0000000"));
+		assertFalse(ValidaTelefone.validaTelefone("0000000"));
 		
-		assertTrue(obj.validaTelefone("6133562860"));
+		assertTrue(ValidaTelefone.validaTelefone("6133562860"));
 		
 	}
 

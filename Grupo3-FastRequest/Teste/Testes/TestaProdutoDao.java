@@ -1,14 +1,11 @@
 package Testes;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import java.sql.SQLException;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 
 import br.com.fastrequest.dao.ProdutoDAO;
 import br.com.fastrequest.model.Produto;

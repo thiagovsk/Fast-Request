@@ -1,14 +1,18 @@
 package Testes;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Before;
+import org.junit.Test;
+
 import br.com.fastrequest.model.Cliente;
 import br.com.fastrequest.model.ValidaCpf;
 import br.com.fastrequest.model.ValidaEmail;
 import br.com.fastrequest.model.ValidaNome;
 import br.com.fastrequest.model.ValidaTelefone;
-import static org.junit.Assert.*;
-
-import org.junit.Before;
-import org.junit.Test;
 
 
 public class ClienteTeste {
@@ -65,12 +69,12 @@ public class ClienteTeste {
 
 	@Test
 	public void testCpfCerto() {
-		assertTrue(vp.validarCpf(cliente.getCpf()));
+		assertTrue(ValidaCpf.validarCpf(cliente.getCpf()));
 	}
         
     @Test
 	public void testCpfErrado() {
-		assertFalse(vp.validarCpf(client.getCpf()));
+		assertFalse(ValidaCpf.validarCpf(client.getCpf()));
 	}
         
     @Test
@@ -80,12 +84,12 @@ public class ClienteTeste {
         
 	@Test
 	public void testEmailCerto() {
-		assertTrue(ve.validaEmail(cliente.getEmail()));
+		assertTrue(ValidaEmail.validaEmail(cliente.getEmail()));
 	}
         
 	@Test
 	public void testEmailErrado() {
-		assertFalse(ve.validaEmail(client.getEmail()));
+		assertFalse(ValidaEmail.validaEmail(client.getEmail()));
 	}
 	
 	@Test
@@ -96,12 +100,12 @@ public class ClienteTeste {
         
         @Test
         public void testTelefoneCerto() {
-                assertTrue(vt.validaTelefone(cliente.getTelefone()));
+                assertTrue(ValidaTelefone.validaTelefone(cliente.getTelefone()));
         }
         
         @Test
         public void testTelefoneErrado() {
-                assertTrue(vt.validaTelefone(client.getTelefone()));
+                assertTrue(ValidaTelefone.validaTelefone(client.getTelefone()));
         }
         
         @Test

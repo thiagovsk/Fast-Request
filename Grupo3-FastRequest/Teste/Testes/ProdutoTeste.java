@@ -1,12 +1,17 @@
 package Testes;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Before;
+import org.junit.Test;
+
 import br.com.fastrequest.model.Produto;
 import br.com.fastrequest.model.ValidaDescricao;
 import br.com.fastrequest.model.ValidaNome;
 import br.com.fastrequest.model.ValidaPreco;
-import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.Test;
 
 public class ProdutoTeste {
 	

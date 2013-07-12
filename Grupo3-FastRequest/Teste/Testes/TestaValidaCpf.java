@@ -1,10 +1,14 @@
 package Testes;
 
-import br.com.fastrequest.model.Cliente;
-import br.com.fastrequest.model.ValidaCpf;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Test;
+
+import br.com.fastrequest.model.Cliente;
+import br.com.fastrequest.model.ValidaCpf;
 
 public class TestaValidaCpf {
 	
@@ -28,16 +32,16 @@ public class TestaValidaCpf {
 	}
 	@Test
 	public void testValidarCpf() {
-		assertTrue(a.validarCpf(c.getCpf()));
+		assertTrue(ValidaCpf.validarCpf(c.getCpf()));
 	}
 	
 	@Test
 	public void testValidarCpf2() {
-		assertTrue(a.validarCpf(d.getCpf()));
+		assertTrue(ValidaCpf.validarCpf(d.getCpf()));
 	}
 	@Test
 	public void testarErrado(){
-		assertFalse(a.validarCpf("123456789"));
+		assertFalse(ValidaCpf.validarCpf("123456789"));
 	}
 	
 }

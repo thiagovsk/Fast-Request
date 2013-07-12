@@ -1,13 +1,12 @@
 package Testes;
 
-import static org.junit.Assert.*;
-
-import java.sql.Connection;
-import java.sql.SQLException;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.*;
 
 import br.com.fastrequest.dao.ConexaoBD;
 
@@ -26,7 +25,7 @@ public class TestaConexaoBD {
 	public void testGetConnection() {
 		assertNotNull(conexao);		
 		ConexaoBD.getConnection();
-		assertNotNull(conexao.getConnection());
+		assertNotNull(ConexaoBD.getConnection());
 		
 		
 		
@@ -35,26 +34,26 @@ public class TestaConexaoBD {
 	@Test
 	public void testGetConnectionFalha() {
 		assertNotNull(conexao);		
-		assertNotNull(conexao.getConnection());
+		assertNotNull(ConexaoBD.getConnection());
 		
 	}
 
 	@Test
 	public void testGetPW() {
-		conexao.setPW("11");
-		assertTrue(conexao.getPW().equals("11"));
-		assertFalse(conexao.getPW().equals("10"));
+		ConexaoBD.setPW("11");
+		assertTrue(ConexaoBD.getPW().equals("11"));
+		assertFalse(ConexaoBD.getPW().equals("10"));
 	}
 
 	@Test
 	public void testSetPW() {
-	 	conexao.setPW("ae");
-		assertEquals("O metodo nao esta retornando corretamente", "ae",conexao.getPW());
+	 	ConexaoBD.setPW("ae");
+		assertEquals("O metodo nao esta retornando corretamente", "ae",ConexaoBD.getPW());
 	}
 
 	@Test
 	public void testGetUSER() {
-		assertNotNull(conexao.getUSER());
+		assertNotNull(ConexaoBD.getUSER());
 		}
 
 
