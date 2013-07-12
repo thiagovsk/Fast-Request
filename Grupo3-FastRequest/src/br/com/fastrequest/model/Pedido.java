@@ -29,9 +29,6 @@ public class Pedido extends Produto{
             if (numeroClientes > 0) {
                 this.numeroClientes = numeroClientes;
                 
-            } else {
-                throw new IllegalArgumentException("Pedido não pode ter número de pedidos negativo ou nulos.");
-                
             }
         
 		this.numeroClientes = numeroClientes;
@@ -46,10 +43,7 @@ public class Pedido extends Produto{
             if (valorTotal > 0) {
                 this.valorTotal = valorTotal;
                 
-            } else {
-                throw new IllegalArgumentException("Pedido naoo pode ter valor total vazio, nulo ou negativo.");
-                
-            }
+            } 
         
 		this.valorTotal = valorTotal;
 	}
