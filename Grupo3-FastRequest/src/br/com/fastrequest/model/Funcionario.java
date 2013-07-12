@@ -29,10 +29,7 @@ public class Funcionario extends Pessoa{
             if (rg != null && !rg.equals("")) {
                 this.rg = rg;
                 
-            } else {
-                throw new IllegalArgumentException("Pessoa não pode ter rg vazio ou nulo.");
-                
-            }
+            } 
         
         }
 	

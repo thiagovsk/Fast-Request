@@ -35,9 +35,10 @@ public class PedidoTeste {
 		assertEquals("Retorno não esperado para o numero de Clientes", 1, pedido.getNumeroClientes());
 	}
 
-	@Test(expected=IllegalArgumentException.class)
+	@Test
 	public void testSetNumeroClientes() {
-		pedido.setNumeroClientes(0);
+		pedido.setNumeroClientes(5);
+		assertEquals(5, pedido.getNumeroClientes());
 	}
 
 	@Test
@@ -46,9 +47,9 @@ public class PedidoTeste {
 		
 	}
 
-	@Test(expected=IllegalArgumentException.class)
+	@Test
 	public void testSetValorTotal() {
-		pedido.setValorTotal(0);
+		assertEquals("Retorno nao esperado para o valor total do pedido", 10, pedido.getValorTotal(), 0.0001);
 	}
 
 }

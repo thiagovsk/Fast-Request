@@ -39,9 +39,11 @@ public class FuncionarioTeste {
 		assertEquals("O metodo nao esta retornando o valor esperado", "EUIOREUIOREU", func.getRg());
 	}
 
-	@Test(expected=IllegalArgumentException.class)
+	@Test
 	public void testSetRg() {
-		func.setRg(null);
+		func.setRg("10");
+		assertTrue(func.getRg().equals("10"));
+		
 	}
 
 	@Test
