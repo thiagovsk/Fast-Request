@@ -28,10 +28,7 @@ public class Pessoa {
             if (telefone != null && !telefone.equals("")) {
                 this.telefone = telefone;
                 
-            } else {
-                throw new IllegalArgumentException("Pessoa não pode ter telefone vazio ou nulo.");
-                
-            }
+            } 
         
         }
         
@@ -43,9 +40,6 @@ public class Pessoa {
     
             if (cpf != null && !cpf.equals("")) {
                 this.cpf = cpf;
-                
-            } else {
-                throw new IllegalArgumentException("Pessoa não pode ter cpf vazio ou nulo.");
                 
             }
         

@@ -10,12 +10,14 @@ import br.com.fastrequest.model.Pedido;
 public class PedidoTeste {
 	
 	Pedido pedido;
+	Pedido pedido2;
 
 	@Before
 	public void setUp() throws Exception {
 		pedido = new Pedido();
 		pedido.setNumeroClientes(1);
 		pedido.setValorTotal(10);
+		pedido2 = new Pedido("aeja",10,"auhe",1029);
 	}
 
 	@Test
@@ -23,6 +25,11 @@ public class PedidoTeste {
 		assertNotNull(pedido);
 	}
 
+	@Test
+	public void testPedidoInstanciado2() {
+		assertNotNull(pedido2);
+	}
+	
 	@Test
 	public void testGetNumeroClientes() {
 		assertEquals("Retorno não esperado para o numero de Clientes", 1, pedido.getNumeroClientes());

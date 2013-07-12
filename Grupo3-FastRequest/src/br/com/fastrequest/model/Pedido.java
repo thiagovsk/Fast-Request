@@ -7,9 +7,8 @@ public class Pedido extends Produto{
 	private int numeroClientes;
 	private double valorTotal;
 
-	public Pedido(int numeroClientes, double valorTotal , String descricao, int idProduto, String nome , double preco) {
-		this.numeroClientes=numeroClientes;
-                this.valorTotal=valorTotal;
+	public Pedido(String descricao, int idProduto, String nome , double preco) {
+		
                setDescricao(descricao);
                setIdProduto(idProduto);
                setNome(nome);
@@ -55,8 +54,6 @@ public class Pedido extends Produto{
 		this.valorTotal = valorTotal;
 	}
 	
-	public void tempoPreparo(){
-		
-	}
+	
 
 }

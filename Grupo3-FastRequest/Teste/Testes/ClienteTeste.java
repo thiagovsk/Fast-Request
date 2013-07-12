@@ -107,24 +107,6 @@ public class ClienteTeste {
     		assertEquals("O metodo nao esta retornando corretamente", "84574904", cliente.getTelefone());
     	}
         
-        @Test(expected=IllegalArgumentException.class)
-        public void testSetNome(){
-                cliente.setNome(null);
-        }
-        
-        @Test(expected=IllegalArgumentException.class)
-        public void testSetCpf(){
-                cliente.setCpf(null);
-        }
-        
-        @Test(expected=IllegalArgumentException.class)
-        public void testSetEmail(){
-                cliente.setEmail(null);
-        }
-        
-        @Test(expected=IllegalArgumentException.class)
-        public void testSetTelefone(){
-                cliente.setTelefone(null);
-        }
+       
 
 }

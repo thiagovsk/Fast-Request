@@ -11,16 +11,7 @@ public class Funcionario extends Pessoa{
                 
 	}
 	
-	public Funcionario(int id_funcionario, String cpf, String rg,
-			String telefone) {
-            
-            super(telefone, cpf);
-            
-		this.id_funcionario = id_funcionario;
-		this.rg = rg;
-		
-	}
-
+	
 	public int getId_funcionario() {
 		return id_funcionario;
 	}

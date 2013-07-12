@@ -24,6 +24,7 @@ public class ProdutoTeste {
 		produto.setNome("testeproduto");
 		produto.setDescricao("descricaoproduto");
 		produto.setPreco(12.00);
+		produto.setPreco(10);
 	}
 
 	@Test
@@ -36,35 +37,28 @@ public class ProdutoTeste {
 	public final void validarNome() {
 		produto.setNome("AUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIU");
 		assertTrue(vd.validaDescricao(produto.getNome()));
+		produto.setNome("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK" +
+				"KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK" +
+				"KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK");
+		assertTrue(vd.validaDescricao(produto.getNome()));
 	}
         
 	@Test
 	public final void validarDescricao() {
-		produto.setDescricao("AUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIUAUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIU");
+		produto.setDescricao("AUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEUAHEUAHIUEHAIU" +
+				"HSAIUEHAIUSHAIUEHASIUHAEIUAUEHAUSHIAUEHAIUSHAIUEHASeAYUEHAUEHAUHEAUHEUAHEU" +
+				"AHEUAHIUEHAIUHSAIUEHAIUSHAIUEHASIUHAEIU");
 		assertTrue(vd.validaDescricao(produto.getDescricao()));
+		produto.setDescricao("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+				"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
+				"AAAAAAAAAAAAAAAAAAA" +
+				"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		assertFalse(vd.validaDescricao(produto.getDescricao()));
 	}
         
-        @Test
-	public final void validarPreco() {
-		produto.setPreco(-45.98);
-		assertFalse(vp.validaPreco(produto.getPreco()));
-		// TODO
-	}
+ 
         
-        @Test(expected=IllegalArgumentException.class)
-        public void testSetNome(){
-                produto.setNome(null);
-        }
+      
         
-        @Test(expected=IllegalArgumentException.class)
-        public void testSetDescricao(){
-                produto.setDescricao(null);
-        }
-        
-        @Test(expected=IllegalArgumentException.class)
-        public void testSetPreco(){
-                produto.setPreco(0);
-        }
-
-
+      
 }
