@@ -93,33 +93,10 @@ public class Produto {
         }
 	
         
-	public boolean validanome(String nome){
-
-		if(nome.length() >45){
-			return false;
-		
-		}
-		return true;
-	}
+	
 	
         
-	public boolean validaDescricao(String nome){
-
-		if(descricao.length() >200){
-			return false;
-		
-		}
-		return true;
-	}
-        
-        public boolean validaPreco(Double preco){
-
-		if(preco < 0){
-			return false;
-		
-		}
-		return true;
-	}
+	
 
 		@Override
 		public String toString() {
