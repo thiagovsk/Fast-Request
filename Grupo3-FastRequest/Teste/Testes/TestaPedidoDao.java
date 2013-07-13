@@ -30,67 +30,54 @@ public class TestaPedidoDao {
 	}
 
 	@Test()
-	public void testSalvar() {
+	public void testSalvar() throws SQLException {
 
-		try {
+		
 			pedidoDao.salvar(pedido);
 			assertNotNull(pedido);
 			
 
-		} catch (SQLException e) {
-			e.getMessage();
-		}
 	}
 
 	@Test()
-	public void testAlterar() {
+	public void testAlterar() throws SQLException {
 
-		try {
+		
 			pedidoDao.alterar(pedido);
 			assertNotNull(pedido);
 
-		} catch (SQLException e) {
-
-		}
+		
 
 	}
 
 	@Test()
-	public void testExcluir() {
+	public void testExcluir() throws SQLException {
 
-		try {
+		
 			pedidoDao.excluir(1);
 			assertNotNull(pedido);
 
-		} catch (SQLException e) {
-
-		}
-
 	}
 
 	@Test()
-	public void testENcontrarPedidoNome() {
+	public void testENcontrarPedidoNome() throws SQLException {
 
-		try {
+		
 			pedidoDao.encontrarNome("nome");
 			assertNotNull(pedido);
 
-		} catch (SQLException e) {
-
-		}
+		
 
 	}
 
 	@Test()
-			public void testENcontrarPedido()  {
+			public void testENcontrarPedido() throws SQLException  {
 				
-				 try {
+				 
 					pedidoDao.encontrarProduto();
 					assertNotNull(pedido);
 					
-				} catch (SQLException e) {
-					
-				}
+				 
 	}
 
 	

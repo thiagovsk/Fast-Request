@@ -31,55 +31,46 @@ public class TestaClienteDAO {
 	}
 
 	@Test()
-	public void testSalvar() {
+	public void testSalvar() throws SQLException {
 
-		try {
+		
 			clienteDAO.salvar(cliente);
 			assertNotNull(cliente);
 
-		} catch (SQLException e) {
-			
-		}
+		
 	}
 
 	@Test()
-	public void testAlterar() {
+	public void testAlterar() throws SQLException {
 
-		try {
 			clienteDAO.alterar(cliente);
 			assertNotNull(cliente);
 
-		} catch (SQLException e) {
-
-		}
+	
 
 	}
 
 
 
 	@Test()
-	public void testENcontrarCliente() {
+	public void testENcontrarCliente() throws SQLException {
 
-		try {
+	
 			clienteDAO.encontrarCliente();
 			assertNotNull(cliente);
 
-		} catch (SQLException e) {
-
-		}
+		
 
 	}
 
 	@Test()
-			public void testENcontrar()  {
+			public void testENcontrar() throws SQLException  {
 				
-				 try {
+				 
 					clienteDAO.encontrarCpf("03713770131");
 					assertNotNull(cliente);
 					
-				} catch (SQLException e) {
-					
-				}
+				
 	}
 
 

@@ -54,18 +54,10 @@ public class TestaProdutoController {
 
 	@Test
 	public void testAlterar() throws SQLException{
-		
 			produto.alterar(1,"pizza","massa",20.0,"prato");
 
 	}
 	
-	
-	@Test
-	public void testListClientes(){
-		
-		produto.listaProdutos();
-		
-	}
 	@Test
 	public void testBuscarPorNome() throws SQLException{
 		

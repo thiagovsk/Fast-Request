@@ -30,102 +30,83 @@ public class TestaProdutoDao {
 	}
 
 	@Test()
-	public void testSalvar() {
+	public void testSalvar() throws SQLException {
 
-		try {
+		
 			produtoDAO.salvar(produto);
 			assertNotNull(produto);
 
-		} catch (SQLException e) {
-			e.getMessage();
 		}
-	}
 
 	@Test()
-	public void testAlterar() {
+	public void testAlterar() throws SQLException {
 
-		try {
+	
 			produtoDAO.alterar(produto);
 			assertNotNull(produto);
 
-		} catch (SQLException e) {
-
-		}
+		
 
 	}
 
 	@Test()
-	public void testExcluir() {
+	public void testExcluir() throws SQLException {
 
-		try {
+		
 			produtoDAO.excluir(1);
 			assertNotNull(produto);
 
-		} catch (SQLException e) {
-
-		}
 
 	}
 
 	@Test()
-	public void testENcontrarProduto() {
+	public void testENcontrarProduto() throws SQLException {
 
-		try {
+		
 			produtoDAO.encontrarProduto();
 			assertNotNull(produto);
 
-		} catch (SQLException e) {
-
-		}
+		
 
 	}
 
 	@Test()
-			public void testENcontrarProdutoBebida()  {
+			public void testENcontrarProdutoBebida() throws SQLException  {
 				
-				 try {
+				
 					produtoDAO.encontrarProdutoBebida();
 					assertNotNull(produto);
 					
-				} catch (SQLException e) {
-					
-				}
+				
 	}
 
 	@Test()
-					public void testENcontrarProdutoComida()  {
+					public void testENcontrarProdutoComida() throws SQLException  {
 						
-						 try {
 							produtoDAO.encontrarProdutoPrato();
 							assertNotNull(produto);
 							
-						} catch (SQLException e) {
-							
-						}
+						
 	}
 
 	@Test()
-	public void testENcontrarProdutoSobremesa() {
+	public void testENcontrarProdutoSobremesa() throws SQLException {
 
-		try {
+		
 			produtoDAO.encontrarProdutoSobremesa();
 			assertNotNull(produto);
 
-		} catch (SQLException e) {
-
-		}
+		
 
 	}
 	@Test()
-	public void testENcontrarNome()  {
+	public void testENcontrarNome() throws SQLException  {
 		
-		 try {
+		 
 			produtoDAO.encontrarNome("nome");
 			assertNotNull(produto);
 			
-		} catch (SQLException e) {
-			
-		}
+		
 }
 
 }
