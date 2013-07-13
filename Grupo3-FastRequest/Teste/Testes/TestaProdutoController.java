@@ -72,6 +72,12 @@ public class TestaProdutoController {
 		
 	}
 	@Test
+	public void testListClientes4(){
+		
+		produto.listaProdutos();
+		
+	}
+	@Test
 	public void testListClientes2(){
 		
 		produto.listaProdutosPrato();
