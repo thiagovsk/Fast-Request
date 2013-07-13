@@ -46,28 +46,20 @@ public class TestaProdutoController {
 		assertNotNull(modelMock);
 	}
 	@Test
-	public void testSalvar() {
-		try {
+	public void testSalvar() throws SQLException, ParseException {
+		
 			produto.salvar(modelMock.getNome(),modelMock.getDescricao(),modelMock.getPreco(),modelMock.getTipo());
-		} catch (SQLException e) {
 		
-		
-		} catch (ParseException e) {
-			
-		}
 	}
 
 	@Test
-	public void testAlterar() {
-		try {
-			produto.alterar(modelMock.getIdProduto(),modelMock.getNome()
-					,modelMock.getDescricao(),modelMock.getPreco(),modelMock.getTipo());
+	public void testAlterar() throws SQLException{
+		
+			produto.alterar(1,"pizza","massa",20.0,"prato");
 
-		} catch (SQLException e) {
-		
-		
-		} 
 	}
+	
+	
 	@Test
 	public void testListClientes(){
 		
@@ -75,15 +67,12 @@ public class TestaProdutoController {
 		
 	}
 	@Test
-	public void testBuscarPorNome(){
+	public void testBuscarPorNome() throws SQLException{
 		
-		try {
-			produto.buscaContatoPorNome(modelMock.getNome());
-		} catch (SQLException e) {
-			
-		}
+		produto.buscaContatoPorNome(modelMock.getNome());
 		
 	}
+	
 	@Test
 	public void testListClientes1(){
 		
@@ -103,13 +92,9 @@ public class TestaProdutoController {
 		
 	}
 	@Test
-	public void testExcluir(){
+	public void testExcluir() throws SQLException{
 		
-		try {
 			produto.excluir(1);
-		} catch (SQLException e) {
-		
-		}
 		
 	}
 	
