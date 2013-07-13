@@ -1,12 +1,10 @@
 package Testes;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
+
 import java.sql.SQLException;
 import java.text.ParseException;
-
-import junit.framework.Assert;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,17 +21,20 @@ public class TestaControlerCliente {
 	@Mock
 	ClienteDAO daoMock = Mockito.mock(ClienteDAO.class);
 	Cliente modelMock = Mockito.mock(Cliente.class);
+	
 	@Before
 	
 	public void setUp() throws Exception {
 		daoMock = Mockito.mock(ClienteDAO.class);
 		modelMock = Mockito.mock(Cliente.class);
 		cliente = new ClienteController();
-		modelMock.setCpf("1");
+		modelMock.setCpf("cpf");
 		modelMock.setEmail("email");
 		modelMock.setId(1);
 		modelMock.setNome("nome");
 		modelMock.setTelefone("101010");
+		
+		 
 		
 		
 	}
@@ -43,55 +44,47 @@ public class TestaControlerCliente {
 		assertNotNull(cliente);
 		assertNotNull(daoMock);
 		assertNotNull(modelMock);
+		
 	}
 	@Test
-	public void testSalvar() {
-		try {
+	public void testSalvar() throws SQLException, ParseException {
+		
 			cliente.salvar(modelMock.getCpf(), modelMock.getNome(), modelMock.getEmail(), modelMock.getTelefone());
-		} catch (SQLException e) {
-		
-		
-		} catch (ParseException e) {
-			
-		}
+	
 	}
 
 	@Test
-	public void testAlterar() {
-		try {
-			cliente.alterar(modelMock.getId(), modelMock.getNome(), modelMock.getCpf(), 
-					modelMock.getEmail(), modelMock.getTelefone());
-		} catch (SQLException e) {
+	public void testAlterar() throws ParseException, SQLException {
 		
 		
-		} catch (ParseException e) {
+			cliente.alterar(1, "nome", "cpf", "email", "13241");
+			
 			
 		}
-	}
 	@Test
-	public void testListClientes(){
+	public void testListClientes() throws SQLException {
 		
-		cliente.listaClientes();
+			daoMock.encontrarCliente();
+			Mockito.when(cliente.listaClientes()).thenThrow(SQLException.class);
+			 cliente.listaClientes();
+		
 		
 	}
+	
 	@Test
-	public void testBuscaPorCpf(){
+	public void testBuscaPorCpf() throws SQLException{
 		
-		try {
+	
 			cliente.buscaContatoPorCPF(modelMock.getCpf());
-		} catch (SQLException e) {
+			Mockito.when(cliente.buscaContatoPorCPF(null)).thenThrow(SQLException.class);
 		
-		}
 		
 	}
 	@Test
-	public void testBuscaPorNome(){
+	public void testBuscaPorNome() throws SQLException{
 		
-		try {
+		
 			cliente.buscaContatoPorNome(modelMock.getNome());
-		} catch (SQLException e) {
-		
-		}
 		
 	}
 	
