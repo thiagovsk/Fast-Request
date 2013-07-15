@@ -492,7 +492,7 @@ public class TelaProduto2 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor preencha todos os campos." );
 
         }catch(IndexOutOfBoundsException e){
-        JOptionPane.showMessageDialog(this, "Nao existem cadastros para serem alterados");
+        JOptionPane.showMessageDialog(this, "Selecione o produto na tabela");
         
         }
         
@@ -516,7 +516,12 @@ public class TelaProduto2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastroClientesActionPerformed
 
     private void btnTelaCadastrarFuncionario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaCadastrarFuncionario1ActionPerformed
-        // TODO add your handling code here:
+        TelaAcompanhamentoFuncionario telaAcompanhamento = new TelaAcompanhamentoFuncionario();
+        telaAcompanhamento.setVisible(true);
+        setVisible(false);
+        
+    	
+    	// TODO add your handling code here:
     }//GEN-LAST:event_btnTelaCadastrarFuncionario1ActionPerformed
 
     private void btnTelaInicial1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaInicial1ActionPerformed
