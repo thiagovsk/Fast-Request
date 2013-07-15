@@ -2,7 +2,6 @@ package bancoMysql;
 
 import java.sql.*;
 
-import br.com.fastrequest.dao.ConexaoBD;
 
 public class TabelasAutomatizadas {
 

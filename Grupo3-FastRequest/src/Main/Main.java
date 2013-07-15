@@ -5,8 +5,8 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
+import bancoMysql.ConexaoBD;
 import bancoMysql.TabelasAutomatizadas;
-import br.com.fastrequest.dao.ConexaoBD;
 import br.com.fastrequest.view.TelaPrincipal;
 
 public class Main {

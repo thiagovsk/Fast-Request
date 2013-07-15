@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import bancoMysql.ConexaoBD;
+
 public abstract class DaoGenerica {
 	private Connection connection;
 
