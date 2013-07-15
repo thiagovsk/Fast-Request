@@ -3,8 +3,8 @@ package br.com.fastrequest.model;
 public class Funcionario extends Pessoa{
 
 	
-	private int id_funcionario;
-	private String rg;
+	protected int id_funcionario;
+	protected String rg;
 		
 	public Funcionario() {
 		super();

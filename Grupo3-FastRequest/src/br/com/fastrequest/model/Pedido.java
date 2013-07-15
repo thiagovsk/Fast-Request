@@ -4,8 +4,8 @@ import java.util.InputMismatchException;
 
 public class Pedido extends Produto{
 	
-	private int numeroClientes;
-	private double valorTotal;
+	protected int numeroClientes;
+	protected double valorTotal;
 
 	public Pedido(String descricao, int idProduto, String nome , double preco) {
 		

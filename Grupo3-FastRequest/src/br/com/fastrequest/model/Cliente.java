@@ -4,9 +4,9 @@ package br.com.fastrequest.model;
 public class Cliente extends Pessoa{
 	
     
-	private int id;
-	private String nome;
-	private String email;	
+	protected int id;
+	protected String nome;
+	protected String email;	
 	
         
 	public Cliente() {

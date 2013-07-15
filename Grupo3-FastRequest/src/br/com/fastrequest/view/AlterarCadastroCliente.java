@@ -218,11 +218,11 @@ dispose();        // TODO add your handling code here:
 			JOptionPane.showMessageDialog(null, "Cadastro encontrado com sucesso! ");
 
 		} catch (SQLException ex) {
-			JOptionPane.showMessageDialog(null, "Conexão com banco falhou.");
+			JOptionPane.showMessageDialog(null, "Conexao com banco falhou.");
 			Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE,
 					null, ex);
 		} catch (NullPointerException e1) {
-			JOptionPane.showMessageDialog(null, "Cadastro não encontrado.");
+			JOptionPane.showMessageDialog(null, "Cadastro nao encontrado.");
 
 		}// TODO add your handling code here:
 	}// GEN-LAST:event_txtClienteEditarActionPerformed
@@ -260,7 +260,7 @@ dispose();        // TODO add your handling code here:
 
 		} catch (SQLException ex) {
 			JOptionPane.showMessageDialog(nomeCliente,
-					"Conexão com banco falhou.");
+					"Conexao com banco falhou.");
 
 		} catch (ParseException ex) {
 			JOptionPane.showMessageDialog(this,
@@ -268,19 +268,19 @@ dispose();        // TODO add your handling code here:
 		}
 		catch (IndexOutOfBoundsException ex) {
 			JOptionPane.showMessageDialog(this,
-					"Cliente não encontrado.");
+					"Cliente nao encontrado.");
            
                 }catch (ValidarTelefoneException ex) {
-                        JOptionPane.showMessageDialog(this, "Telefone inválido. \n Digite o DDD e o Numero (9 ou 8 digitos).");
+                        JOptionPane.showMessageDialog(this, "Telefone invalido. \n Digite o DDD e o Numero (9 ou 8 digitos).");
                   
                 } catch (ValidarCpfException ex) {
-                        JOptionPane.showMessageDialog(this, "CPF inválido.");
+                        JOptionPane.showMessageDialog(this, "CPF invalido.");
             
                 } catch (IllegalArgumentException e1){
                         JOptionPane.showMessageDialog(this, e1.getMessage());
        
                 } catch (ValidarEmailException ex) {
-                        JOptionPane.showMessageDialog(this, "Email inválido.");
+                        JOptionPane.showMessageDialog(this, "Email invalido.");
             
                 }catch (NullPointerException e1){
                         JOptionPane.showMessageDialog(this, "Favor preencher todos os campos.");

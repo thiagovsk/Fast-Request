@@ -4,8 +4,8 @@ package br.com.fastrequest.model;
 public class Pessoa {
 	
     
-	private String telefone;
-	private String cpf;
+	protected String telefone;
+	protected String cpf;
 	
 	public Pessoa() {
 		super();

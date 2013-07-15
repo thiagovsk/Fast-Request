@@ -376,14 +376,14 @@ public class TelaProduto2 extends javax.swing.JFrame {
             
         } catch (SQLException ex) {
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, "Conexão com o banco falhou!");
+            JOptionPane.showMessageDialog(this, "Conexao com o banco falhou!");
             
         } catch (ParseException ex) {
             Logger.getLogger(TelaProduto2.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "Erro ao cadastrar o nome.");
             
         } catch (NumberFormatException e1){
-            JOptionPane.showMessageDialog(null, "Favor preencha os campos corretamente. \n Nao é permitido campos em branco, letras ou virgulas no campo 'preço'.");
+            JOptionPane.showMessageDialog(null, "Favor preencha os campos corretamente. \n Nao e permitido campos em branco, letras ou virgulas no campo 'preço'.");
             
         } catch (IllegalArgumentException e2){
             JOptionPane.showMessageDialog(this, "Favor preeencher todos os campos" );
