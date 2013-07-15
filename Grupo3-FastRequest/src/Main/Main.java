@@ -19,7 +19,7 @@ public class Main {
 	
 	public static void main(String[] args) throws SQLException, NullPointerException {
 		
-			Connection con;
+			
 			TabelasAutomatizadas banco;
 	       try {
 	    	   ConexaoBD.getConnection();
