@@ -452,7 +452,8 @@ public class TelaProduto2 extends javax.swing.JFrame {
      
        try {
              ProdutoController pc = new ProdutoController();
-       int id = produtoList.get(registro).getIdProduto();
+      
+       int id = produtoList.get(tabelaProdutos.getSelectedRow()).getIdProduto();
           if(cbPratoProduto.isSelected()==true){
               pc.alterar( id, txtNomeProduto.getText(), txtDescricaoProduto.getText(),
               Double.parseDouble(txtPrecoProduto.getText()),cbPratoProduto.getText());
