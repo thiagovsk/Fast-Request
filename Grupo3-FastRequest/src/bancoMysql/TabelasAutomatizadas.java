@@ -24,9 +24,9 @@ public class TabelasAutomatizadas {
 
 		String sqlUsaBanco = "USE fast;";
 
-		String sqlCriarTabelaCLiente = " CREATE TABLE IF NOT EXISTS `cliente` ( `id` int(4) NOT NULL AUTO_INCREMENT,"
-				+ "`cpf` varchar(24) DEFAULT NULL,`email` varchar(30) DEFAULT NULL,`nome` varchar(40) DEFAULT NULL,"
-				+ "`telefone` varchar(50) DEFAULT NULL,PRIMARY KEY (`id`)) ENGINE=InnoDB  DEFAULT CHARSET=latin1  ";
+			String sqlCriarTabelaCLiente = " CREATE TABLE IF NOT EXISTS `cliente` ( `id` int(4) NOT NULL AUTO_INCREMENT,"
+					+ "`cpf` varchar(24) DEFAULT NULL,`email` varchar(30) DEFAULT NULL,`nome` varchar(40) DEFAULT NULL,"
+					+ "`telefone` varchar(50) DEFAULT NULL,PRIMARY KEY (`id`)) ENGINE=InnoDB  DEFAULT CHARSET=latin1  ";
 
 		String sqlCriarTabelaProduto = " CREATE TABLE IF NOT EXISTS `produto` (`idProduto` int(5) NOT NULL AUTO_INCREMENT,"
 				+ " `nome` varchar(45) DEFAULT NULL, `descricao` varchar(200) DEFAULT NULL, `preco` double DEFAULT NULL," +

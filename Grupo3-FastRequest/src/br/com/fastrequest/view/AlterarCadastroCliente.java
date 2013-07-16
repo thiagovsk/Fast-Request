@@ -254,7 +254,7 @@ dispose();        // TODO add your handling code here:
 			int id = clienteList.get(registro).getId();
 			
 			pc.alterar(id, textNomeCliente.getText(), textCpfCliente.getText(),
-			textTelefoneCliente.getText(), textEmailCliente.getText());
+			 textEmailCliente.getText(),textTelefoneCliente.getText());
 			
                         JOptionPane.showMessageDialog(this, "Cadastro alterado com sucesso!");
 			textNomeCliente.setText("");
