@@ -210,7 +210,7 @@ dispose();        // TODO add your handling code here:
 
 		ClienteController pc = new ClienteController();
 		try {
-			Cliente p = pc.buscaContatoPorNome(textNomeCpfEditar.getText());
+			Cliente p = pc.buscaContatoPorCPF(textNomeCpfEditar.getText());
 			textNomeCliente.setText(p.getNome());
 			textCpfCliente.setText(p.getCpf());
 			textEmailCliente.setText(p.getEmail());
@@ -230,11 +230,15 @@ dispose();        // TODO add your handling code here:
 	private void btnAlterarClienteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
 		
 		try {
+			
 			ClienteController pc = new ClienteController();
+			Cliente p = pc.buscaContatoPorCPF(textCpfCliente.getText());
+	
+			
                         ValidaCpf cpf = new ValidaCpf();
                         ValidaTelefone telefone = new ValidaTelefone();
                         ValidaEmail email = null;
-                        
+                       
                         if (cpf.validarCpf(textCpfCliente.getText()) == false) {
                             throw new ValidarCpfException();
                         }
@@ -248,6 +252,7 @@ dispose();        // TODO add your handling code here:
                         }
                         
 			int id = clienteList.get(registro).getId();
+			
 			pc.alterar(id, textNomeCliente.getText(), textCpfCliente.getText(),
 			textTelefoneCliente.getText(), textEmailCliente.getText());
 			
