@@ -74,14 +74,11 @@ public class TelaProduto2 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fast Request");
         setMinimumSize(new java.awt.Dimension(1366, 768));
-        getContentPane().setLayout(null);
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/fastrequest/imagens/logo2.jpg")));
 
         logo.setPreferredSize(new java.awt.Dimension(1366, 150));
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/fastrequest/imagens/logo2.jpg"))); // NOI18N
-        getContentPane().add(logo);
-        logo.setBounds(0, 0, 1366, 150);
 
         pesquisaProduto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -151,9 +148,6 @@ public class TelaProduto2 extends javax.swing.JFrame {
                 .addComponent(btnExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(30, Short.MAX_VALUE))
         );
-
-        getContentPane().add(pesquisaProduto);
-        pesquisaProduto.setBounds(21, 168, 517, 526);
 
         cadastroProduto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -293,26 +287,19 @@ public class TelaProduto2 extends javax.swing.JFrame {
                 .addGap(63, 63, 63))
         );
 
-        getContentPane().add(cadastroProduto);
-        cadastroProduto.setBounds(569, 168, 528, 526);
-
         btnIrparaCardapio.setText("CARDAPIO");
         btnIrparaCardapio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIrparaCardapioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIrparaCardapio);
-        btnIrparaCardapio.setBounds(1130, 300, 228, 110);
 
-        btnAlterarCliente.setText("ALTERAR CADASTROS DOS CLIENTES");
+        btnAlterarCliente.setText("ALTERAR CADASTRO CLIENTE");
         btnAlterarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlterarClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAlterarCliente);
-        btnAlterarCliente.setBounds(1130, 560, 228, 110);
 
         btnTelaInicial1.setText("TELA INICIAL");
         btnTelaInicial1.addActionListener(new java.awt.event.ActionListener() {
@@ -320,17 +307,48 @@ public class TelaProduto2 extends javax.swing.JFrame {
                 btnTelaInicial1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTelaInicial1);
-        btnTelaInicial1.setBounds(1128, 424, 228, 110);
 
-        btnTelaCadastrarFuncionario1.setText("CADASTRAR FUNCIONÁRIO");
+        btnTelaCadastrarFuncionario1.setText("ACOMPANHAR PEDIDO");
         btnTelaCadastrarFuncionario1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTelaCadastrarFuncionario1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTelaCadastrarFuncionario1);
-        btnTelaCadastrarFuncionario1.setBounds(1128, 168, 228, 110);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(logo)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(pesquisaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(cadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnAlterarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTelaInicial1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIrparaCardapio, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTelaCadastrarFuncionario1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(logo)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pesquisaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnTelaCadastrarFuncionario1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnIrparaCardapio, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnTelaInicial1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(btnAlterarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
