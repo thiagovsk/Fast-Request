@@ -16,5 +16,6 @@ public class DataBaseAnalize {
     public static void main(String[] args) {
         System.out.println("Olá Mundão Grande!");
         System.out.println("Isto tudo é uma grande coisa!");
+        System.out.println(2+2);
     }
 }
