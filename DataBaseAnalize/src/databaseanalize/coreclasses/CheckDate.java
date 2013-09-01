@@ -11,6 +11,6 @@ package databaseanalize.coreclasses;
  * fillipe_feitosa@yahoo.com.br
  *
  */
-public class CheckDate implements CheckConsistency{
+public class CheckDate{
 
 }

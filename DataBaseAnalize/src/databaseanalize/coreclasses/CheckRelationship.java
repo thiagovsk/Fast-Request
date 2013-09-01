@@ -11,6 +11,8 @@ package databaseanalize.coreclasses;
  * fillipe_feitosa@yahoo.com.br
  *
  */
-public class CheckRelationship implements CheckConsistency {
+public class CheckRelationship{
+
+   
 
 }

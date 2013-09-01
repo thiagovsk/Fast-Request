@@ -11,6 +11,6 @@ package databaseanalize.coreclasses;
  * fillipe_feitosa@yahoo.com.br
  *
  */
-public class CheckType implements CheckConsistency{
+public class CheckType{
 
 }

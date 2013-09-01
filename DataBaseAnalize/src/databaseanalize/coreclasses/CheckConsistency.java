@@ -11,5 +11,8 @@ package databaseanalize.coreclasses;
  * fillipe_feitosa@yahoo.com.br
  */
 public interface CheckConsistency {
-
+    
+    boolean checkPass();
+    String feedbackMsg();
+    
 }

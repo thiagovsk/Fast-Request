@@ -10,6 +10,6 @@ package databaseanalize.coreclasses;
  * fillipe_feitosa@yahoo.com.br
  *
  */
-public class CheckEmail implements CheckConsistency{
+public class CheckEmail{
 
 }
