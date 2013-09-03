@@ -14,6 +14,8 @@ package databaseanalize.coreclasses;
 
 public class CheckEmail{
 
+	private String email;
+	
 	public CheckEmail(String email){
 		this.setEmail(email);
 	}
